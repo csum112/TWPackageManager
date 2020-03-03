@@ -17,7 +17,7 @@ Nui-i neaparat asa. Presupun ca vine cat mai usor cu ele.
 Standarizare pt cross-development. Asa putem separa in module disjuncte, si ii mai usor de lucrat in echipa.
 Cum se instaleaza aici: 
 * Docker Engine: [link](https://docs.docker.com/install/)
-* Docker Compose: [link]([https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/))   (Cred ca pentru windows/mac vine built-in.)
+* Docker Compose: [link](https://docs.docker.com/compose/install/)  (Cred ca pentru windows/mac vine built-in.)
 
 Daca vrei pe linux:
 ```output
@@ -33,11 +33,11 @@ sudo apt install docker.io
 docker --version
 ```
 #### Oracle Database 11gR2 XE
-Suntem somewhat familiari. Should be okay, nu stiu cu licenta caii mai dubios. Alternatively schimbam pe [PostgreSQL]([https://www.postgresql.org/](https://www.postgresql.org/))
+Suntem somewhat familiari. Should be okay, nu stiu cu licenta caii mai dubios. Alternatively schimbam pe [PostgreSQL](https://www.postgresql.org/))
 Nu trebuie instalat nic, are grija Docker.
 
 #### Node.js
-Pentru CLI - Usor de dezvoltat, merge pe toate platformele so thats a plus. Se scrie in JS, so ii easier-ish de scris. [Getting Started]([https://nodejs.org/en/docs/guides/getting-started-guide/](https://nodejs.org/en/docs/guides/getting-started-guide/))
+Pentru CLI - Usor de dezvoltat, merge pe toate platformele so thats a plus. Se scrie in JS, so ii easier-ish de scris. [Getting Started](https://nodejs.org/en/docs/guides/getting-started-guide/)
 
 #### Apache2
 #### PHP 5.6
