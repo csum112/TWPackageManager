@@ -1,4 +1,13 @@
+
 ##  [TW] - DeMI (My Developer Machine Installer)
+
+### Todo
+- [ ] Define project requirements.
+- [ ] Use Cases.
+- [ ] Wireframe the UI.
+- [ ] App and Database UML modeling.
+
+
 ### Cerinta Proiectului
 Actualmente, exista o multitudine de aplicatii de sine-statatoare pentru managementul pachetelor software. Instalarea unui nou computer implica folosirea acestor aplicatii pentru a realiza un mediu comun util dezvoltatorilor (novici sau profesionisti) dintr-o organizatie academica ori comerciala. Pachetele necesare sunt dependente de altele; pot exista, de asemenea, diverse conflicte datorate incompatibilitatilor dintre versiuni, compilatoare, limbaje etc. Sa se implementeze un sistem Web care ofera suport "inteligent" pentru problemele mentionate via un API REST de management unificat al gestionarii componentelor software. Se vor genera si script-urile necesare pentru asigurarea fluxurilor de activitati de administrare. Ca inspiratie, a se considera solutii precum Bower, Docker, NuGet, npm, Puppet.
 
@@ -40,3 +49,14 @@ cd TWPackageManager
 docker-compose up -d
 ```
 Should be up and running by now. Try http://localhost:666
+
+## Resources
+
+### Siteuri de genul asta:
+* https://www.npmjs.com/
+* https://bower.io/
+* https://hub.docker.com/
+* https://brew.sh/ (ish, not really)
+
+### Usefull stuff
+* https://codepen.io/
