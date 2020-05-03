@@ -38,31 +38,31 @@ export class ThumbnailComponent extends HTMLElement {
     return `
 <style>
   .thumbnail {
-      width: 128px;
+      width: 8rem;
       animation: ease-out 300m;
   }
   .card {
-    width: 128px;
-    height: 128px;
+    width: 8rem;
+    height: 8rem;
     position: relative;
     background: linear-gradient(180deg, ${this._getColor()} 0%, ${this._getColor()} 100%);
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
-    border-radius: 32px;
+    border-radius: 2rem;
     overflow: hidden;
   }
 
   .app-name {
     position: relative;
-    width: 75px;
-    height: 75px;
-    left: calc(50% - 75px/2 + 2.5px);
-    top: calc(50% - 75px/2 - 1.5px);
+    width: 4.5rem;
+    height: 4.5rem;
+    left: calc(50% - 4.5rem/2 + 2.5px);
+    top: calc(50% - 4.5rem/2 - 1.5px);
     
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 64px;
-    line-height: 75px;
+    font-size: 4rem;
+    line-height: 4.5rem;
     color: #FFFFFF;
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 10px 20px rgba(0, 0, 0, 0.04);
   }
@@ -71,8 +71,8 @@ export class ThumbnailComponent extends HTMLElement {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 64px;
-    line-height: 75px;
+    font-size: 4rem;
+    line-height: 4.5rem;
     color: #FFFFFF;
     opacity: 0.13;
   }
@@ -95,12 +95,12 @@ export class ThumbnailComponent extends HTMLElement {
 
   div.name{
     position: relative;
-    height: 16px;
+    height: 1rem;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1rem;
+    line-height: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
