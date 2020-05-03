@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Debian Server</title>
+</head>
+<body>
+<main>
+	<h1>Debian Web Server</h1>
+	<ul>
+		<li>
+			<a href="http://192.168.1.23:32400/web">
+				Plex Web
+			</a>
+		</li>
+		<li>
+			<a href="http://192.168.1.23:8112">
+				Deluge
+			</a>
+		</li>
+		<li>
+			<a href="http://192.168.1.23:9117">
+				Jackett
+			</a>
+		</li>
+		<li><a href="http://192.168.1.23:8989">
+			Sonarr
+		</a></li>
+		<li>
+			<a href="http://192.168.1.23:7878">
+				Radarr
+			</a>
+		</li>
+		<li>
+			<a href="http://192.168.1.23:6767"">
+			Bazarr
+			</a>
+		</li>
+	</ul>
+</main>
+</body>
+</html>
