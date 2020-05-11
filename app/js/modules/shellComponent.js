@@ -279,9 +279,10 @@ export class ShellComponent extends HTMLElement {
         <slot name="right"></slot>
       </div>
   </main>
-  <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">
-  <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">
-  <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">
   `;
   }
 }
+
+// <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">
+// <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">
+// <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">
