@@ -71,37 +71,37 @@ export class MenuComponent extends HTMLElement {
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
     <div class="menu-shell">
 
-    <a class="back-button">
-        <i class="fas fa-angle-left fa-3x"></i>
-    </a>
+        <a class="back-button">
+            <i class="fas fa-angle-left fa-3x"></i>
+        </a>
 
-    
-    <div class="content">
-        <div class="header">
-            <h1>My Package List</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor dui habitant risus, sed etiam quam. Vitae cras rhoncus hendrerit ultrices in aenean duis praesent. Tellus in faucibus massa euismod blandit. Aliquet et neque nam eget viverra.</p>
+        
+        <div class="content">
+            <div class="header">
+                <h1>My Package List</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor dui habitant risus, sed etiam quam. Vitae cras rhoncus hendrerit ultrices in aenean duis praesent. Tellus in faucibus massa euismod blandit. Aliquet et neque nam eget viverra.</p>
+            </div>
+
+            <ul class="install-queue">
+                <li><i class="fas fa-check"></i>bison</li>
+                <li><i class="fas fa-check"></i>vlc</li>
+                <li><i class="fas fa-check"></i>css</li>
+                <li><i class="fas fa-check"></i>sass</li>
+                <li><i class="fas fa-check"></i>angular</li>
+                <li><i class="fas fa-check"></i>react-native</li>
+            </ul>
         </div>
 
-        <ul class="install-queue">
-            <li><i class="fas fa-check"></i>bison</li>
-            <li><i class="fas fa-check"></i>vlc</li>
-            <li><i class="fas fa-check"></i>css</li>
-            <li><i class="fas fa-check"></i>sass</li>
-            <li><i class="fas fa-check"></i>angular</li>
-            <li><i class="fas fa-check"></i>react-native</li>
-        </ul>
-    </div>
+        <div class="menu-footer">
+            <a href="#">
+                Choose another location
+            </a>
+            <a href="#" class="shop-button">
+                <i class="fas fa-download fa-2x"></i>
+            </a>
+        </div>
 
-    <div class="menu-footer">
-        <a href="#">
-            Choose another location
-        </a>
-        <a href="#" class="shop-button">
-            <i class="fas fa-download fa-2x"></i>
-        </a>
-    </div>
-
-</div>`;
+    </div>`;
 
     constructor() {
         super();
