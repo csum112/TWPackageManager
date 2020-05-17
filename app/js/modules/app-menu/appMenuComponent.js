@@ -11,6 +11,7 @@ export class AppMenuComponent extends HTMLElement {
 
     .tabs {
         display: flex;
+        margin-left: 2rem;
         justify-content: space-around;
     }
 
@@ -19,6 +20,10 @@ export class AppMenuComponent extends HTMLElement {
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
+    }
+
+    .tabs h3 > a {
+        text-decoration: none;
     }
 
     hr {
@@ -57,9 +62,9 @@ export class AppMenuComponent extends HTMLElement {
         <dm-app-cover></dm-app-cover>
 
         <div class="tabs">
-            <h3>Description</h3>
-            <h3>Info</h3>
-            <h3>Dependencies</h3>
+            <h3><a href="#">Description<a></h3>
+            <h3><a href="#">Info<a></h3>
+            <h3><a href="#">Dependencies<a></h3>
         </div>
         <hr>
 
