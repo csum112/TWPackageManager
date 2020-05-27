@@ -1,5 +1,7 @@
 export class AppMenuComponent extends HTMLElement {
-    style = `<style>
+    
+    style = `
+    <style>
     .menu-shell {
         display: flex;
         position: relative;
@@ -54,7 +56,8 @@ export class AppMenuComponent extends HTMLElement {
         font-weight: normal;
     }
     
-    </style>`;
+    </style>
+    `;
 
     template = `
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
