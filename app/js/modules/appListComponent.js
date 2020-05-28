@@ -14,8 +14,6 @@ export class AppListComponent extends HTMLElement {
 			}
 
 			li {
-				height: calc(6rem + 2rem);
-				margin: calc(1rem) calc(1rem);
 				box-sizing: content-box;
 			}
 		</style>

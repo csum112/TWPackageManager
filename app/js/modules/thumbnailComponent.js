@@ -38,30 +38,29 @@ export class ThumbnailComponent extends HTMLElement {
     return `
 <style>
   .thumbnail {
-      width: 8rem;
+
       animation: ease-out 300m;
   }
   .card {
-    width: 8rem;
-    height: 8rem;
+    margin-left: 1rem;
+    margin-top: 0.8rem;
     position: relative;
     background: linear-gradient(180deg, ${this._getColor()} 0%, ${this._getColor()} 100%);
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
-    border-radius: 2rem;
+    border-radius: 1rem;
     overflow: hidden;
+    width: 5rem;
+    height: 5rem;
+    text-align:center;
   }
 
   .app-name {
     position: relative;
-    width: 4.5rem;
-    height: 4.5rem;
-    left: calc(50% - 4.5rem/2 + 2.5px);
-    top: calc(50% - 4.5rem/2 - 1.5px);
-    
+    width: 100%:
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 4rem;
+    font-size: 2.4rem;
     line-height: 4.5rem;
     color: #FFFFFF;
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 10px 20px rgba(0, 0, 0, 0.04);
@@ -71,35 +70,33 @@ export class ThumbnailComponent extends HTMLElement {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 4rem;
-    line-height: 4.5rem;
+    font-size: 1rem;
+    line-height: 1rem;
     color: #FFFFFF;
     opacity: 0.13;
   }
 
   .right {
     position: absolute;
-    width: 36px;
-    height: 64px;
-    left: calc(50% - 36px/2 + 46px);
-    top: calc(50% - 64px/2 - 32px);
+    font-size: 2.7rem;
+    left: calc(50% + 8px);
+    top: calc(50%);
   }
 
   .left {
-    width: 36px;
-    height: 64px;
+    font-size: 2.7rem;
     position: absolute;
-    left: calc(50% - 36px/2 - 46px);
-    top: calc(50% - 64px/2 + 32px);
+    left: calc(50% - 36px);
+    top: calc(50% - 18px);
   }
 
   div.name{
     position: relative;
-    height: 1rem;
+    width: 100%;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1rem;
     display: flex;
     justify-content: center;
