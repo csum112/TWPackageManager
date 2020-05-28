@@ -5,8 +5,10 @@ export class ShellComponent extends HTMLElement {
     this._shadow.innerHTML = this._getStyle() + this._getTemplate();
     this.registerSearchHandler();
     this.registerScrollHandler();
-    const menuRef = this._shadow.getElementById("menu")
-    this._shadow.getElementById("mobile-fab").onclick = this.toggleMobileMenu(menuRef)
+    this.shadowRoot.getElementById("mobile-fab").onclick = () => {
+        this.shadowRoot.dispatchEvent(new CustomEvent("toggleMenu", {composed: true, bubbles: true}))
+    }
+    this.shadowRoot.addEventListener("toggleMenu", this.toggleMobileMenu);
     this.isMenuOpen = false;
   }
 
@@ -34,14 +36,13 @@ export class ShellComponent extends HTMLElement {
     };
   }
 
-  toggleMobileMenu(menuRef) {
-    return () => {
-        this.isMenuOpen = !this.isMenuOpen;
-        if (this.isMenuOpen) {
-            menuRef.classList.add("open");
-        } else {
-            menuRef.classList.remove("open");
-        }
+  toggleMobileMenu() {
+    const menuRef = this.getElementById("menu")
+    this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+        menuRef.classList.add("open");
+    } else {
+        menuRef.classList.remove("open");
     }
   }
 

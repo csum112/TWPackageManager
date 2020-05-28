@@ -13,8 +13,10 @@ export class CheckoutComponent extends HTMLElement {
     }
     
     .back-button{
-        padding-left: 2rem;
+        margin-right: auto;
         color: #894EC6;
+        background: none;
+        border: none;
     }
     
     .clipb-button {
@@ -73,9 +75,9 @@ export class CheckoutComponent extends HTMLElement {
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
     <div class="menu-shell">
 
-        <a href="#" class="back-button">
+        <button class="back-button" id="back-button">
             <i class="fas fa-angle-left fa-3x"></i>
-        </a>
+        </button>
 
         
         <div class="content">
@@ -98,5 +100,13 @@ export class CheckoutComponent extends HTMLElement {
         super();
         this._shadow = this.attachShadow({ mode: "open" });
         this._shadow.innerHTML = this.style + this.template;
+        const buttonRef = this.shadowRoot.getElementById("back-button");
+        buttonRef.onclick = () => {
+            this.shadowRoot.dispatchEvent(new CustomEvent("toggleMenu", {
+                bubbles: true,
+                composed: true
+            }));
+            console.log(this)
+    }
     }
 }
