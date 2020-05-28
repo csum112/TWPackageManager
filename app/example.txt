@@ -1,0 +1,36 @@
+Package: vlc
+Version: 3.0.8-0+deb9u1
+Priority: optional
+Section: video
+Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
+Installed-Size: 230 kB
+Provides: mp3-decoder
+Pre-Depends: dpkg (>= 1.17.14)
+Depends: vlc-bin (= 3.0.8-0+deb9u1), vlc-plugin-base (= 3.0.8-0+deb9u1), vlc-plugin-qt (= 3.0.8-0+deb9u1), vlc-plugin-video-output (= 3.0.8-0+deb9u1), vlc-l10n (= 3.0.8-0+deb9u1)
+Recommends: vlc-plugin-notify (= 3.0.8-0+deb9u1), vlc-plugin-samba (= 3.0.8-0+deb9u1), vlc-plugin-skins2 (= 3.0.8-0+deb9u1), vlc-plugin-video-splitter (= 3.0.8-0+deb9u1), vlc-plugin-visualization (= 3.0.8-0+deb9u1)
+Homepage: http://www.videolan.org/vlc/
+Download-Size: 139 kB
+APT-Sources: http://security.debian.org/debian-security stretch/updates/main amd64 Packages
+Description: multimedia player and streamer
+ VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4,
+ DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs,
+ podcasts, and multimedia streams from various network sources.
+ .
+ VLC can also be used as a streaming server that duplicates the stream it
+ reads and multicasts them through the network to other clients, or serves
+ them through HTTP.
+ .
+ VLC has support for on-the-fly transcoding of audio and video formats, either
+ for broadcasting purposes or for movie format transformations. Support for
+ most output methods is provided by this package, but features can be added by
+ installing additional plugins:
+  * vlc-plugin-access-extra
+  * vlc-plugin-fluidsynth
+  * vlc-plugin-jack
+  * vlc-plugin-notify
+  * vlc-plugin-samba
+  * vlc-plugin-skins2
+  * vlc-plugin-svg
+  * vlc-plugin-video-splitter
+  * vlc-plugin-visualization
+

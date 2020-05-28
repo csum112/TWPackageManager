@@ -1,25 +1,11 @@
-version: '3'
-services: 
-  web:
-    image: 'thomasbisignani/docker-apache-php-oracle'
-    restart: always
-    ports: 
-      - "666:80"
+version: '3.7'
+
+services:
+  apache:
+    image: 'bitnami/apache:latest'
+    ports:
+      - '80:8080'
+      - '443:8443'
     volumes:
-      - ./app:/var/www/html
-    networks:
-      - demiBackend
-  db:
-    image: 'wnameless/oracle-xe-11g-r2'
-    restart: always
-    ports: 
-      - "49161:1521"
-      - "8080:8080"
-    networks:
-      - demiBackend
-networks:
-  demiBackend:
-      ipam:
-        driver: default
-        config:
-          - subnet: 172.28.0.0/16
+        - "./app:/app"
+        - "./vhost.conf:/vhosts/my_vhost.conf:ro"

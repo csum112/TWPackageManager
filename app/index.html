@@ -1,1 +1,36 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>DeMI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+	<link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+	<!--load all styles -->
+	<link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
+</head>
+
+<body id="root">
+	<!-- Scripts used -->
+	<script src="js/main.js" type="module"></script>
+</body>
+
+</html>
+
+<template id="mainMenu">
+	<dm-shell>
+		<dm-app-list slot="left" id="applist"></dm-app-list>
+		<div slot="right">
+			<dm-menu></dm-menu>
+		</div>
+	</dm-shell>
+</template>
+
+<template id="mainCheckout">
+	<dm-shell>
+		<dm-app-list slot="left" id="applist"></dm-app-list>
+		<div slot="right">
+			<dm-checkout></dm-checkout>
+		</div>
+	</dm-shell>
+</template>
