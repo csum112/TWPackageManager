@@ -38,7 +38,7 @@ export class ThumbnailComponent extends HTMLElement {
     return `
 <style>
   .thumbnail {
-
+      user-select: none;
       animation: ease-out 300m;
   }
   .card {

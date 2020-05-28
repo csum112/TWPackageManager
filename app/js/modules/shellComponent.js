@@ -50,6 +50,8 @@ export class ShellComponent extends HTMLElement {
     return `
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
       <style>
+      .logo {user-select: none;}
+      
       .searchbox {
         background: #3B3F54;
         border-radius: 16px;
