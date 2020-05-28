@@ -5,6 +5,8 @@ export class ShellComponent extends HTMLElement {
     this._shadow.innerHTML = this._getStyle() + this._getTemplate();
     this.registerSearchHandler();
     this.registerScrollHandler();
+    const menuRef = this._shadow.getElementById("menu")
+    this._shadow.getElementById("mobile-fab").onclick = this.toggleMobileMenu(menuRef)
     this.isMenuOpen = false;
   }
 
@@ -32,9 +34,15 @@ export class ShellComponent extends HTMLElement {
     };
   }
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-    if (this.isMenuOpen) console.log("Menu open");
+  toggleMobileMenu(menuRef) {
+    return () => {
+        this.isMenuOpen = !this.isMenuOpen;
+        if (this.isMenuOpen) {
+            menuRef.classList.add("open");
+        } else {
+            menuRef.classList.remove("open");
+        }
+    }
   }
 
   _getStyle() {
@@ -50,6 +58,27 @@ export class ShellComponent extends HTMLElement {
         display: flex;
         justify-content: center;
         margin-bottom: 2rem;
+        width: 100%;
+        margin-right: 32px;
+    }
+
+    .menu-fab{
+        height: 3.5rem;
+        width: 3.5rem;
+        margin-top: 64px;
+        margin-left: 32px;
+        margin-right: 32px;
+        color: #3B3F54;
+        z-index: 11;
+        background: none;
+        border: none;
+    }
+
+    .header-mobile-wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
     }
     
     .searchbox > input {
@@ -148,9 +177,8 @@ export class ShellComponent extends HTMLElement {
       }
 
       .mobile-fab {
-          display:none;
+          display: none;
       }
-      
     }
 
     @media (max-width: 720px),(orientation:portrait){
@@ -172,7 +200,7 @@ export class ShellComponent extends HTMLElement {
             animation: go-up 100ms forwards;
         }
 
-        .scrolled-header .searchbox, .scrolled-header .mobile-fab {
+        .scrolled-header .searchbox, .scrolled-header .menu-fab {
             margin-top: -32px;
         }
 
@@ -181,29 +209,6 @@ export class ShellComponent extends HTMLElement {
             height: 128px;
         }
 
-        .mobile-fab{
-            height: 3.5rem;
-            width: 3.5rem;
-            margin-top: 64px;
-            margin-left: 32px;
-            margin-right: 32px;
-            color: #3B3F54;
-            z-index: 11;
-            background: none;
-            border: none;
-        }
-
-        .searchbox {
-            width: 100%;
-            margin-right: 32px;
-        }
-
-        .header-mobile-wrapper {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            justify-content: center;
-        }
 
         .header {
             position: fixed;
@@ -261,6 +266,26 @@ export class ShellComponent extends HTMLElement {
         display: flex;
         justify-content: center;
     }
+
+    .mobile-fab {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .mobile-fab:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+    .clip-button {
+      color: #fff;
+      background: #894EC6;
+      padding: 1rem 1rem;
+      border-radius: 1rem;
+  }
       </style>
           `;
   }
@@ -273,7 +298,7 @@ export class ShellComponent extends HTMLElement {
                   DEmI
               </div>
         <div class="header-mobile-wrapper">
-            <button class="mobile-fab">
+            <button class="menu-fab">
                 <i class="fas fa-bars fa-4x"></i>
             </button>
         <div class="searchbox-wrapper">
@@ -287,10 +312,16 @@ export class ShellComponent extends HTMLElement {
               <slot name="left"></slot>
           </div>
       </div>
-      <div class="menu force golden-smaller open">
+      <div class="menu force golden-smaller" id="menu"> 
         <slot name="right"></slot>
       </div>
   </main>
+  <button 
+    class="mobile-fab clip-button"
+    id="mobile-fab"
+    >
+        <i class="fas fa-shopping-cart fa-2x"></i>
+  </button>
   `;
   }
 }
