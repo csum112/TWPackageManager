@@ -227,6 +227,18 @@ export class ShellComponent extends HTMLElement {
         div.menu.golden-smaller {
             display: none;
         }
+        div.menu.golden-smaller.open {
+            display: block;
+            background-color: #fff;
+            width: 100vw;
+            height: 100vh;
+            z-index: 100;
+            margin: 0 0;
+            position: fixed;
+            overflow-y: scroll;
+            top: 0px;
+            left: 0px;
+        }
     }
 
     .logo {
@@ -275,7 +287,7 @@ export class ShellComponent extends HTMLElement {
               <slot name="left"></slot>
           </div>
       </div>
-      <div class="menu force golden-smaller">
+      <div class="menu force golden-smaller open">
         <slot name="right"></slot>
       </div>
   </main>
