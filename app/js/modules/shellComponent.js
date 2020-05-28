@@ -282,7 +282,3 @@ export class ShellComponent extends HTMLElement {
   `;
   }
 }
-
-// <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">
-// <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">
-// <img class="dots" src="/assets/svg/Dots.svg" alt="Decoration">

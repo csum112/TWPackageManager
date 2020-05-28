@@ -17,7 +17,16 @@
 
 </html>
 
-<template id="main">
+<template id="mainMenu">
+	<dm-shell>
+		<dm-app-list slot="left" id="applist"></dm-app-list>
+		<div slot="right">
+			<dm-menu></dm-menu>
+		</div>
+	</dm-shell>
+</template>
+
+<template id="mainCheckout">
 	<dm-shell>
 		<dm-app-list slot="left" id="applist"></dm-app-list>
 		<div slot="right">
