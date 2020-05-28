@@ -51,7 +51,7 @@ export class ShellComponent extends HTMLElement {
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
       <style>
       .logo {user-select: none;}
-      
+
       .searchbox {
         background: #3B3F54;
         border-radius: 16px;
@@ -238,7 +238,7 @@ export class ShellComponent extends HTMLElement {
 
         .logo {
             position: relative;
-            left: 8px;
+            text-align: center;
             font-family: Zilla Slab Highlight;
             font-style: normal;
             font-weight: bold;
@@ -274,7 +274,9 @@ export class ShellComponent extends HTMLElement {
       background: #894EC6;
       padding: 1rem 1rem;
       border-radius: 1rem;
-  }
+      border: none;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
+    }
       </style>
           `;
   }
