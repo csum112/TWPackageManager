@@ -7,10 +7,14 @@ export class AppListComponent extends HTMLElement {
 			ul {
 				list-style: none;
 				display: flex;
-				justify-content: flex-start;
+				padding-top: 16px;
+				margin: 0;
+				padding-left: 0;
+				justify-content: center;
 				align-content: flex-start;
 				flex-flow: row wrap;
 				overflow-y: auto;
+				width: 100%;
 			}
 
 			li {
