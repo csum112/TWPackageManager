@@ -57,6 +57,12 @@ export class CheckoutComponent extends HTMLElement {
         font-weight: normal;
     }
 
+    .scroll {
+        width: 100%;
+        height: 18rem;
+        overflow: auto;
+    }
+
     .content h4 {
         font-family: Roboto;
         font-style: normal;
@@ -83,7 +89,9 @@ export class CheckoutComponent extends HTMLElement {
             <h1>Hooraaay!</h1>
             <p>Your installer is ready! Copy the following command into the terminal:</p>
             <hr>
-            <h4>npm install moment</h4>
+            <div class="scroll">
+                <h4>npm install moment</h4>
+            </div<   
         </div>
 
         <div class="menu-footer">

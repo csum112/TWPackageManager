@@ -12,8 +12,10 @@ export class MenuComponent extends HTMLElement {
     }
     
     .back-button{
-        padding-left: 2rem;
+        margin-right: auto;
         color: #894EC6;
+        background: none;
+        border: none;
     }
     
     .shop-button {
@@ -54,7 +56,7 @@ export class MenuComponent extends HTMLElement {
     .install-queue {
         list-style: none;
         font-size: 1.2rem;
-    
+        overflow: auto;
     }
     
     .install-queue li i {
@@ -71,15 +73,17 @@ export class MenuComponent extends HTMLElement {
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
     <div class="menu-shell">
 
-        <a class="back-button">
+        <button class="back-button">
             <i class="fas fa-angle-left fa-3x"></i>
-        </a>
+        </button>
 
         
         <div class="content">
             <div class="header">
                 <h1>My Package List</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor dui habitant risus, sed etiam quam. Vitae cras rhoncus hendrerit ultrices in aenean duis praesent. Tellus in faucibus massa euismod blandit. Aliquet et neque nam eget viverra.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor dui habitant risus, sed etiam quam. 
+                Vitae cras rhoncus hendrerit ultrices in aenean duis praesent. Tellus in faucibus massa euismod blandit. 
+                Aliquet et neque nam eget viverra.</p>
             </div>
 
             <ul class="install-queue">
@@ -94,10 +98,10 @@ export class MenuComponent extends HTMLElement {
 
         <div class="menu-footer">
             <a href="#">
-                Choose another location
+                <p>Choose another location</p>
             </a>
             <a href="#" class="shop-button">
-                <i class="fas fa-download fa-2x"></i>
+                <i class="fa fa-download" aria-hidden="true"></i>
             </a>
         </div>
 
