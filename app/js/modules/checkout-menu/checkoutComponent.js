@@ -26,7 +26,6 @@ export class CheckoutComponent extends HTMLElement {
         border-radius: 1rem;
         margin-right: 6rem;
         box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
-    
     }
 
     hr {
