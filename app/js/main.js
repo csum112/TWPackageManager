@@ -1,7 +1,7 @@
 import { ThumbnailComponent } from "/js/modules/thumbnailComponent.js";
 import { AppListComponent } from "/js/modules/appListComponent.js";
 import { ShellComponent } from "/js/modules/shellComponent.js";
-import { DefaultComponent } from "/js/modules/defaultComponent.js";
+import { DefaultComponent } from "/js/modules/app-menu/defaultComponent.js";
 import { MenuComponent } from "/js/modules/menuComponent.js";
 import { AppCoverComponent } from "/js/modules/app-menu/appCoverComponent.js";
 import { AppDescriptionComponent } from "/js/modules/app-menu/appDescriptionComponent.js";
@@ -25,4 +25,4 @@ customElements.define("dm-checkout", CheckoutComponent);
 const router = new Router();
 injectRoutes(router);
 router.init();
-// router.navigateTo("/checkout")
+//router.navigateTo("/checkout");

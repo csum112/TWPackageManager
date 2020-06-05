@@ -22,6 +22,8 @@ export class AppCoverComponent extends HTMLElement {
 
     _getTemplate() {
         return `
+          <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
+
           <div class="cover">
             <div class="content">
               <h1>vlc</h1>
@@ -60,9 +62,9 @@ export class AppCoverComponent extends HTMLElement {
               left: 50%;
               transform: translate(-50%, -50%);
             
-              font-family: Roboto;
+              font-family: 'Roboto', sans-serif;
               font-style: normal;
-              font-weight: normal;
+              font-weight: lighter;
               font-size: 1.5rem;
             
               color: #FFFFFF;
@@ -80,9 +82,9 @@ export class AppCoverComponent extends HTMLElement {
 
             .tabs h3 {
                 display: inline;
-                font-family: Roboto;
+                font-family: 'Roboto', sans-sarif;
                 font-style: normal;
-                font-weight: normal;
+                font-weight: lighter;
             }
 
             .tabs a:link, .tabs a:visited, .tabs a:hover, .tabs a:active {
