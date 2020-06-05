@@ -17,6 +17,7 @@ export class Router {
       if (path.match(regEx)) {
         matched = true;
         let req = { path };
+        window.title = route.title;
         return route.callback.call(this, req);
       }
     });
