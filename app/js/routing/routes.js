@@ -22,6 +22,6 @@ const routes = [
 
 export function injectRoutes(router) {
     routes.forEach(route => {
-        router.get(route.path, route.callback);
+        router.get(route.path, route.callback, route.title);
     });
 };

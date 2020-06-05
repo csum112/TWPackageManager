@@ -23,3 +23,4 @@ customElements.define("dm-welcome", WelcomeComponent);
 const router = new Router();
 injectRoutes(router);
 router.init();
+// router.navigateTo("/checkout")

@@ -3,8 +3,8 @@ export class Router {
     this.routes = [];
   }
 
-  get(uri, callback) {
-    const route = { uri, callback };
+  get(uri, callback, title) {
+    const route = { uri, callback, title };
     this.routes.push(route);
   }
 
@@ -17,10 +17,29 @@ export class Router {
       if (path.match(regEx)) {
         matched = true;
         let req = { path };
-        window.title = route.title;
+        document.title = route.title;
         return route.callback.call(this, req);
       }
     });
-    if(!matched) console.log("404")
+    if(!matched) this.navigateTo("/")
+  }
+
+  navigateTo(path) {
+    let matched = false;
+    console.log("Going to " + path)
+    this.routes.some((route) => {
+      let regEx = new RegExp(`^${route.uri}$`);
+      if (path.match(regEx)) {
+        matched = true;
+        let req = { path };
+        const root = document.getElementById("root");
+        const lChild = root.lastElementChild;
+        if(root.children.length > 3)
+          root.removeChild(lChild);
+        history.pushState({}, route.title, route.uri);
+        document.title = route.title;
+        return route.callback.call(this, req);
+      }
+    });
   }
 }
