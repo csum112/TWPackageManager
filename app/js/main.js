@@ -10,6 +10,7 @@ import { AppDependenciesComponent } from "/js/modules/app-menu/appDependenciesCo
 import { CheckoutComponent } from "/js/modules/checkout-menu/checkoutComponent.js";
 import { Router } from "/js/routing/router.js";
 import { injectRoutes } from "/js/routing/routes.js";
+import { AppListService } from "/js/modules/appListService.js";
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
 customElements.define("dm-app-list", AppListComponent);
@@ -22,7 +23,8 @@ customElements.define("dm-info", AppInfoComponent);
 customElements.define("dm-dependencies", AppDependenciesComponent);
 customElements.define("dm-checkout", CheckoutComponent);
 
+window.appListService = new AppListService();
 const router = new Router();
 injectRoutes(router);
 router.init();
-//router.navigateTo("/checkout");
+window.router = router;

@@ -15,8 +15,8 @@ export class AppListService {
 
   refresh() {
     const appList = document.getElementById("applist");
-      if (appList != null) 
-        appList.dispatchEvent(new Event("app_list_updated"));
+    if (appList != null) 
+      appList.dispatchEvent(new Event("app_list_updated"));
   }
 
   async fetchPackages() {
