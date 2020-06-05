@@ -1,6 +1,7 @@
 const routes = [
     {
         path: "/",
+        title: "DeMi",
         callback: (req) => {
             const root = document.getElementById("root");
             const template = document.getElementById("mainMenu").content.cloneNode(true);
@@ -9,6 +10,7 @@ const routes = [
     },
     {
         path: "/checkout",
+        title: "Check out",
         callback: (req) => {
             const root = document.getElementById("root");
             const template = document.getElementById("mainCheckout").content.cloneNode(true);
