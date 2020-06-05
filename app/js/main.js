@@ -3,6 +3,7 @@ import { AppListComponent } from "/js/modules/appListComponent.js";
 import { ShellComponent } from "/js/modules/shellComponent.js";
 import { DefaultComponent } from "/js/modules/defaultComponent.js";
 import { ModalComponent } from "/js/modules/modalComponent.js";
+import { FilterComponent } from "/js/modules/filterComponent.js";
 import { MenuComponent } from "/js/modules/menuComponent.js";
 import { AppMenuComponent } from "/js/modules/app-menu/appMenuComponent.js"
 import { AppCoverComponent } from "/js/modules/app-menu/appCoverComponent.js";
@@ -21,6 +22,9 @@ customElements.define("dm-app-menu", AppMenuComponent);
 customElements.define("dm-app-cover", AppCoverComponent);
 customElements.define("dm-checkout", CheckoutComponent);
 customElements.define("dm-welcome", WelcomeComponent);
+customElements.define("dm-filter", FilterComponent);
+
+
 
 const router = new Router();
 injectRoutes(router);
