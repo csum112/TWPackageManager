@@ -8,7 +8,7 @@ export class AppListService {
   }
 
   getPackages() {
-    if(this.list)
+    if(this.list != null)
       return this.list.filter((name) => name.includes(this.filter));
     else return [];
   }
