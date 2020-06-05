@@ -12,7 +12,7 @@ export class AppInfoComponent extends HTMLElement {
             }
 
             p {
-                font-family: Roboto;
+                font-family: 'Roboto', sans-serif;
                 font-style: normal;
                 font-weight: normal;
             }
@@ -22,6 +22,8 @@ export class AppInfoComponent extends HTMLElement {
 
 
     template = `
+        <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
+
         <article>
             <p><strong>Version:</strong> 3.0.8-0+deb9u1</p>
             <p><strong>Tag:</strong> video</p>

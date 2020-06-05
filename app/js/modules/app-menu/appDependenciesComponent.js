@@ -12,7 +12,7 @@ export class AppDependenciesComponent extends HTMLElement {
             }
 
             ul > li {
-                font-family: Roboto;
+                font-family: 'Roboto', sans-serif;
                 font-style: normal;
                 font-weight: normal;
             }
@@ -22,6 +22,8 @@ export class AppDependenciesComponent extends HTMLElement {
 
 
     template = `
+        <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
+
         <div class="dep-list">
             <ul>
                 <li>alsa-lib-1.2.2</li>
