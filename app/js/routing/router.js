@@ -8,39 +8,35 @@ export class Router {
     this.routes.push(route);
   }
 
-  init() {
-    let matched = false;
-    this.routes.some((route) => {
-      let regEx = new RegExp(`^${route.uri}$`);
-      let path = window.location.pathname;
+  _buildRoute(uri) {
+    let regEx = new RegExp(`^${uri}$`);
+    return regEx;
+  }
 
-      if (path.match(regEx)) {
-        matched = true;
-        let req = { path };
-        history.pushState({uri: route.uri}, route.title, route.uri);
-        document.title = route.title;
-        return route.callback.call(this, req);
-      }
-    });
-    if(!matched) this.navigateTo("/")
+  init() {
+
+    let path = window.location.pathname;
+    this.navigateTo(path);
   }
 
   navigateTo(path) {
-    let matched = false;
     console.log("Going to " + path)
+    let matched = false;
     this.routes.some((route) => {
-      let regEx = new RegExp(`^${route.uri}$`);
+      let regEx = this._buildRoute(route.uri)
       if (path.match(regEx)) {
         matched = true;
         let req = { path };
         const root = document.getElementById("root");
         const lChild = root.lastElementChild;
-        if(root.children.length > 3)
+        if(lChild.tagName != "TEMPLATE")
           root.removeChild(lChild);
         history.pushState({uri: route.uri}, route.title, route.uri);
         document.title = route.title;
         return route.callback.call(this, req);
       }
     });
+    if(!matched)
+      this.navigateTo("/");
   }
 }

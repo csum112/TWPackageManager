@@ -31,3 +31,6 @@ injectRoutes(router);
 router.init();
 window.router = router;
 window.navigationService = new NavigationService();
+window.onpopstate = (event) => {
+    console.log(event.state)
+}

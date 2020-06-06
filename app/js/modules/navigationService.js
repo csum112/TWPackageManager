@@ -17,11 +17,17 @@ export class NavigationService {
     }
 
     goBack() {
-        console.log(history.state)
-        if(history.state.mobileMenuOpen == true) {
-            console.log("We should close the menu")
-            history.back();
-            this.toggleMobileMenu();
-        } else console.log("We should navigate somewhere")
+        if(history.state != null)
+            if(history.state.mobileMenuOpen == true) {
+                console.log("We should close the menu")
+                this.toggleMobileMenu();
+            } else {
+                history.go(-2);
+                console.log(history.state)
+                if(history.state.uri !== undefined) {
+                    // const uri = history.state.uri;
+                    // window.router.navigateTo(uri)
+                }
+            }
     }
 }

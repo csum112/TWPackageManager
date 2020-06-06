@@ -6,6 +6,7 @@ const routes = [
             const root = document.getElementById("root");
             const template = document.getElementById("mainMenu").content.cloneNode(true);
             root.appendChild(template);
+            window.appListService.refresh();
           }
     },
     {
@@ -15,6 +16,7 @@ const routes = [
             const root = document.getElementById("root");
             const template = document.getElementById("mainCheckout").content.cloneNode(true);
             root.appendChild(template);
+            window.appListService.refresh();
         }
     }
 ];

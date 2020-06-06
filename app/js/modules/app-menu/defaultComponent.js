@@ -74,6 +74,9 @@ export class DefaultComponent extends HTMLElement {
         buttonRef.onclick = () => {
             window.navigationService.goBack();
         }
+        const mobileFabRef = this.shadowRoot.getElementById("mobile-fab");
+        const func = eval(this.getAttribute("onButtonClick"));
+        mobileFabRef.onclick = func;
     }
 
 }

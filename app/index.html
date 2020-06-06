@@ -21,7 +21,7 @@
 	<dm-shell>
 		<dm-app-list slot="left" id="applist"></dm-app-list>
 		<div slot="right">
-			<dm-default>
+			<dm-default onButtonClick="()=>{window.router.navigateTo('/checkout')}">
 				<dm-app-cover slot="inner-content">
 					<dm-description slot="app-content"></dm-description>
 				</dm-app-cover>
