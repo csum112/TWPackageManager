@@ -54,10 +54,10 @@ export class AppListComponent extends HTMLElement {
 
 	_pullListFromService() {
 		if (this._appListService != null) {
-			this._appListService.getPackages().then((list) => {
-				list.forEach((packageName) => {
-					this._addPackage(packageName);
-				});
+			const list = this._appListService.getPackages()
+
+			list.forEach((packageName) => {
+				this._addPackage(packageName);
 			});
 		}
 	}

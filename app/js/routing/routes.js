@@ -1,6 +1,7 @@
 const routes = [
     {
         path: "/",
+        title: "DeMi",
         callback: (req) => {
             const root = document.getElementById("root");
             const template = document.getElementById("mainMenu").content.cloneNode(true);
@@ -9,6 +10,7 @@ const routes = [
     },
     {
         path: "/checkout",
+        title: "Check out",
         callback: (req) => {
             const root = document.getElementById("root");
             const template = document.getElementById("mainCheckout").content.cloneNode(true);
@@ -20,6 +22,6 @@ const routes = [
 
 export function injectRoutes(router) {
     routes.forEach(route => {
-        router.get(route.path, route.callback);
+        router.get(route.path, route.callback, route.title);
     });
 };

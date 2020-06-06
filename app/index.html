@@ -21,8 +21,11 @@
 	<dm-shell>
 		<dm-app-list slot="left" id="applist"></dm-app-list>
 		<div slot="right">
-			<dm-filter>
-			</dm-filter>
+			<dm-default>
+				<dm-app-cover slot="inner-content">
+					<dm-description slot="app-content"></dm-description>
+				</dm-app-cover>
+			</dm-default>
 		</div>
 	</dm-shell>
 </template>

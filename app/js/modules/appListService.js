@@ -7,14 +7,16 @@ export class AppListService {
     });
   }
 
-  async getPackages() {
-    return this.list.filter((name) => name.includes(this.filter));
+  getPackages() {
+    if(this.list)
+      return this.list.filter((name) => name.includes(this.filter));
+    else return [];
   }
 
   refresh() {
-    document
-      .getElementById("applist")
-      .dispatchEvent(new Event("app_list_updated"));
+    const appList = document.getElementById("applist");
+      if (appList != null) 
+        appList.dispatchEvent(new Event("app_list_updated"));
   }
 
   async fetchPackages() {
