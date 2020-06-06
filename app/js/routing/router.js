@@ -17,6 +17,7 @@ export class Router {
       if (path.match(regEx)) {
         matched = true;
         let req = { path };
+        history.pushState({uri: route.uri}, route.title, route.uri);
         document.title = route.title;
         return route.callback.call(this, req);
       }
@@ -36,7 +37,7 @@ export class Router {
         const lChild = root.lastElementChild;
         if(root.children.length > 3)
           root.removeChild(lChild);
-        history.pushState({}, route.title, route.uri);
+        history.pushState({uri: route.uri}, route.title, route.uri);
         document.title = route.title;
         return route.callback.call(this, req);
       }

@@ -11,6 +11,8 @@ import { CheckoutComponent } from "/js/modules/checkout-menu/checkoutComponent.j
 import { Router } from "/js/routing/router.js";
 import { injectRoutes } from "/js/routing/routes.js";
 import { AppListService } from "/js/modules/appListService.js";
+import { NavigationService } from "/js/modules/navigationService.js";
+
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
 customElements.define("dm-app-list", AppListComponent);
@@ -28,3 +30,4 @@ const router = new Router();
 injectRoutes(router);
 router.init();
 window.router = router;
+window.navigationService = new NavigationService();
