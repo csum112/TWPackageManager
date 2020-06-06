@@ -3,8 +3,8 @@ export class Router {
     this.routes = [];
   }
 
-  get(uri, callback, title) {
-    const route = { uri, callback, title };
+  get(uri, templateSelector, title) {
+    const route = { uri, templateSelector, title };
     this.routes.push(route);
   }
 
@@ -26,14 +26,10 @@ export class Router {
       let regEx = this._buildRoute(route.uri)
       if (path.match(regEx)) {
         matched = true;
-        let req = { path };
-        const root = document.getElementById("root");
-        const lChild = root.lastElementChild;
-        if(lChild.tagName != "TEMPLATE")
-          root.removeChild(lChild);
-        history.pushState({uri: route.uri}, route.title, route.uri);
-        document.title = route.title;
-        return route.callback.call(this, req);
+        const state = {template: route.templateSelector, prevUrl: window.location.pathname};
+        history.pushState(state, route.title, route.uri);
+        history.pushState({}, '', '');
+        history.back();
       }
     });
     if(!matched)

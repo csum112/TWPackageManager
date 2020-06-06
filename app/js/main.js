@@ -31,6 +31,18 @@ injectRoutes(router);
 router.init();
 window.router = router;
 window.navigationService = new NavigationService();
+window.onhashchange = (ev) => {console.log(ev)}
 window.onpopstate = (event) => {
-    console.log(event.state)
+    console.log(event);
+    if(event.type == "popstate" && event.state.template !== undefined) {
+        const root = document.getElementById("root");
+        const lastChild = root.lastElementChild;
+        if (lastChild != null && lastChild.tagName != "TEMPLATE")
+            root.removeChild(lastChild)
+
+        const templateID = event.state.template;
+        const templateNode = document.getElementById(templateID).content.cloneNode(true);
+        console.log(templateNode)
+        root.appendChild(templateNode);
+    }
 }

@@ -1,33 +1,38 @@
 export class NavigationService {
     constructor() {
-        this.isMobile = ( window.innerWidth <= 720 ) && window.orientation !== undefined && window.orientation == 'portrait';
+        this.isMobile = (window.innerWidth <= 720);
         this.mobileMenuIsOpen = false;
         this.routerRef = window.router;
     }
 
     toggleMobileMenu() {
         const shellRef = document.querySelector("dm-shell").shadowRoot;
-        if(this.mobileMenuIsOpen) {
-            shellRef.dispatchEvent(new CustomEvent("closeMobileMenu", {composed: true, bubbles: true}));
+        if (this.mobileMenuIsOpen) {
+            shellRef.dispatchEvent(new CustomEvent("closeMobileMenu", { composed: true, bubbles: true }));
         } else {
-            shellRef.dispatchEvent(new CustomEvent("openMobileMenu", {composed: true, bubbles: true}));
-            history.pushState({mobileMenuOpen: true}, "Opened mobile menu")
+            shellRef.dispatchEvent(new CustomEvent("openMobileMenu", { composed: true, bubbles: true }));
         }
         this.mobileMenuIsOpen = !this.mobileMenuIsOpen;
     }
 
+    getPreviousRoute(path) {
+        const routes = path.split("/").filter(e => e != "");
+        routes.pop();
+        let newPath = "";
+        routes.forEach(r => {
+            newPath = newPath + "/" + r;
+        });
+        return newPath;
+    }
+
     goBack() {
-        if(history.state != null)
-            if(history.state.mobileMenuOpen == true) {
-                console.log("We should close the menu")
-                this.toggleMobileMenu();
-            } else {
-                history.go(-2);
-                console.log(history.state)
-                if(history.state.uri !== undefined) {
-                    // const uri = history.state.uri;
-                    // window.router.navigateTo(uri)
-                }
-            }
+        console.log(window.location.pathname == "/" && this.isMobile)
+        if (window.location.pathname === "/" && this.isMobile) {
+            console.log("We should close the menu")
+            this.toggleMobileMenu();
+        } else {
+            const newRoute = this.getPreviousRoute(window.location.pathname);
+            window.router.navigateTo(newRoute);
+        }
     }
 }
