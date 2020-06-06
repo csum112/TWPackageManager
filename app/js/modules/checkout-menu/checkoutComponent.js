@@ -12,7 +12,7 @@ export class CheckoutComponent extends HTMLElement {
         }
         
         .content h1, .content p {
-            font-family: Roboto;
+            font-family: 'Roboto', sans-serif;
             font-style: normal;
             font-weight: normal;
         }
@@ -24,7 +24,7 @@ export class CheckoutComponent extends HTMLElement {
         }
 
         .content h4 {
-            font-family: Roboto;
+            font-family: 'Roboto', sans-serif;
             font-style: normal;
             font-weight: normal;
             font-size: 1.2rem;
@@ -38,6 +38,7 @@ export class CheckoutComponent extends HTMLElement {
 
     template = `
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
 
     <div class="content">
         <h1>Hooraaay!</h1>

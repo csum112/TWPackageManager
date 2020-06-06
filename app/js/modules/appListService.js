@@ -8,15 +8,15 @@ export class AppListService {
   }
 
   getPackages() {
-    if(this.list)
+    if(this.list != null)
       return this.list.filter((name) => name.includes(this.filter));
     else return [];
   }
 
   refresh() {
     const appList = document.getElementById("applist");
-      if (appList != null) 
-        appList.dispatchEvent(new Event("app_list_updated"));
+    if (appList != null) 
+      appList.dispatchEvent(new Event("app_list_updated"));
   }
 
   async fetchPackages() {

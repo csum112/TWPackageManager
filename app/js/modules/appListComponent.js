@@ -1,4 +1,4 @@
-import { AppListService } from "/js/modules/appListService.js";
+
 
 export class AppListComponent extends HTMLElement {
 	_getStyle() {
@@ -25,7 +25,6 @@ export class AppListComponent extends HTMLElement {
 	}
 	constructor() {
 		super();
-		this._appListService = new AppListService();
 		this._shadow = this.attachShadow({ mode: "open" });
 		this._shadow.innerHTML = this._getStyle();
 		this._nodeList = document.createElement("ul");
@@ -35,10 +34,6 @@ export class AppListComponent extends HTMLElement {
 			this._resetList();
 			this._pullListFromService();
 		});
-	}
-
-	getService() {
-		return this._appListService;
 	}
 
 	_addPackage(packageName) {
@@ -53,8 +48,8 @@ export class AppListComponent extends HTMLElement {
 	}
 
 	_pullListFromService() {
-		if (this._appListService != null) {
-			const list = this._appListService.getPackages()
+		if (window.appListService != null) {
+			const list = window.appListService.getPackages()
 
 			list.forEach((packageName) => {
 				this._addPackage(packageName);

@@ -16,7 +16,7 @@ export class ShellComponent extends HTMLElement {
     const input = this._shadow.getElementById("searchbox");
     input.addEventListener("keyup", (event) => {
       const filter = input.value;
-      document.getElementById("applist").getService().setFilter(filter);
+      window.appListService.setFilter(filter);
     });
   }
 
