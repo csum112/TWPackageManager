@@ -13,26 +13,30 @@
 <body>
 	<dm-shell>
 		<dm-app-list slot="left" id="applist"></dm-app-list>
-		<div slot="right" id="root">
-
-		</div>
+		<div slot="right" id="root"></div>
 	</dm-shell>
 	<!-- Scripts used -->
-	<script src="js/main.js" type="module"></script>
+	<script src="/js/main.js" type="module"></script>
 </body>
 
 </html>
 
 <template id="mainMenu">
 	<dm-default onButtonClick="()=>{window.router.navigateTo('/checkout')}">
-		<dm-app-cover slot="inner-content">
-			<dm-description slot="app-content"></dm-description>
-		</dm-app-cover>
+		<dm-menu slot="inner-content"></dm-menu>
 	</dm-default>
 </template>
 
 <template id="mainCheckout">
 	<dm-default>
 		<dm-checkout slot="inner-content"></dm-checkout>
+	</dm-default>
+</template>
+
+<template id="mainPackage">
+	<dm-default>
+		<dm-app-cover slot="inner-content">
+			<dm-description slot="app-content"></dm-description>
+		</dm-app-cover>
 	</dm-default>
 </template>

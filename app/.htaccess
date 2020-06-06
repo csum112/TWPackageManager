@@ -12,4 +12,4 @@ Options +FollowSymLinks
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !index
-RewriteRule (.*) index.html [L]
+RewriteRule ^(.*)$ /index.html?path=$1 [NC,L,QSA]

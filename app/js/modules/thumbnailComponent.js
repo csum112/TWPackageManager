@@ -19,7 +19,7 @@ export class ThumbnailComponent extends HTMLElement {
     }
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.innerHTML = this._getStyle() + this._getTemplate();
-    this.onclick = () => {window.router.navigateTo("/package/" + this.packageName)}
+    this.onclick = () => {window.router.navigateTo("/package/" + this.packageName + "/description")}
   }
 
   _getTemplate() {

@@ -1,50 +1,8 @@
 export class MenuComponent extends HTMLElement {
     style = `<style>
-    .menu-shell {
-        margin-top: 2rem;
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        padding: 3rem;
-        max-width: 100%;
-    }
     
-    .back-button{
-        margin-right: auto;
-        color: #894EC6;
-        background: none;
-        border: none;
-    }
-    
-    .shop-button {
-        color: #fff;
-        background: #894EC6;
-        padding: 1rem 1rem;
-        border-radius: 1rem;
-        margin-right: 6rem;
-        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
-    
-    }
-    
-    .menu-footer {
-        box-sizing: border-box;
-        position: absolute;
-        display: flex;
-        bottom: 4rem;
-        width: 100%;
-        justify-content: space-between;
-        text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
-    }
-    
-    .menu-footer a:nth-child(1) {
-        color: #894EC6;
-        text-decoration: none;
-    }
-    
-    .content {
-        height: 70vh;
+    .wrapper {
+        padding: 4rem 2rem;
     }
     
     .content h1, .content p {
@@ -71,41 +29,24 @@ export class MenuComponent extends HTMLElement {
 
     template = `
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
-    <div class="menu-shell">
-
-        <button class="back-button">
-            <i class="fas fa-angle-left fa-3x"></i>
-        </button>
-
-        
-        <div class="content">
-            <div class="header">
-                <h1>My Package List</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor dui habitant risus, sed etiam quam. 
-                Vitae cras rhoncus hendrerit ultrices in aenean duis praesent. Tellus in faucibus massa euismod blandit. 
-                Aliquet et neque nam eget viverra.</p>
-            </div>
-
-            <ul class="install-queue">
-                <li><i class="fas fa-check"></i>bison</li>
-                <li><i class="fas fa-check"></i>vlc</li>
-                <li><i class="fas fa-check"></i>css</li>
-                <li><i class="fas fa-check"></i>sass</li>
-                <li><i class="fas fa-check"></i>angular</li>
-                <li><i class="fas fa-check"></i>react-native</li>
-            </ul>
+    <div class="wrapper">
+        <div class="header">
+        <h1>My Package List</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor dui habitant risus, sed etiam quam. 
+            Vitae cras rhoncus hendrerit ultrices in aenean duis praesent. Tellus in faucibus massa euismod blandit. 
+            Aliquet et neque nam eget viverra.</p>
         </div>
 
-        <div class="menu-footer">
-            <a href="#">
-                <p>Choose another location</p>
-            </a>
-            <a href="#" class="shop-button">
-                <i class="fa fa-download" aria-hidden="true"></i>
-            </a>
-        </div>
-
-    </div>`;
+        <ul class="install-queue">
+            <li><i class="fas fa-check"></i>bison</li>
+            <li><i class="fas fa-check"></i>vlc</li>
+            <li><i class="fas fa-check"></i>css</li>
+            <li><i class="fas fa-check"></i>sass</li>
+            <li><i class="fas fa-check"></i>angular</li>
+            <li><i class="fas fa-check"></i>react-native</li>
+        </ul>
+    </div>
+    `;
 
     constructor() {
         super();

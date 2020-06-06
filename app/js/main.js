@@ -12,6 +12,7 @@ import { Router } from "/js/routing/router.js";
 import { injectRoutes } from "/js/routing/routes.js";
 import { AppListService } from "/js/modules/appListService.js";
 import { NavigationService } from "/js/modules/navigationService.js";
+import { handleHistoryStateChange } from "./routing/router.js";
 
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
@@ -26,23 +27,10 @@ customElements.define("dm-dependencies", AppDependenciesComponent);
 customElements.define("dm-checkout", CheckoutComponent);
 
 window.appListService = new AppListService();
+window.navigationService = new NavigationService();
 const router = new Router();
 injectRoutes(router);
 router.init();
 window.router = router;
-window.navigationService = new NavigationService();
-window.onhashchange = (ev) => {console.log(ev)}
-window.onpopstate = (event) => {
-    console.log(event);
-    if(event.type == "popstate" && event.state.template !== undefined) {
-        const root = document.getElementById("root");
-        const lastChild = root.lastElementChild;
-        if (lastChild != null && lastChild.tagName != "TEMPLATE")
-            root.removeChild(lastChild)
 
-        const templateID = event.state.template;
-        const templateNode = document.getElementById(templateID).content.cloneNode(true);
-        console.log(templateNode)
-        root.appendChild(templateNode);
-    }
-}
+window.onpopstate = handleHistoryStateChange
