@@ -59,16 +59,16 @@ function handlePackageRoute(event) {
 
   const packageName = args[2];
   const tab = args[3];
-  window.packageService.registerNewEntry(packageName, tab);
-  // const root = document.getElementById("root");
-  // const lastChild = root.lastElementChild;
-  // if (lastChild != null && lastChild.tagName != "TEMPLATE")
-  //     root.removeChild(lastChild)
 
-  // const templateID = event.state.template;
-  // const templateNode = document.getElementById(templateID).content.cloneNode(true);
+  const root = document.getElementById("root");
+  const lastChild = root.lastElementChild;
+  if (lastChild != null && lastChild.tagName != "TEMPLATE")
+      root.removeChild(lastChild)
+
+  const templateID = event.state.template;
+  const templateNode = document.getElementById(templateID).content.cloneNode(true);
   // console.log(templateNode)
-  // root.appendChild(templateNode); 
+  root.appendChild(templateNode); 
 }
 
 export function handleHistoryStateChange (event) {
