@@ -9,6 +9,21 @@ body {
     max-width: 100%;
 }
 
+.dots1 {
+    user-select: none;
+    position: fixed;
+    top: -5rem;
+    right: 0px;
+}
+
+.dots2 {
+    user-select: none;
+    position: fixed;
+    bottom: -10rem;
+    left: 0px;
+    overflow: auto;
+}
+
 .logo {
     user-select: none;
     position: relative;
@@ -72,8 +87,16 @@ footer {
 
 @media (max-width: 720px) and (orientation: portrait) {
 
+    .dots1 {
+        display: none;
+    }
+    
+    .dots2 {
+        display: none;
+    }
+
     .logo {
-        left: 27px;
+        left: 30px;
     }
 
     .distros {
