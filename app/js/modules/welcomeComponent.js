@@ -125,10 +125,9 @@ export class WelcomeComponent extends HTMLElement {
 
 
             <div class="distros">
-                <a href="#" id="brew"><img src="/assets/png/brew_logo.png" alt="Brew logo" width="250" height="100"></a>
-                <a href="#"><img src="/assets/png/arch_logo.png" alt="Archlinux logo" width="200" height="60"></a>
+                <a onclick="setDistro('brewDistro')" id="brew"><img src="/assets/png/brew_logo.png" alt="Brew logo" width="250" height="100"></a>
+                <a onclick="setDistro('archDistro')"><img src="/assets/png/arch_logo.png" alt="Archlinux logo" width="200" height="60"></a>
             </div>
-            <a onclick="window.navigationService.goBack()"><h3>Next</h3></a>
         </div>
 
         <footer>

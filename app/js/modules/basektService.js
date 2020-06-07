@@ -1,6 +1,9 @@
 export class BasketService {
     constructor() {
-        this.list = localStorage.getItem("myBasket").split(",") || [];
+        const storedBasket = localStorage.getItem("myBasket");
+        if (storedBasket == null) this.list = [];
+        else
+            this.list = storedBasket.split(",");
     }
 
     addCurrentToBasket() {

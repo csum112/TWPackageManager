@@ -39,3 +39,8 @@ injectRoutes(router);
 router.init();
 window.router = router;
 window.onpopstate = handleHistoryStateChange;
+
+function setDistro(distro) {
+    localStorage.setItem("distro", distro);
+    window.navigationService.goBack();
+}
