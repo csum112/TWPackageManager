@@ -14,6 +14,7 @@ import { injectRoutes } from "/js/routing/routes.js";
 import { AppListService } from "/js/modules/appListService.js";
 import { NavigationService } from "/js/modules/navigationService.js";
 import { handleHistoryStateChange } from "./routing/router.js";
+import { NavComponent } from "/js/modules/navComponent.js";
 
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
@@ -27,6 +28,7 @@ customElements.define("dm-info", AppInfoComponent);
 customElements.define("dm-dependencies", AppDependenciesComponent);
 customElements.define("dm-checkout", CheckoutComponent);
 customElements.define("dm-filter", FilterComponent);
+customElements.define("dm-nav", NavComponent);
 
 
 

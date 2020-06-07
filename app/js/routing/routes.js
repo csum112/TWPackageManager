@@ -26,6 +26,11 @@ const routes = [
         path: "/package/([A-z]|[0-9])*/dependencies",
         templateSelector: "mainPackage",
         mobileMenuOpen: true
+    },
+    {
+        path: "/nav",
+        templateSelector: "nav",
+        mobileMenuOpen: false
     }
 ];
 
