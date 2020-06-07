@@ -5,10 +5,10 @@ export class MenuComponent extends HTMLElement {
         padding: 4rem 2rem;
     }
     
-    .content h1, .content p {
-        font-family: Roboto;
+    .header h1, .header p {
+        font-family: 'Roboto', sans-serif;
         font-style: normal;
-        font-weight: normal;
+        font-weight: lighter;
     }
     
     .install-queue {
@@ -29,9 +29,10 @@ export class MenuComponent extends HTMLElement {
 
     template = `
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
     <div class="wrapper">
         <div class="header">
-        <h1>My Package List</h1>
+            <h1>My Package List</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor dui habitant risus, sed etiam quam. 
             Vitae cras rhoncus hendrerit ultrices in aenean duis praesent. Tellus in faucibus massa euismod blandit. 
             Aliquet et neque nam eget viverra.</p>

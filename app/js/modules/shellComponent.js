@@ -86,9 +86,9 @@ export class ShellComponent extends HTMLElement {
         border: none;
         height: 100%;
         width: 100%;
-        font-family: Roboto;
+        font-family: 'Roboto', sans-serif;
         font-style: normal;
-        font-weight: normal;
+        font-weight: lighter;
         font-size: 18px;
         line-height: 21px;
         color: #CACCDB;

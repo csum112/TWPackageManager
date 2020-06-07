@@ -36,7 +36,10 @@ body {
 a:link, a:visited {text-decoration: none;}
 
 .welcome-shell h1, .welcome-shell h3 {
-	color: #fff;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 .distros {
