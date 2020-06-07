@@ -12,7 +12,10 @@ import { Router } from "/js/routing/router.js";
 import { injectRoutes } from "/js/routing/routes.js";
 import { AppListService } from "/js/modules/appListService.js";
 import { NavigationService } from "/js/modules/navigationService.js";
-import { handleHistoryStateChange } from "./routing/router.js";
+import { handleHistoryStateChange } from "/js/routing/router.js";
+import { PackageDetailsService } from "/js/modules/packageDetailsService.js";
+import { BasketService } from "/js/modules/basektService.js";
+
 
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
@@ -27,10 +30,11 @@ customElements.define("dm-dependencies", AppDependenciesComponent);
 customElements.define("dm-checkout", CheckoutComponent);
 
 window.appListService = new AppListService();
+window.packageDetailsService = new PackageDetailsService();
 window.navigationService = new NavigationService();
+window.basketService = new BasketService();
 const router = new Router();
 injectRoutes(router);
 router.init();
 window.router = router;
-
-window.onpopstate = handleHistoryStateChange
+window.onpopstate = handleHistoryStateChange;

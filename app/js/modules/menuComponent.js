@@ -33,18 +33,10 @@ export class MenuComponent extends HTMLElement {
     <div class="wrapper">
         <div class="header">
             <h1>My Package List</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor dui habitant risus, sed etiam quam. 
-            Vitae cras rhoncus hendrerit ultrices in aenean duis praesent. Tellus in faucibus massa euismod blandit. 
-            Aliquet et neque nam eget viverra.</p>
         </div>
 
-        <ul class="install-queue">
-            <li><i class="fas fa-check"></i>bison</li>
-            <li><i class="fas fa-check"></i>vlc</li>
-            <li><i class="fas fa-check"></i>css</li>
-            <li><i class="fas fa-check"></i>sass</li>
-            <li><i class="fas fa-check"></i>angular</li>
-            <li><i class="fas fa-check"></i>react-native</li>
+        <ul class="install-queue" id="basket">
+           
         </ul>
     </div>
     `;
@@ -53,5 +45,23 @@ export class MenuComponent extends HTMLElement {
         super();
         this._shadow = this.attachShadow({ mode: "open" });
         this._shadow.innerHTML = this.style + this.template;
+        this.listRef = this.shadowRoot.getElementById("basket");
+        this.populateList();
+    }
+
+    populateList() {
+        const newList = window.basketService.list;
+        newList.forEach(pkg => {
+            let newNode = document.createElement("li");
+            let icon = document.createElement("i");
+            icon.classList.add("fas");
+            icon.classList.add("fa-check");
+            let textNode = document.createTextNode(pkg);
+            newNode.appendChild(icon);
+            newNode.appendChild(textNode);
+            this.listRef.appendChild(newNode)
+        });
     }
 }
+
+{/* <li><i class="fas fa-check"></i>bison</li> */}

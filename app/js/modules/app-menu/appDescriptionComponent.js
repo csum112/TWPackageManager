@@ -23,7 +23,7 @@ export class AppDescriptionComponent extends HTMLElement {
 
     template = `
         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
-        <article>
+        <article id="content">
             <p>VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4,
             DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs,
             podcasts, and multimedia streams from various network sources.</p>

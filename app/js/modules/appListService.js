@@ -1,16 +1,13 @@
 export class AppListService {
   constructor() {
     this.filter = "";
-    this.currentPackage = null;
     this.fetchPackages().then((list) => {
       this.list = list;
       this.refresh();
     });
   }
 
-  setCurrentPackage(packageName) {
-    this.currentPackage = packageName;
-  }
+
 
   getPackages() {
     if(this.list != null)

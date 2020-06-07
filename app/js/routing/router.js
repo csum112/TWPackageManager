@@ -57,7 +57,7 @@ function handlePackageRoute(event) {
 
   let packageName = args[2];
   let tab = args[3];
-  window.appListService.setCurrentPackage(packageName);
+  window.packageDetailsService.setCurrentPackage(packageName);
 
   let root = document.getElementById("root");
   let lastChild = root.lastElementChild;

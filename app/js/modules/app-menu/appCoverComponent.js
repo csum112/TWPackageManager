@@ -17,7 +17,9 @@ export class AppCoverComponent extends HTMLElement {
         super();
         const shadowRoot = this.attachShadow({ mode: "open" });
         shadowRoot.innerHTML = this._getStyle() + this._getTemplate();
-        this.addEventListener("navigatePackageTab", event => this.navigateTo(event.detail.tab));
+        this.addEventListener("navigatePackageTab", event => {
+          this.navigateTo(event.detail.tab);
+        });
     }
 
     navigateTo(tab){

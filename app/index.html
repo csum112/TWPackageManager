@@ -34,7 +34,7 @@
 </template>
 
 <template id="mainPackageDescription">
-	<dm-default>
+	<dm-default onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
 		<dm-app-cover slot="inner-content">
 			<dm-description slot="app-content"></dm-description>
 		</dm-app-cover>
@@ -42,7 +42,7 @@
 </template>
 
 <template id="mainPackageInfo">
-	<dm-default>
+	<dm-default onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
 		<dm-app-cover slot="inner-content">
 			<dm-info slot="app-content"></dm-info>
 		</dm-app-cover>
@@ -50,7 +50,7 @@
 </template>
 
 <template id="mainPackageDependencies">
-	<dm-default>
+	<dm-default onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
 		<dm-app-cover slot="inner-content">
 			<dm-dependencies slot="app-content"></dm-dependencies>
 		</dm-app-cover>
