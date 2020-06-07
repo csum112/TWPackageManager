@@ -8,6 +8,11 @@ export class AppListService {
     });
   }
 
+  setCurrentPackage(packageName) {
+    this.currentPackage = packageName;
+    console.log("I should display " + this.currentPackage)
+  }
+
   getPackages() {
     if(this.list != null)
       return this.list.filter((name) => name.includes(this.filter));

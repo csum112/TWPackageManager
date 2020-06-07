@@ -15,9 +15,15 @@ export class AppCoverComponent extends HTMLElement {
 
     constructor() {
         super();
-        //this.packageName = this.getAttribute("packageName");
         const shadowRoot = this.attachShadow({ mode: "open" });
         shadowRoot.innerHTML = this._getStyle() + this._getTemplate();
+        this.addEventListener("navigatePackageTab", event => this.navigateTo(event.detail.tab));
+    }
+
+    navigateTo(tab){
+        let packageName = window.appListService.currentPackage;
+        let route = "/package/" + packageName + "/" + tab;
+        window.router.navigateTo(route);
     }
 
     _getTemplate() {
@@ -31,9 +37,9 @@ export class AppCoverComponent extends HTMLElement {
           </div>
 
           <ul class="tabs">
-            <li><h3><a href="#">Description<a></h3></li>
-            <li><h3><a href="#">Info<a></h3></li>
-            <li><h3><a href="#">Dependecies<a></h3></li>
+            <li><h3><a onclick="dispatchEvent(new CustomEvent('navigatePackageTab', {composed:true, bubles: true, detail: {tab: 'description'}}))">Description<a></h3></li>
+            <li><h3><a onclick="dispatchEvent(new CustomEvent('navigatePackageTab', {composed:true, bubles: true, detail: {tab: 'info'}}))">Info<a></h3></li>
+            <li><h3><a onclick="dispatchEvent(new CustomEvent('navigatePackageTab', {composed:true, bubles: true, detail: {tab: 'dependencies'}}))">Dependecies<a></h3></li>
           </ul>
 
           <hr>
@@ -109,3 +115,5 @@ export class AppCoverComponent extends HTMLElement {
     }
 
 }
+
+
