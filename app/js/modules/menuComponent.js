@@ -25,6 +25,7 @@ export class MenuComponent extends HTMLElement {
         color: #fff;
         margin-bottom: 0.5rem;
     }
+
     </style>`;
 
     template = `
@@ -35,9 +36,7 @@ export class MenuComponent extends HTMLElement {
             <h1>My Package List</h1>
         </div>
 
-        <ul class="install-queue" id="basket">
-           
-        </ul>
+        <ul class="install-queue" id="basket"></ul>
     </div>
     `;
 
@@ -54,8 +53,21 @@ export class MenuComponent extends HTMLElement {
         newList.forEach(pkg => {
             let newNode = document.createElement("li");
             let icon = document.createElement("i");
+
             icon.classList.add("fas");
             icon.classList.add("fa-check");
+            icon.onmouseenter = () => {
+                icon.classList.add("fa-trash")
+                icon.classList.remove("fa-check")
+            }
+            icon.onmouseleave = () => {
+                icon.classList.remove("fa-trash")
+                icon.classList.add("fa-check")
+            }
+            icon.onclick = () => {
+                window.basketService.removePackage(pkg);
+                this.listRef.removeChild(newNode);
+            }
             let textNode = document.createTextNode(pkg);
             newNode.appendChild(icon);
             newNode.appendChild(textNode);
