@@ -15,7 +15,7 @@ import { NavigationService } from "/js/modules/navigationService.js";
 import { handleHistoryStateChange } from "/js/routing/router.js";
 import { PackageDetailsService } from "/js/modules/packageDetailsService.js";
 import { BasketService } from "/js/modules/basektService.js";
-
+import { WelcomeComponent } from "/js/modules/welcomeComponent.js";
 
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
@@ -28,6 +28,7 @@ customElements.define("dm-description", AppDescriptionComponent);
 customElements.define("dm-info", AppInfoComponent);
 customElements.define("dm-dependencies", AppDependenciesComponent);
 customElements.define("dm-checkout", CheckoutComponent);
+customElements.define("dm-welcome", WelcomeComponent);
 
 window.appListService = new AppListService();
 window.packageDetailsService = new PackageDetailsService();
