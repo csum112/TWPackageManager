@@ -13,6 +13,7 @@ import { injectRoutes } from "/js/routing/routes.js";
 import { AppListService } from "/js/modules/appListService.js";
 import { NavigationService } from "/js/modules/navigationService.js";
 import { handleHistoryStateChange } from "./routing/router.js";
+import { WelcomeComponent } from "/js/modules/welcomeComponent.js";
 
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
@@ -25,6 +26,7 @@ customElements.define("dm-description", AppDescriptionComponent);
 customElements.define("dm-info", AppInfoComponent);
 customElements.define("dm-dependencies", AppDependenciesComponent);
 customElements.define("dm-checkout", CheckoutComponent);
+customElements.define("dm-welcome", WelcomeComponent);
 
 window.appListService = new AppListService();
 window.navigationService = new NavigationService();
