@@ -33,8 +33,8 @@
 	</dm-default>
 </template>
 
-<template id="mainPackage">
-	<dm-default>
+<template id="mainPackageDescription">
+	<dm-default onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
 		<dm-app-cover slot="inner-content">
 			<dm-description slot="app-content"></dm-description>
 		</dm-app-cover>
@@ -43,4 +43,23 @@
 
 <template id="nav">
 	<dm-nav></dm-nav>
+</template>
+<template id="mainPackageInfo">
+	<dm-default onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
+		<dm-app-cover slot="inner-content">
+			<dm-info slot="app-content"></dm-info>
+		</dm-app-cover>
+	</dm-default>
+</template>
+
+<template id="mainPackageDependencies">
+	<dm-default onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
+		<dm-app-cover slot="inner-content">
+			<dm-dependencies slot="app-content"></dm-dependencies>
+		</dm-app-cover>
+	</dm-default>
+</template>
+
+<template id="welcome">
+	<dm-welcome></dm-welcome>
 </template>

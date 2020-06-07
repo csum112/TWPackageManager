@@ -14,18 +14,23 @@ const routes = [
     },
     {
         path: "/package/([A-z]|[0-9])*/description",
-        templateSelector: "mainPackage",
+        templateSelector: "mainPackageDescription",
         mobileMenuOpen: true
     },
     {
         path: "/package/([A-z]|[0-9])*/info",
-        templateSelector: "mainPackage",
+        templateSelector: "mainPackageInfo",
         mobileMenuOpen: true
     },
     {
         path: "/package/([A-z]|[0-9])*/dependencies",
-        templateSelector: "mainPackage",
+        templateSelector: "mainPackageDependencies",
         mobileMenuOpen: true
+    },
+    {
+        path: "/welcome",
+        templateSelector: "welcome",
+        mobileMenuOpen: false
     },
     {
         path: "/nav",
