@@ -27,7 +27,6 @@ export class NavigationService {
 
     goBack() {
         if (window.location.pathname === "/" && this.isMobile) {
-            console.log("We should close the menu")
             this.toggleMobileMenu();
         } else {
             const newRoute = this.getPreviousRoute(window.location.pathname);

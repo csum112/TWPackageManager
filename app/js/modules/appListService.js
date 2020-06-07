@@ -10,7 +10,6 @@ export class AppListService {
 
   setCurrentPackage(packageName) {
     this.currentPackage = packageName;
-    console.log("I should display " + this.currentPackage)
   }
 
   getPackages() {
