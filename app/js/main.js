@@ -12,6 +12,9 @@ import { CheckoutComponent } from "/js/modules/checkout-menu/checkoutComponent.j
 import { Router } from "/js/routing/router.js";
 import { injectRoutes } from "/js/routing/routes.js";
 import { AppListService } from "/js/modules/appListService.js";
+import { NavigationService } from "/js/modules/navigationService.js";
+import { handleHistoryStateChange } from "./routing/router.js";
+
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
 customElements.define("dm-app-list", AppListComponent);
@@ -28,7 +31,10 @@ customElements.define("dm-filter", FilterComponent);
 
 
 window.appListService = new AppListService();
+window.navigationService = new NavigationService();
 const router = new Router();
 injectRoutes(router);
 router.init();
 window.router = router;
+
+window.onpopstate = handleHistoryStateChange

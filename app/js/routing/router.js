@@ -3,43 +3,79 @@ export class Router {
     this.routes = [];
   }
 
-  get(uri, callback, title) {
-    const route = { uri, callback, title };
+  get(uri, templateSelector, title, mobileMenuOpen) {
+    const route = { uri, templateSelector, title, mobileMenuOpen};
     this.routes.push(route);
   }
 
-  init() {
-    let matched = false;
-    this.routes.some((route) => {
-      let regEx = new RegExp(`^${route.uri}$`);
-      let path = window.location.pathname;
+  _buildRoute(uri) {
+    let regEx = new RegExp(`^${uri}$`);
+    return regEx;
+  }
 
-      if (path.match(regEx)) {
-        matched = true;
-        let req = { path };
-        document.title = route.title;
-        return route.callback.call(this, req);
-      }
-    });
-    if(!matched) this.navigateTo("/")
+  init() {
+
+    let path = window.location.pathname;
+    console.log(path)
+    this.navigateTo(path);
   }
 
   navigateTo(path) {
-    let matched = false;
     console.log("Going to " + path)
+    let matched = false;
     this.routes.some((route) => {
-      let regEx = new RegExp(`^${route.uri}$`);
+      let regEx = this._buildRoute(route.uri)
       if (path.match(regEx)) {
         matched = true;
-        let req = { path };
-        const root = document.getElementById("root");
-        const lChild = root.lastElementChild;
-        if(root.children.length > 3)
-          root.removeChild(lChild);
-        history.pushState({}, route.title, route.uri);
-        document.title = route.title;
-        return route.callback.call(this, req);
+
+        const state = {template: route.templateSelector, prevUrl: window.location.pathname};
+        history.pushState(state, route.title, path);
+        history.pushState({}, '', '');
+        history.back();
+        if(route.mobileMenuOpen && !window.navigationService.mobileMenuIsOpen)
+          window.navigationService.toggleMobileMenu();
+        return true;
       }
     });
+    if(!matched)
+      this.navigateTo("/");
+  }
+}
+
+function handleRouteChange(event)
+{
+  const root = document.getElementById("root");
+  const lastChild = root.lastElementChild;
+  if (lastChild != null && lastChild.tagName != "TEMPLATE")
+      root.removeChild(lastChild)
+
+  const templateID = event.state.template;
+  const templateNode = document.getElementById(templateID).content.cloneNode(true);
+  root.appendChild(templateNode);
+}
+
+function handlePackageRoute(event) {
+  const args = event.state.prevUrl.split("/");
+
+  const packageName = args[2];
+  const tab = args[3];
+  window.packageService.registerNewEntry(packageName, tab);
+  // const root = document.getElementById("root");
+  // const lastChild = root.lastElementChild;
+  // if (lastChild != null && lastChild.tagName != "TEMPLATE")
+  //     root.removeChild(lastChild)
+
+  // const templateID = event.state.template;
+  // const templateNode = document.getElementById(templateID).content.cloneNode(true);
+  // console.log(templateNode)
+  // root.appendChild(templateNode); 
+}
+
+export function handleHistoryStateChange (event) {
+  if(event.type == "popstate" && event.state.template !== undefined) 
+  {        
+      if(event.state.template == "mainPackage")
+          handlePackageRoute(event)
+      else handleRouteChange(event);
   }
 }

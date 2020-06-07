@@ -19,6 +19,7 @@ export class ThumbnailComponent extends HTMLElement {
     }
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.innerHTML = this._getStyle() + this._getTemplate();
+    this.onclick = () => {window.router.navigateTo("/package/" + this.packageName + "/description")}
   }
 
   _getTemplate() {
@@ -57,9 +58,9 @@ export class ThumbnailComponent extends HTMLElement {
   .app-name {
     position: relative;
     width: 100%:
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: lighter;
     font-size: 2.4rem;
     line-height: 4.5rem;
     color: #FFFFFF;
@@ -67,9 +68,9 @@ export class ThumbnailComponent extends HTMLElement {
   }
 
   .watermark {
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: lighter;
     font-size: 1rem;
     line-height: 1rem;
     color: #FFFFFF;
@@ -93,9 +94,9 @@ export class ThumbnailComponent extends HTMLElement {
   div.name{
     position: relative;
     width: 100%;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: lighter;
     font-size: 0.8rem;
     line-height: 1rem;
     display: flex;

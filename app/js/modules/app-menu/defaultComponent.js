@@ -72,12 +72,11 @@ export class DefaultComponent extends HTMLElement {
         this._shadow.innerHTML = this.style + this.template;
         const buttonRef = this.shadowRoot.getElementById("back-button");
         buttonRef.onclick = () => {
-            this.shadowRoot.dispatchEvent(new CustomEvent("toggleMenu", {
-                bubbles: true,
-                composed: true
-            }));
-            console.log(this)
+            window.navigationService.goBack();
         }
+        const mobileFabRef = this.shadowRoot.getElementById("mobile-fab");
+        const func = eval(this.getAttribute("onButtonClick"));
+        mobileFabRef.onclick = func;
     }
 
 }
