@@ -1,4 +1,4 @@
-export class FilterComponent extends HTMLElement {
+export class FilterTagComponent extends HTMLElement {
 
     style = `
     <style>

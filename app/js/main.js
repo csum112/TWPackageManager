@@ -1,7 +1,8 @@
 import { ThumbnailComponent } from "/js/modules/thumbnailComponent.js";
 import { AppListComponent } from "/js/modules/appListComponent.js";
 import { ShellComponent } from "/js/modules/shellComponent.js";
-import { FilterComponent } from "/js/modules/filterComponent.js";
+import { FilterComponent } from "/js/modules/filters-menu/filterComponent.js";
+import { FilterTagComponent } from "/js/modules/filters-menu/filterTagComponent.js";
 import { DefaultComponent } from "/js/modules/app-menu/defaultComponent.js";
 import { MenuComponent } from "/js/modules/menuComponent.js";
 import { AppCoverComponent } from "/js/modules/app-menu/appCoverComponent.js";
@@ -31,6 +32,7 @@ customElements.define("dm-info", AppInfoComponent);
 customElements.define("dm-dependencies", AppDependenciesComponent);
 customElements.define("dm-checkout", CheckoutComponent);
 customElements.define("dm-filter", FilterComponent);
+customElements.define("dm-filter-tag", FilterTagComponent);
 customElements.define("dm-nav", NavComponent);
 customElements.define("dm-welcome", WelcomeComponent);
 
