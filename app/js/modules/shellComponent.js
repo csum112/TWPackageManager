@@ -290,7 +290,7 @@ export class ShellComponent extends HTMLElement {
                   DEmI
               </div>
         <div class="header-mobile-wrapper">
-            <button class="menu-fab">
+            <button class="menu-fab" onclick="window.router.navigateTo('/nav')">
                 <i class="fas fa-bars fa-2x"></i>
             </button>
         <div class="searchbox-wrapper">

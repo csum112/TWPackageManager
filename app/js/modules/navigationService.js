@@ -33,4 +33,5 @@ export class NavigationService {
             window.router.navigateTo(newRoute);
         }
     }
+
 }
