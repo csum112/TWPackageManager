@@ -30,7 +30,7 @@ export class NavComponent extends HTMLElement {
 
     template = `
         <div class="page-content">
-            <a href="/"><h1>Home</h1></a>
+            <a href="/"><h1>Browse</h1></a>
             <a href="/welcome"><h1>Change distro</h1></a>
             <a href="/contact"><h1>Contact</h1></a>
             <a href="/about"><h1>About</h1></a>

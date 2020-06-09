@@ -286,11 +286,12 @@ export class ShellComponent extends HTMLElement {
       <main>
       <div class="force golden-bigger">
           <div class="header" id="toolbar">
-              <div class="logo">
+              <a href="/nav"><div class="logo">
                   DEmI
               </div>
+              </a>
         <div class="header-mobile-wrapper">
-            <button class="menu-fab" onclick="window.router.navigateTo('/nav')">
+            <button class="menu-fab" onclick="window.router.navigateTo('/filters')">
                 <i class="fas fa-bars fa-2x"></i>
             </button>
         <div class="searchbox-wrapper">

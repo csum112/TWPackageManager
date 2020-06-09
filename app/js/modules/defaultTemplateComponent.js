@@ -4,8 +4,8 @@ export class DefaultTemplateComponent extends HTMLElement {
         <style>
         .main-wrapper {
             position: fixed;
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
             height: 100%;
             width: 100vw;
             z-index: 1000;
@@ -39,7 +39,7 @@ export class DefaultTemplateComponent extends HTMLElement {
             padding-top: 2rem;
             width: 162px;
             height: 77px;
-            right: 25vw;
+            left: 25vw;
             font-family: Zilla Slab Highlight;
             font-style: normal;
             font-weight: bold;
@@ -54,7 +54,7 @@ export class DefaultTemplateComponent extends HTMLElement {
             position: relative;
             flex-direction: column;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: flex-start;
         }
         
         slot {
@@ -95,6 +95,7 @@ export class DefaultTemplateComponent extends HTMLElement {
 
     template = `
     <div class="main-wrapper">
+        <a href="/nav"><div class="logo">DEmI</div></a>
         <div class="page-shell">
             <div class="dots1">
                 <img src="/assets/svg/dots.svg" alt="design-dots" width="200" height="200">
@@ -103,7 +104,6 @@ export class DefaultTemplateComponent extends HTMLElement {
                 <img src="/assets/svg/dots.svg" alt="design-dots" width="200" height="200">
             </div>
 
-            <div class="logo">DEmI</div>
             <slot name="page-content"></slot>
 
             <footer>

@@ -46,6 +46,11 @@ const routes = [
         path: "/about",
         templateSelector: "about",
         mobileMenuOpen: true
+    },
+    {
+        path: "/contact",
+        templateSelector: "contact",
+        mobileMenuOpen: true
     }
 ];
 
