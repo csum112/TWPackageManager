@@ -18,6 +18,7 @@ export class NavComponent extends HTMLElement {
         
         h1 {
             color: #fff;
+            border-bottom: 2px solid #894EC6;
             font-family: 'Roboto', sans-serif;
             font-style: normal;
             font-weight: lighter;
@@ -29,9 +30,10 @@ export class NavComponent extends HTMLElement {
 
     template = `
         <div class="page-content">
-            <a><h1>Home</h1></a>
-            <a><h1>Contact</h1></a>
-            <a><h1>About</h1></a>
+            <a href="/"><h1>Home</h1></a>
+            <a href="/welcome"><h1>Change distro</h1></a>
+            <a href="/contact"><h1>Contact</h1></a>
+            <a href="/about"><h1>About</h1></a>
         </div>
     `;
 

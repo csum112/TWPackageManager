@@ -22,6 +22,13 @@ export class WelcomeComponent extends HTMLElement {
                 font-weight: lighter;
             }
 
+            h1 {
+                border-bottom: 2px solid #894EC6;
+            }
+            h3 {
+                color: #894EC6;
+            }
+
             .distros {
                 height: 50vh;
                 display: flex;
@@ -54,8 +61,8 @@ export class WelcomeComponent extends HTMLElement {
             <h1>Welcome</h1>
             <h3>Pick your flavour.</h3>
             <div class="distros">
-                <a onclick="setDistro('brewDistro')" id="brew"><img src="/assets/png/brew_logo.png" alt="Brew logo" width="250" height="116"></a>
-                <a onclick="setDistro('archDistro')"><img src="/assets/png/arch_logo.png" alt="Archlinux logo" width="200" height="60"></a>
+                <a href="/" onclick="setDistro('brewDistro')" id="brew"><img src="/assets/png/brew_logo.png" alt="Brew logo" width="250" height="116"></a>
+                <a href="/" onclick="setDistro('archDistro')"><img src="/assets/png/arch_logo.png" alt="Archlinux logo" width="200" height="60"></a>
             </div>
         </div>
     `;

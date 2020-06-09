@@ -4,12 +4,19 @@ export class DefaultTemplateComponent extends HTMLElement {
         <style>
         .main-wrapper {
             position: fixed;
-            height: 100vh;
+            margin: 0;
+            padding: 0;
+            height: 100%;
             width: 100vw;
             z-index: 1000;
             background: #252a41;
             top: 0px;
             left: 0px;
+            overflow-y: scroll;
+        }
+
+        .main-wrapper::-webkit-scrollbar {
+            display: none;
         }
 
         .dots1 {
@@ -29,6 +36,7 @@ export class DefaultTemplateComponent extends HTMLElement {
         .logo {
             user-select: none;
             position: relative;
+            padding-top: 2rem;
             width: 162px;
             height: 77px;
             right: 25vw;
@@ -41,8 +49,7 @@ export class DefaultTemplateComponent extends HTMLElement {
         }
         
         .page-shell {
-            margin-top: 2rem;
-            margin-bottom: 5rem;
+            min-height: 100%;
             display: flex;
             position: relative;
             flex-direction: column;
@@ -50,14 +57,20 @@ export class DefaultTemplateComponent extends HTMLElement {
             justify-content: space-evenly;
         }
         
+        slot {
+            padding-bottom: 3rem;
+        }
+
         footer {
-            position: fixed;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
+            position: absolute;
+            height: 3rem;
             bottom: 0;
             width: 100%;
             background-color: rgba(202, 204, 219, 0.3);
             color: #252a41;
+            font-family: 'Roboto', sans-serif;
+            font-style: normal;
+            font-weight: lighter;
             text-align: center;
         }
         
@@ -76,17 +89,6 @@ export class DefaultTemplateComponent extends HTMLElement {
             }
         
         }
-
-        @media (max-height: 670px) and (orientation: portrait) {
-    
-            .logo {
-              display: none;
-            }
-            footer {
-                display: none;
-            }
-        }
-
        
         </style>
     `;
@@ -104,11 +106,10 @@ export class DefaultTemplateComponent extends HTMLElement {
             <div class="logo">DEmI</div>
             <slot name="page-content"></slot>
 
+            <footer>
+                <p>&copy Copyright 2020 | DEmI</p>
+            </footer>
         </div>
-
-        <footer>
-            <p>&copy Copyright 2020 | DEmI</p>
-        </footer>
     </div>
     `;
 
