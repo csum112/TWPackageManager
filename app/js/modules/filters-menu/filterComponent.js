@@ -88,7 +88,6 @@ export class FilterComponent extends HTMLElement {
       display: inline-block;
       border-bottom: 2px solid #894EC6;
       margin-bottom: 25px;
-      background-color: coral;
       width: 100%;
   }
     
