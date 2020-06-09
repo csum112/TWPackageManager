@@ -13,9 +13,10 @@ export class AboutComponent extends HTMLElement {
                 align-items: center;
                 justify-content: space-evenly;
             }
-            
+
             a:link, a:visited {
                 text-decoration: none;
+                color: #894EC6;
             }
             
             h1, h2, p, ol {
@@ -46,6 +47,7 @@ export class AboutComponent extends HTMLElement {
 
                 <!--Authors and affiliations-->
                 <section>
+                    <h2>Authors</h2>
                     <ol>
                         <!--Primul membru al echipei-->
                         <li property="schema:author" typeof="sa:ContributorRole">
@@ -74,10 +76,11 @@ export class AboutComponent extends HTMLElement {
                     </ol>
                     
                     <!--Affiliations list-->
+                    <h2>Affiliations</h2>
                     <ol>
                         <li id="uaic">
                             <a href="https://www.info.uaic.ro/" target="_blank" typeof="schema:Corporation">
-                                <span property="schema:name">Facultatea de Informatica UAIC, Iasi</span>
+                                <span property="schema:name">Computer Science Faculty, UAIC, Iasi</span>
                             </a>
                         </li>
                     </ol>
@@ -86,87 +89,93 @@ export class AboutComponent extends HTMLElement {
                 <section typeof="sa:Abstract">
                     <h2>Main project requirements</h2>
                     
-                    <p>Actualmente, exista o multitudine de aplicatii de sine-statatoare pentru managementul pachetelor software. 
-                    Instalarea unui nou computer implica folosirea acestor aplicatii pentru a realiza un mediu comun util dezvoltatorilor 
-                    (novici sau profesionisti) dintr-o organizatie academica ori comerciala. Pachetele necesare sunt dependente de altele; 
-                    pot exista, de asemenea, diverse conflicte datorate incompatibilitatilor dintre versiuni, compilatoare, limbaje etc.</p>
+                    <p>At the moment, there are a multitude of stand-alone package management applications. Setting up a new computer
+                    implies using these applications to create a shared environment useful to developers (beginners or professionals)
+                    from an academic or comercial organization. The required packages depend on others; there could also be a variety 
+                    of conflicts caused by version, compiler or language incompatibility.</p>
                     
-                    <p>Sa se implementeze un sistem Web care ofera suport "inteligent" pentru problemele mentionate via un API REST de 
-                    management unificat al gestionarii componentelor software. Se vor genera si script-urile necesare pentru asigurarea 
-                    fluxurilor de activitati de administrare. Ca inspiratie, a se considera solutii precum Bower, Docker, NuGet, npm, 
-                    Puppet.</p>
+                    <p>Implement a Web system that offers "smart" support for the aformentioned problem via a REST API for unified
+                    management of software components. The required scripts that ensure a administration activity flux will also be
+                    generated. As inspiration, consider solutions such as <a href="https://bower.io/" target="_blank">Bower</a>, 
+                    <a href="https://www.docker.com/" target="_blank">Docker</a>, <a href="https://www.nuget.org/" target="_blank">NuGet</a>, 
+                    <a href="https://www.npmjs.com/" target="_blank">npm</a>, <a href="https://puppet.com/" target="_blank">Puppet</a>.</p>
                 </section>
 
                 <section typeof="sa:Abstract">
                     <h2>Main project requirements</h2>
                     
-                    <p>Actualmente, exista o multitudine de aplicatii de sine-statatoare pentru managementul pachetelor software. 
-                    Instalarea unui nou computer implica folosirea acestor aplicatii pentru a realiza un mediu comun util dezvoltatorilor 
-                    (novici sau profesionisti) dintr-o organizatie academica ori comerciala. Pachetele necesare sunt dependente de altele; 
-                    pot exista, de asemenea, diverse conflicte datorate incompatibilitatilor dintre versiuni, compilatoare, limbaje etc.</p>
+                    <p>At the moment, there are a multitude of stand-alone package management applications. Setting up a new computer
+                    implies using these applications to create a shared environment useful to developers (beginners or professionals)
+                    from an academic or comercial organization. The required packages depend on others; there could also be a variety 
+                    of conflicts caused by version, compiler or language incompatibility.</p>
                     
-                    <p>Sa se implementeze un sistem Web care ofera suport "inteligent" pentru problemele mentionate via un API REST de 
-                    management unificat al gestionarii componentelor software. Se vor genera si script-urile necesare pentru asigurarea 
-                    fluxurilor de activitati de administrare. Ca inspiratie, a se considera solutii precum Bower, Docker, NuGet, npm, 
-                    Puppet.</p>
+                    <p>Implement a Web system that offers "smart" support for the aformentioned problem via a REST API for unified
+                    management of software components. The required scripts that ensure a administration activity flux will also be
+                    generated. As inspiration, consider solutions such as <a href="https://bower.io/" target="_blank">Bower</a>, 
+                    <a href="https://www.docker.com/" target="_blank">Docker</a>, <a href="https://www.nuget.org/" target="_blank">NuGet</a>, 
+                    <a href="https://www.npmjs.com/" target="_blank">npm</a>, <a href="https://puppet.com/" target="_blank">Puppet</a>.</p>
                 </section>
 
                 <section typeof="sa:Abstract">
                     <h2>Main project requirements</h2>
                     
-                    <p>Actualmente, exista o multitudine de aplicatii de sine-statatoare pentru managementul pachetelor software. 
-                    Instalarea unui nou computer implica folosirea acestor aplicatii pentru a realiza un mediu comun util dezvoltatorilor 
-                    (novici sau profesionisti) dintr-o organizatie academica ori comerciala. Pachetele necesare sunt dependente de altele; 
-                    pot exista, de asemenea, diverse conflicte datorate incompatibilitatilor dintre versiuni, compilatoare, limbaje etc.</p>
+                    <p>At the moment, there are a multitude of stand-alone package management applications. Setting up a new computer
+                    implies using these applications to create a shared environment useful to developers (beginners or professionals)
+                    from an academic or comercial organization. The required packages depend on others; there could also be a variety 
+                    of conflicts caused by version, compiler or language incompatibility.</p>
                     
-                    <p>Sa se implementeze un sistem Web care ofera suport "inteligent" pentru problemele mentionate via un API REST de 
-                    management unificat al gestionarii componentelor software. Se vor genera si script-urile necesare pentru asigurarea 
-                    fluxurilor de activitati de administrare. Ca inspiratie, a se considera solutii precum Bower, Docker, NuGet, npm, 
-                    Puppet.</p>
+                    <p>Implement a Web system that offers "smart" support for the aformentioned problem via a REST API for unified
+                    management of software components. The required scripts that ensure a administration activity flux will also be
+                    generated. As inspiration, consider solutions such as <a href="https://bower.io/" target="_blank">Bower</a>, 
+                    <a href="https://www.docker.com/" target="_blank">Docker</a>, <a href="https://www.nuget.org/" target="_blank">NuGet</a>, 
+                    <a href="https://www.npmjs.com/" target="_blank">npm</a>, <a href="https://puppet.com/" target="_blank">Puppet</a>.</p>
                 </section>
 
                 <section typeof="sa:Abstract">
                     <h2>Main project requirements</h2>
                     
-                    <p>Actualmente, exista o multitudine de aplicatii de sine-statatoare pentru managementul pachetelor software. 
-                    Instalarea unui nou computer implica folosirea acestor aplicatii pentru a realiza un mediu comun util dezvoltatorilor 
-                    (novici sau profesionisti) dintr-o organizatie academica ori comerciala. Pachetele necesare sunt dependente de altele; 
-                    pot exista, de asemenea, diverse conflicte datorate incompatibilitatilor dintre versiuni, compilatoare, limbaje etc.</p>
+                    <p>At the moment, there are a multitude of stand-alone package management applications. Setting up a new computer
+                    implies using these applications to create a shared environment useful to developers (beginners or professionals)
+                    from an academic or comercial organization. The required packages depend on others; there could also be a variety 
+                    of conflicts caused by version, compiler or language incompatibility.</p>
                     
-                    <p>Sa se implementeze un sistem Web care ofera suport "inteligent" pentru problemele mentionate via un API REST de 
-                    management unificat al gestionarii componentelor software. Se vor genera si script-urile necesare pentru asigurarea 
-                    fluxurilor de activitati de administrare. Ca inspiratie, a se considera solutii precum Bower, Docker, NuGet, npm, 
-                    Puppet.</p>
+                    <p>Implement a Web system that offers "smart" support for the aformentioned problem via a REST API for unified
+                    management of software components. The required scripts that ensure a administration activity flux will also be
+                    generated. As inspiration, consider solutions such as <a href="https://bower.io/" target="_blank">Bower</a>, 
+                    <a href="https://www.docker.com/" target="_blank">Docker</a>, <a href="https://www.nuget.org/" target="_blank">NuGet</a>, 
+                    <a href="https://www.npmjs.com/" target="_blank">npm</a>, <a href="https://puppet.com/" target="_blank">Puppet</a>.</p>
                 </section>
 
                 <section typeof="sa:Abstract">
                     <h2>Main project requirements</h2>
                     
-                    <p>Actualmente, exista o multitudine de aplicatii de sine-statatoare pentru managementul pachetelor software. 
-                    Instalarea unui nou computer implica folosirea acestor aplicatii pentru a realiza un mediu comun util dezvoltatorilor 
-                    (novici sau profesionisti) dintr-o organizatie academica ori comerciala. Pachetele necesare sunt dependente de altele; 
-                    pot exista, de asemenea, diverse conflicte datorate incompatibilitatilor dintre versiuni, compilatoare, limbaje etc.</p>
+                    <p>At the moment, there are a multitude of stand-alone package management applications. Setting up a new computer
+                    implies using these applications to create a shared environment useful to developers (beginners or professionals)
+                    from an academic or comercial organization. The required packages depend on others; there could also be a variety 
+                    of conflicts caused by version, compiler or language incompatibility.</p>
                     
-                    <p>Sa se implementeze un sistem Web care ofera suport "inteligent" pentru problemele mentionate via un API REST de 
-                    management unificat al gestionarii componentelor software. Se vor genera si script-urile necesare pentru asigurarea 
-                    fluxurilor de activitati de administrare. Ca inspiratie, a se considera solutii precum Bower, Docker, NuGet, npm, 
-                    Puppet.</p>
+                    <p>Implement a Web system that offers "smart" support for the aformentioned problem via a REST API for unified
+                    management of software components. The required scripts that ensure a administration activity flux will also be
+                    generated. As inspiration, consider solutions such as <a href="https://bower.io/" target="_blank">Bower</a>, 
+                    <a href="https://www.docker.com/" target="_blank">Docker</a>, <a href="https://www.nuget.org/" target="_blank">NuGet</a>, 
+                    <a href="https://www.npmjs.com/" target="_blank">npm</a>, <a href="https://puppet.com/" target="_blank">Puppet</a>.</p>
                 </section>
 
                 <section typeof="sa:Abstract">
                     <h2>Main project requirements</h2>
                     
-                    <p>Actualmente, exista o multitudine de aplicatii de sine-statatoare pentru managementul pachetelor software. 
-                    Instalarea unui nou computer implica folosirea acestor aplicatii pentru a realiza un mediu comun util dezvoltatorilor 
-                    (novici sau profesionisti) dintr-o organizatie academica ori comerciala. Pachetele necesare sunt dependente de altele; 
-                    pot exista, de asemenea, diverse conflicte datorate incompatibilitatilor dintre versiuni, compilatoare, limbaje etc.</p>
+                    <p>At the moment, there are a multitude of stand-alone package management applications. Setting up a new computer
+                    implies using these applications to create a shared environment useful to developers (beginners or professionals)
+                    from an academic or comercial organization. The required packages depend on others; there could also be a variety 
+                    of conflicts caused by version, compiler or language incompatibility.</p>
                     
-                    <p>Sa se implementeze un sistem Web care ofera suport "inteligent" pentru problemele mentionate via un API REST de 
-                    management unificat al gestionarii componentelor software. Se vor genera si script-urile necesare pentru asigurarea 
-                    fluxurilor de activitati de administrare. Ca inspiratie, a se considera solutii precum Bower, Docker, NuGet, npm, 
-                    Puppet.</p>
+                    <p>Implement a Web system that offers "smart" support for the aformentioned problem via a REST API for unified
+                    management of software components. The required scripts that ensure a administration activity flux will also be
+                    generated. As inspiration, consider solutions such as <a href="https://bower.io/" target="_blank">Bower</a>, 
+                    <a href="https://www.docker.com/" target="_blank">Docker</a>, <a href="https://www.nuget.org/" target="_blank">NuGet</a>, 
+                    <a href="https://www.npmjs.com/" target="_blank">npm</a>, <a href="https://puppet.com/" target="_blank">Puppet</a>.</p>
                 </section>
-                
+
             </div>
         </article>
     `;
