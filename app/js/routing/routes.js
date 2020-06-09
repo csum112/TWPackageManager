@@ -30,17 +30,17 @@ const routes = [
     {
         path: "/welcome",
         templateSelector: "welcome",
-        mobileMenuOpen: false
+        mobileMenuOpen: true
     },
     {
         path: "/nav",
         templateSelector: "nav",
-        mobileMenuOpen: false
+        mobileMenuOpen: true
     },
     {
         path: "/filters",
         templateSelector: "filters",
-        mobileMenuOpen: false
+        mobileMenuOpen: true
     }
 ];
 

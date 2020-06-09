@@ -10,6 +10,8 @@ export class FilterComponent extends HTMLElement {
       background: #252a41;
       top: 0px;
       left: 0px;
+      display: flex;
+      justify-content: center;
     }
     .logo {
       user-select: none;
@@ -28,19 +30,20 @@ export class FilterComponent extends HTMLElement {
   .filter-shell {
       margin-top: 2rem;
       margin-bottom: 5rem;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
       color: #fff;
       font-family: 'Roboto', sans-serif;
       font-style: normal;
       font-weight: lighter;
+      width: 30rem;
   }
   
   #sort-label{
-      margin-right: 24rem;
+      margin-right: 75%;
       font-size: 25px;
   }
   
@@ -48,7 +51,7 @@ export class FilterComponent extends HTMLElement {
       display: flex;
     position: relative;
       flex-direction: row;
-      width: 30rem;
+      width: 100%;
       justify-content: space-between;
   }
   
@@ -65,25 +68,28 @@ export class FilterComponent extends HTMLElement {
       padding-left: 5%;
       padding-right: 5%;
       border-radius: 12.5px;
+      width: 100%;
   }
   
   
   #sortby{
-      width: 20rem;
+      width: 66%;
   }
   
   #addfilter{
-      width: 30rem;
+      width: 100%;
   }
   
   #ascu{
-      width: 5rem;
+      width: 16%;
   }
   .dropdown {
       position: relative;
       display: inline-block;
       border-bottom: 2px solid #894EC6;
       margin-bottom: 25px;
+      background-color: coral;
+      width: 100%;
   }
     
   .dropdown-content {
@@ -91,7 +97,6 @@ export class FilterComponent extends HTMLElement {
       position: absolute;
       right: 0;
       background-color: #252a41;
-      min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
   }
@@ -116,20 +121,21 @@ export class FilterComponent extends HTMLElement {
   .filterc {
       display: flex;
       flex-direction: row;
-      width: 30rem;
-      height: 10rem;
+      width: 100%;
+      height: 33%;
       flex-wrap: wrap;
       align-content: flex-start;
+      margin-bottom: 
   }
   
   .resetapply{
       display: flex;
-    position: relative;
+      position: relative;
       flex-direction: row;
-      width: 30rem;
       justify-content: space-between;
       font-size: 25px;
       bottom: 0px;
+      width:100%;
   }
   
   
@@ -149,6 +155,11 @@ export class FilterComponent extends HTMLElement {
       .logo {
           left: 27px;
       }
+
+      .filter-shell {
+        width: 19rem;
+      }
+      
   
   }
     </style>`;
@@ -163,8 +174,8 @@ export class FilterComponent extends HTMLElement {
     <h1>FILTERS</h1>
     <p id="sort-label">Sort By: </p>
     <div class="ordering">
-      <div class="dropdown">
-        <button class="dropbtn" id="sortby">
+      <div class="dropdown" id="sortby">
+        <button class="dropbtn">
           <p>Name</p>
           <i class="fas fa-caret-down"></i>
         </button>
@@ -175,8 +186,8 @@ export class FilterComponent extends HTMLElement {
         </div>
       </div>
 
-      <div class="dropdown">
-        <button class="dropbtn" id="ascu">
+      <div class="dropdown" id="ascu">
+        <button class="dropbtn">
           <p>Asc</p>
           <i class="fas fa-caret-down"></i>
         </button>
@@ -187,8 +198,8 @@ export class FilterComponent extends HTMLElement {
         </div>
       </div>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn" id="addfilter">
+    <div class="dropdown" id="addfilter">
+      <button class="dropbtn">
         <p>Add a filter</p>
         <i class="fas fa-caret-down"></i>
       </button>
@@ -202,7 +213,7 @@ export class FilterComponent extends HTMLElement {
 
       <dm-filter-tag>
         <span slot="filter-name">
-          adasdasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          adasdasaaaaaaaaaaaaaaa
         </span>
       </dm-filter-tag>
 
