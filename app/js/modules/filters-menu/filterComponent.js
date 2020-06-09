@@ -2,31 +2,7 @@ export class FilterComponent extends HTMLElement {
 
   style = `
     <style>
-    .main-wrapper {
-      position: fixed;
-      height: 100vh;
-      width: 100vw;
-      z-index: 1000;
-      background: #252a41;
-      top: 0px;
-      left: 0px;
-      display: flex;
-      justify-content: center;
-    }
-    .logo {
-      user-select: none;
-      position: relative;
-      width: 162px;
-      height: 77px;
-      right: 27.5rem;
-      font-family: Zilla Slab Highlight;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 48px;
-      color: rgba(202, 204, 219, 0.3);
-      text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
-  }
-  
+    
   .filter-shell {
       margin-top: 2rem;
       margin-bottom: 5rem;
@@ -124,10 +100,10 @@ export class FilterComponent extends HTMLElement {
       height: 33%;
       flex-wrap: wrap;
       align-content: flex-start;
-      margin-bottom: 
   }
   
   .resetapply{
+      bottom: 2vh;
       display: flex;
       position: relative;
       flex-direction: row;
@@ -137,39 +113,23 @@ export class FilterComponent extends HTMLElement {
       width:100%;
   }
   
-  
-  footer {
-      position: fixed;
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
-      bottom: 0;
-      width: 100%;
-      background-color: rgba(202, 204, 219, 0.3);
-      color: #252a41;
-      text-align: center;
-  }
-  
   @media (max-width: 720px) and (orientation: portrait) {
-  
-      .logo {
-          left: 27px;
-      }
 
       .filter-shell {
+        margin-top: 0px;
         width: 19rem;
       }
-      
-  
+ 
   }
+
+}
     </style>`;
 
   template = `
-    <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+  <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+  <script src="/js/main.js" type="module"></script>
 
-    <script src="/js/main.js" type="module"></script>
-<div class="main-wrapper">
   <div class="filter-shell">
-    <div class="logo">DEmI</div>
     <h1>FILTERS</h1>
     <p id="sort-label">Sort By: </p>
     <div class="ordering">
@@ -257,11 +217,6 @@ export class FilterComponent extends HTMLElement {
       <p>Reset All</p>
       <p>Apply</p>
     </div>
-  </div>
-
-  <footer>
-    <p>&copy Copyright 2020 | DEmI</p>
-  </footer>
   </div>
   `;
 

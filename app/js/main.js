@@ -19,6 +19,7 @@ import { NavComponent } from "/js/modules/navComponent.js";
 import { PackageDetailsService } from "/js/modules/packageDetailsService.js";
 import { BasketService } from "/js/modules/basektService.js";
 import { WelcomeComponent } from "/js/modules/welcomeComponent.js";
+import { DefaultTemplateComponent } from "/js/modules/defaultTemplateComponent.js";
 
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
@@ -35,6 +36,7 @@ customElements.define("dm-filter", FilterComponent);
 customElements.define("dm-filter-tag", FilterTagComponent);
 customElements.define("dm-nav", NavComponent);
 customElements.define("dm-welcome", WelcomeComponent);
+customElements.define("dm-default-template", DefaultTemplateComponent);
 
 window.appListService = new AppListService();
 window.packageDetailsService = new PackageDetailsService();
