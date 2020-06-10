@@ -23,7 +23,7 @@ export class AppCoverComponent extends HTMLElement {
     }
 
     navigateTo(tab){
-        let packageName = window.appListService.currentPackage;
+        let packageName = window.packageDetailsService.currentPackage;
         let route = "/package/" + packageName + "/" + tab;
         window.router.navigateTo(route);
     }
