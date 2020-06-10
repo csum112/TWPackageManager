@@ -21,23 +21,20 @@ export class AppInfoComponent extends HTMLElement {
     `;
 
 
-    template = `
+    _getTemplate = (homepage="none", version="none") => `
         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
 
         <article>
-            <p><strong>Version:</strong> 3.0.8-0+deb9u1</p>
-            <p><strong>Tag:</strong> video</p>
-            <p><strong>Mainteiner:</strong> Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org></p>
-            <p><strong>Homepage:</strong> http://www.videolan.org/vlc/</p>
-            <p><strong>Installed-Size:</strong> 230 kB</p>
-            <p><strong>Download-Size:</strong> 139 kB</p>
+            <p><strong>Version:</strong>${version}</p>
+            <p><strong>Homepage:</strong>${homepage}</p>
         </article>
     `;
 
     constructor() {
         super();
         this._shadow = this.attachShadow({ mode: "open" });
-        this._shadow.innerHTML = this.style + this.template;
+        window.packageDetailsService.getContent()
+            .then(content => { this._shadow.innerHTML = this.style + this._getTemplate(content.data.homepage); })
     }
 
 } 

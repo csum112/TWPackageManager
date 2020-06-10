@@ -25,14 +25,7 @@ export class AppDependenciesComponent extends HTMLElement {
         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
 
         <div class="dep-list">
-            <ul>
-                <li>alsa-lib-1.2.2</li>
-                <li>desktop-file-utils-0.24</li>
-                <li>FFmpeg-4.2.3</li>
-                <li>liba52-0.7.4</li>
-                <li>libgcrypt-1.8.5</li>
-                <li>libmad-0.15.1b</li>
-                <li>Lua-5.3.5</li>
+            <ul id="tg">
             </ul>
         </div>
     `;
@@ -41,6 +34,15 @@ export class AppDependenciesComponent extends HTMLElement {
         super();
         this._shadow = this.attachShadow({ mode: "open" });
         this._shadow.innerHTML = this.style + this.template;
+        const ulRef = this.shadowRoot.getElementById("tg");
+        window.packageDetailsService.getContent()
+            .then(content => {
+                content.data.dependencies.forEach(dep => {
+                    let node = document.createElement("li");
+                    node.appendChild(document.createTextNode(dep));
+                    ulRef.appendChild(node);
+                })
+            })
     }
 
 } 
