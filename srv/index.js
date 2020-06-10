@@ -14,7 +14,7 @@ server.get("/brew/packages", async (body, query) => {
   let limit = DEFAULT_PACKAGE_NUMBER;
   if ('limit' in query)
     limit = query.limit;
-  let pkgs =  await brew.getAllPackages((x) => true, limit);
+  let pkgs =  await brew.getAllPackages((x) => x.name.includes(query.prefix), limit);
   return pkgs
 });
 

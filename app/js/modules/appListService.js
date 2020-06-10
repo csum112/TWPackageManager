@@ -1,6 +1,6 @@
 export class AppListService {
   constructor() {
-    this.filter = "";
+    this.filter = {prefix: ""};
     this.fetchPackages().then((list) => {
       this.list = list;
       this.refresh();
@@ -11,7 +11,7 @@ export class AppListService {
 
   getPackages() {
     if(this.list != null)
-      return this.list.filter((name) => name.includes(this.filter));
+      return this.list;
     else return [];
   }
 
@@ -22,13 +22,15 @@ export class AppListService {
   }
 
   async fetchPackages() {
-    const req = await fetch("/api/brew/packages");
+    const req = await fetch(`/api/brew/packages?prefix=${this.filter.prefix}`);
     const reqJson = await req.json();
     return reqJson.data;
   }
 
-  setFilter(newFilter) {
-    this.filter = newFilter;
+  async setFilter(newFilter) {
+    this.filter.prefix = newFilter;
+    this.list = await this.fetchPackages();
+    console.log(this.list)
     this.refresh();
   }
 }

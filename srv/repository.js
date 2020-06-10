@@ -26,8 +26,8 @@ class Brew {
         pkgArr = pkgArr
             .filter(filterFunction)
             .map(e => e.name);
-
-        pkgArr.length = limit;
+        if(pkgArr.length > limit)
+            pkgArr.length = limit;
         return pkgArr;
     }
 
