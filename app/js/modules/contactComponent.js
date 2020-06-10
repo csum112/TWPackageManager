@@ -37,6 +37,7 @@ export class ContactComponent extends HTMLElement {
             justify-content: space-around;
             margin: 10px;
             border: 2px solid #894EC6;
+            width: 30vw;
         
         }
         .contact_container h1 {
@@ -70,7 +71,7 @@ export class ContactComponent extends HTMLElement {
             border-radius: 40px;
             display: flex;
             flex-direction: row;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -96,6 +97,51 @@ export class ContactComponent extends HTMLElement {
             color: White;
         }
 
+        @media (max-width: 720px) and (orientation: portrait) {
+            
+            .contact_containers {
+                flex-direction: column;
+            }
+
+            .contact_container {
+                width: 88vw;
+                padding: 0.25rem;  
+            }
+
+            .contact_details {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0rem;
+            }
+
+            .fa-mobile-alt {
+                margin-left: 7px;
+            }
+            
+        }
+
+        @media (max-width: 1337px) and (orientation: landscape) {
+            
+            .contact_containers {
+                flex-direction: column;
+            }
+
+            .contact_container {
+                width: 88vw;
+                padding: 0.25rem;  
+            }
+
+            .contact_details {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0rem;
+            }
+
+            .fa-mobile-alt {
+                margin-left: 7px;
+            }
+            
+        }
     </style>`;
 
     template = `
@@ -148,7 +194,7 @@ export class ContactComponent extends HTMLElement {
                             <i class="fas fa-mobile-alt fa-4x"></i>
                         </div>
                         <div class="contact_label">
-                            +40 xxxxxxxxx
+                            +40 0744444444
                         </div>
                     </div>
 
@@ -168,7 +214,7 @@ export class ContactComponent extends HTMLElement {
                     <img src="/assets/png/BRA.jpg" alt="rzv" width="100" height="100">
                 </div>
                 
-                <h1>Bejenariu Razvan Andrei</h1>
+                <h1>Bejenariu Razvan-Andrei</h1>
 
                 <h3> Face de toate baiat bun </h3>
 
@@ -187,7 +233,7 @@ export class ContactComponent extends HTMLElement {
                         <i class="far fa-envelope fa-4x"></i>
                         </div>
                         <div class="contact_label">
-                            bejenariu.razvand@gmail.com
+                            beje.razvan99@gmail.com
                         </div>
                     </div>
                 </div>
