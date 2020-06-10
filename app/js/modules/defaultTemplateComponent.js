@@ -13,6 +13,7 @@ export class DefaultTemplateComponent extends HTMLElement {
             top: 0px;
             left: 0px;
             overflow-y: scroll;
+            overflow-x: hidden;
         }
 
         .main-wrapper::-webkit-scrollbar {
@@ -85,7 +86,8 @@ export class DefaultTemplateComponent extends HTMLElement {
             }
         
             .logo {
-                left: 30px;
+                margin: auto;
+                transform: translate(-50%);
             }
         
         }
