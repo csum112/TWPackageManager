@@ -2,24 +2,24 @@ const https = require('https')
 // https://nodejs.org/es/docs/guides/anatomy-of-an-http-transaction/
 
 function asyncGetJson(reqUrl) {
-    return new Promise((resolve, error) => {
-        https.get(reqUrl, res => {
-            let body = "";
-            res.on("data", data => {
-              body += data;
-            });
-            res.on("end", () => {
-              body = JSON.parse(body);
-              resolve(body);
-            });
-            res.on("error", error);
-          });
+  return new Promise((resolve, error) => {
+    https.get(reqUrl, res => {
+      let body = "";
+      res.on("data", data => {
+        body += data;
+      });
+      res.on("end", () => {
+        body = JSON.parse(body);
+        resolve(body);
+      });
+      res.on("error", error);
     });
+  });
 };
 
 
 function parseBody(req) {
-  return new Promise((resolve, error) => {
+  return new Promise((resolve, err) => {
     let body = [];
     req
       .on("data", (data) => {
@@ -27,18 +27,23 @@ function parseBody(req) {
       })
       .on("end", () => {
         body = Buffer.concat(body).toString();
+        try {
+          body = JSON.parse(body);
+        } catch (error) {
+          err(error);
+        }
         resolve(body);
       });
   });
 }
 
 function writeDataToHead(res, data) {
-  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify(data));
 }
 
 
-module.exports = {asyncGetJson, writeDataToHead, parseBody}
+module.exports = { asyncGetJson, writeDataToHead, parseBody }
 
 
 //Example: 
