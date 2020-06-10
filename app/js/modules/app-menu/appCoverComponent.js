@@ -16,7 +16,7 @@ export class AppCoverComponent extends HTMLElement {
     constructor() {
         super();
         const shadowRoot = this.attachShadow({ mode: "open" });
-        shadowRoot.innerHTML = this._getStyle() + this._getTemplate();
+        shadowRoot.innerHTML = this._getStyle() + this._getTemplate(window.packageDetailsService.currentPackage);
         this.addEventListener("navigatePackageTab", event => {
           this.navigateTo(event.detail.tab);
         });
@@ -28,13 +28,13 @@ export class AppCoverComponent extends HTMLElement {
         window.router.navigateTo(route);
     }
 
-    _getTemplate() {
+    _getTemplate(content) {
         return `
           <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
 
           <div class="cover">
             <div class="content">
-              <h1>vlc</h1>
+              <h1>${content}</h1>
             </div>
           </div>
 

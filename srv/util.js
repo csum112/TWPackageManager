@@ -46,13 +46,3 @@ function writeDataToHead(res, data) {
 
 
 module.exports = { asyncGetJson, writeDataToHead, parseBody }
-
-
-//Example: 
-// asyncGetJson("https://formulae.brew.sh/api/formula.json")
-//     .then(arr => {
-//         const names = arr
-//         .map(entry => entry.name)
-//         .filter(name => name.match(/([A-z]|[0-9])*/g))
-//         console.log(names)
-//     });

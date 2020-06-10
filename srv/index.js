@@ -18,5 +18,12 @@ server.get("/brew/packages", async (body, query) => {
   return pkgs
 });
 
+server.get("/brew/package", async (body, query) => {
+  let packageName = query.packageName;
+  if (packageName == null) throw {status: 404};
+  let pkg = await brew.getPackage(packageName);
+  return pkg;
+})
+
 
 server.listen(PORT);

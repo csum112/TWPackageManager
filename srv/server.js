@@ -46,7 +46,7 @@ class Server {
             res.end();
         }
 
-        const route = this.routes
+        let route = this.routes
             .filter(r => r.method == method)
             .find(r => r.path == path);
 

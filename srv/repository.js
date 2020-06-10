@@ -22,13 +22,26 @@ class Brew {
             this.cache = pkgArr;
         } else
             pkgArr = this.cache;
-            
+
         pkgArr = pkgArr
             .filter(filterFunction)
             .map(e => e.name);
 
         pkgArr.length = limit;
         return pkgArr;
+    }
+
+    async getPackage(packageName) {
+        let pkgArr = null;
+        if (this.cache == null) {
+            pkgArr = await asyncGetJson(this.allPackagesEP);
+            pkgArr = pkgArr.map(this.preprocess);
+            this.cache = pkgArr;
+        } else
+            pkgArr = this.cache;
+        
+        let pkg = pkgArr.find(pkg => pkg.name == packageName);
+        return pkg;
     }
 }
 

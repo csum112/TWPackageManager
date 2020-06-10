@@ -1,13 +1,14 @@
 export class PackageDetailsService {
     constructor() {
         this.currentPackage = null;
-        this.setMock();
     }
     setCurrentPackage(packageName) {
         this.currentPackage = packageName;
-      }
+    }
 
-    setMock() {
-        
+    async getContent() {
+        let req = await fetch(`/api/brew/package?packageName=${this.currentPackage}`);
+        let reqData = req.json();
+        return reqData;
     }
 }

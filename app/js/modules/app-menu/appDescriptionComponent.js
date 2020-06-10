@@ -21,26 +21,21 @@ export class AppDescriptionComponent extends HTMLElement {
     `;
 
 
-    template = `
-        <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
-        <article id="content">
-            <p>VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4,
-            DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs,
-            podcasts, and multimedia streams from various network sources.</p>
-
-            <p>VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4,
-            DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs,
-            podcasts, and multimedia streams from various network sources.</p>
-
-            <p>VLC has support for on-the-fly transcoding of audio and video formats, either
-            for broadcasting purposes or for movie format transformations.</p>
-        </article>
-    `;
+    getTemplate = (content) => `
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
+    <article id="content">
+        <p>${content}</p>
+    </article>
+`;
 
     constructor() {
         super();
         this._shadow = this.attachShadow({ mode: "open" });
-        this._shadow.innerHTML = this.style + this.template;
+        window.packageDetailsService.getContent()
+            .then(content => {
+                console.log(content.data)
+                this._shadow.innerHTML = this.style + this.getTemplate(content.data.desc);
+            })
     }
 
 } 
