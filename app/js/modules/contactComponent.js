@@ -119,6 +119,29 @@ export class ContactComponent extends HTMLElement {
             }
             
         }
+
+        @media (max-width: 1337px) and (orientation: landscape) {
+            
+            .contact_containers {
+                flex-direction: column;
+            }
+
+            .contact_container {
+                width: 88vw;
+                padding: 0.25rem;  
+            }
+
+            .contact_details {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0rem;
+            }
+
+            .fa-mobile-alt {
+                margin-left: 7px;
+            }
+            
+        }
     </style>`;
 
     template = `
