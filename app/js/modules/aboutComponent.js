@@ -6,12 +6,14 @@ export class AboutComponent extends HTMLElement {
             .page-content {
                 margin-top: 2rem;
                 margin-bottom: 5rem;
-                padding-left: 20%;
-                padding-right: 20%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
+            }
+
+            section {
+                width: 70vw;
             }
 
             a:link, a:visited {
@@ -37,14 +39,31 @@ export class AboutComponent extends HTMLElement {
                 align-items: center;
             }
 
+            .subv {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
             iframe, img {
                 border: 2px solid #894EC6;
             }
 
+            img {
+                height: auto;
+                width: 35vw;
+            }
+
             @media (max-width: 720px) and (orientation: portrait) {
             
-                .distros {
+                .distros, .sub {
                     flex-direction: column;
+                }
+
+                iframe {
+                    width: 306px;
+                    height: 172px;
                 }
             
             }
@@ -69,7 +88,7 @@ export class AboutComponent extends HTMLElement {
                                     <meta property="schema:givenName" content="Cristian">
                                     <meta property="schema:additionalName" content="Mihai">
                                     <meta property="schema:familyName" content="Rosu">
-                                    <span property="schema:name">Cristian-Mihai Ro&#351;u</span>
+                                    <span property="schema:name">Ro&#351;u Cristian-Mihai</span>
                                 </span>
                                 <sup><a href="#fiiuaic" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
                             </li>
@@ -79,7 +98,7 @@ export class AboutComponent extends HTMLElement {
                                 <span typeof="schema:Person" resource="https://www.facebook.com/notcata.sum">
                                     <meta property="schema:givenName" content="Catalin">
                                     <meta property="schema:familyName" content="Sumanaru">
-                                    <span property="schema:name">C&#259;t&#259;lin Sum&#259;naru</span>
+                                    <span property="schema:name">Sum&#259;naru C&#259;t&#259;lin</span>
                                 </span>
                                 <sup><a href="#fiiuaic" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
                             </li>
@@ -90,7 +109,7 @@ export class AboutComponent extends HTMLElement {
                                     <meta property="schema:givenName" content="Razvan">
                                     <meta property="schema:additionalName" content="Andrei">
                                     <meta property="schema:familyName" content="Bejenariu">
-                                    <span property="schema:name">R&#259;zvan Andrei Bejenariu</span>
+                                    <span property="schema:name">Bejenariu R&#259;zvan Andrei</span>
                                 </span>
                                 <sup><a href="#fiiuaic" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
                             </li>
@@ -164,17 +183,17 @@ export class AboutComponent extends HTMLElement {
                         distributions compatible with our package management system are listed. Before going any further, the user
                         needs to choose one of the options.</p>
                         <figure typeof="sa:Image" figcaption="Welcome page">
-                            <img id="welcome" src="/assets/png/welcome.png" alt="Welcome page" width="408" height="200">
+                            <img id="welcome" src="/assets/png/welcome.png" alt="Welcome page">
                         </figure>
                     </div>
 
                     <div class="sub">
-                        <figure typeof="sa:Image" figcaption="Nav page">
-                            <img id="nav" src="/assets/png/nav.png" alt="Nav page" width="408" height="200">
-                        </figure>
                         <p>After having chosen one, the user is then guided to the main navigation page where he can choose to either 
                         <i>Browse</i> through the available packages for the selected distribution, <i>Change distributions</i> if needed,
                         get in <i>Contact</i> with us or learn more <i>About</i> this project.</p>
+                        <figure typeof="sa:Image" figcaption="Nav page">
+                            <img id="nav" src="/assets/png/nav.png" alt="Nav page">
+                        </figure>
                     </div>
 
                     <div class="sub">
@@ -182,14 +201,11 @@ export class AboutComponent extends HTMLElement {
                         visiting Contact will lead him to the page on the right, containing information of the three members of the team
                         that created this project. Visiting About will lead them right to this page itself!</p>
                         <figure typeof="sa:Image" figcaption="Contact page">
-                            <img id="contact" src="/assets/png/contact.png" alt="Contact page" width="408" height="200">
+                            <img id="contact" src="/assets/png/contact.png" alt="Contact page">
                         </figure>
                     </div>
 
                     <div class="sub">
-                        <figure typeof="sa:Image" figcaption="Browse page">
-                            <img id="browse" src="/assets/png/browse.png" alt="Browse page" width="408" height="200">
-                        </figure>
                         <p>Now, the core of the application. Visiting the Browse page will bring the user to the page below. Here, the 
                         user can either browse through the list of available packages or even search for specific ones by name or by
                         certain filters, by clicking the button next to the search bar.
@@ -197,12 +213,17 @@ export class AboutComponent extends HTMLElement {
                         has the option to see other information about that package or its dependencies. After deciding on a package, 
                         the bottom right button can be clicked to add that package to the package list. Once the list is formed, another
                         click of a button will generate the user's required install script!</p>
+                        <figure typeof="sa:Image" figcaption="Browse page">
+                            <img id="browse" src="/assets/png/browse.png" alt="Browse page">
+                        </figure>
                     </div>
 
-                    <p>Below is a short video showcasing page navigation and utilization:</p>
-                    <figure typeof=""sa:Video figcaption="User guide video">
-                        <iframe width="613" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                    </figure>
+                    <div class="subv">
+                        <p>Below is a short video showcasing page navigation and utilization:</p>
+                        <figure typeof=""sa:Video figcaption="User guide video">
+                            <iframe width="613" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                        </figure>
+                    </div>
                 </section>
             </div>
         </article>

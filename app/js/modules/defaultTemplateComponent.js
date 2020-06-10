@@ -25,6 +25,7 @@ export class DefaultTemplateComponent extends HTMLElement {
             position: fixed;
             top: -5vh;
             right: 5vw;
+            z-index: -1000;
         }
         
         .dots2 {
@@ -32,6 +33,7 @@ export class DefaultTemplateComponent extends HTMLElement {
             position: fixed;
             bottom: -5vh;
             left: 5vw;
+            z-index: -1000;
         }
         
         .logo {

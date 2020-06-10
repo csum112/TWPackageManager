@@ -1,10 +1,10 @@
-class Repository{
+class Repository {
     getPackageNames() {
-
+        
     }
 
     getPackage(pkgName, version = null) {
-
+        
     }
 }
 

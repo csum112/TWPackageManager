@@ -1,6 +1,7 @@
 const Server = require('./server');
+const {asyncGetJson} = require('./util');
 
-const PORT = 8081
+const PORT = 8081;
 const server = new Server();
 
 server.get("/", async (body, query) => {
@@ -17,4 +18,8 @@ server.post("/buna", async (body, query) => {
   return null;
 });
 
-server.listen(PORT);
+asyncGetJson('https://formulae.brew.sh/api/formula.json').then((data) => {
+  console.log(data.map(entity => entity.name));
+});
+
+//server.listen(PORT);
