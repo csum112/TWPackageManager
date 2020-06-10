@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  apache:
+  gateway:
     image: 'bitnami/apache:latest'
     ports:
       - '80:8080'
@@ -9,3 +9,7 @@ services:
     volumes:
         - "./app:/app"
         - "./vhost.conf:/vhosts/my_vhost.conf:ro"
+    links:
+        - "apims"
+  apims:
+    build: ./srv
