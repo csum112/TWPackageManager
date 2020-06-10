@@ -85,7 +85,8 @@ export class DefaultTemplateComponent extends HTMLElement {
             }
         
             .logo {
-                left: 30px;
+                margin: auto;
+                transform: translate(-50%);
             }
         
         }

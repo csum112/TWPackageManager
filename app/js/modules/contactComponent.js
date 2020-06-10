@@ -95,7 +95,6 @@ export class ContactComponent extends HTMLElement {
             font-size: 15px;
             color: White;
         }
-
     </style>`;
 
     template = `
