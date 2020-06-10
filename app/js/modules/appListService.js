@@ -22,9 +22,9 @@ export class AppListService {
   }
 
   async fetchPackages() {
-    const req = await fetch("/assets/mock/packages.json");
-    const list = await req.json();
-    return list;
+    const req = await fetch("/api/brew/packages");
+    const reqJson = await req.json();
+    return reqJson.data;
   }
 
   setFilter(newFilter) {

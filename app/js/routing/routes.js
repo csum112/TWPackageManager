@@ -13,7 +13,7 @@ const routes = [
 
     },
     {
-        path: "/package/([A-z]|[0-9])*/description",
+        path: "/package/([A-z]|[0-9]|-|@)*/description",
         templateSelector: "mainPackageDescription",
         mobileMenuOpen: true
     },

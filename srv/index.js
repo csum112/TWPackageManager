@@ -1,25 +1,22 @@
 const Server = require('./server');
-const {asyncGetJson} = require('./util');
-
+const {Brew} = require('./repository')
 const PORT = 8081;
+const DEFAULT_PACKAGE_NUMBER = 40;
 const server = new Server();
 
+const brew = new Brew();
+
 server.get("/", async (body, query) => {
-  return {message: "Hello, World!"};
+  return { message: "Hello, World!" };
 })
 
-server.get("/buna", async (body, query) => {
-  console.log(`Hello, the body is ${body} and the query ${JSON.stringify(query)}`);
-  return null;
+server.get("/brew/packages", async (body, query) => {
+  let limit = DEFAULT_PACKAGE_NUMBER;
+  if ('limit' in query)
+    limit = query.limit;
+  let pkgs =  await brew.getAllPackages((x) => true, limit);
+  return pkgs
 });
 
-server.post("/buna", async (body, query) => {
-  console.log(`Hello, the body is ${JSON.stringify(body)} and the query ${JSON.stringify(query)}`);
-  return null;
-});
 
-asyncGetJson('https://formulae.brew.sh/api/formula.json').then((data) => {
-  console.log(data.map(entity => entity.name));
-});
-
-//server.listen(PORT);
+server.listen(PORT);
