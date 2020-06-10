@@ -27,12 +27,14 @@ function parseBody(req) {
       })
       .on("end", () => {
         body = Buffer.concat(body).toString();
-        try {
-          body = JSON.parse(body);
-        } catch (error) {
-          err(error);
-        }
-        resolve(body);
+        if(body != "") {
+          try {
+            body = JSON.parse(body);
+          } catch (error) {
+            err(error);
+          }
+          resolve(body);
+        } else resolve(null);   
       });
   });
 }
