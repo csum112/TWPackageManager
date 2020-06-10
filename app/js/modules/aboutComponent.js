@@ -48,6 +48,7 @@ export class AboutComponent extends HTMLElement {
 
             iframe, img {
                 border: 2px solid #894EC6;
+                border-radius: 40px;
             }
 
             img {
