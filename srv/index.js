@@ -39,7 +39,7 @@ server.post("/brew/checkout", async (body, query) => {
     });
   });
 
-  let script = "#!/bin/bash ";
+  let script = "";
   list.forEach(pkg => {
     script += "brew install " + pkg + " -y && ";
   });

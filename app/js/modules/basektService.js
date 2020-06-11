@@ -1,6 +1,10 @@
 export class BasketService {
+
+    apiURI = "/api/brew/checkout";
+
     constructor() {
         const storedBasket = localStorage.getItem("myBasket");
+        this.script = null;
         if (storedBasket == null) this.list = [];
         else
             this.list = storedBasket.split(",");
@@ -18,5 +22,16 @@ export class BasketService {
     removePackage(packageName) {
         this.list = this.list.filter(pkg => pkg !== packageName);
         localStorage.setItem("myBasket", this.list);
+    }
+
+    async createScript() {
+        let resp = await fetch(this.apiURI, {
+            method: "POST",
+            body: JSON.stringify({
+              packageNames: this.list  
+            })
+        });
+        let script = await resp.json();
+        return script.data;
     }
 }
