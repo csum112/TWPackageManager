@@ -30,7 +30,6 @@ export class AppListService {
   async setFilter(newFilter) {
     this.filter.prefix = newFilter;
     this.list = await this.fetchPackages();
-    console.log(this.list)
     this.refresh();
   }
 }
