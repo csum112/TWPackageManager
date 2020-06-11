@@ -13,17 +13,17 @@ const routes = [
 
     },
     {
-        path: "/package/([A-z]|[0-9]|-|@)*/description",
+        path: "/package/([A-z]|[0-9]|-|@|_)*/description",
         templateSelector: "mainPackageDescription",
         mobileMenuOpen: true
     },
     {
-        path: "/package/([A-z]|[0-9])*/info",
+        path: "/package/([A-z]|[0-9]|-|@|_)*/info",
         templateSelector: "mainPackageInfo",
         mobileMenuOpen: true
     },
     {
-        path: "/package/([A-z]|[0-9])*/dependencies",
+        path: "/package/([A-z]|[0-9]|-|@|_)*/dependencies",
         templateSelector: "mainPackageDependencies",
         mobileMenuOpen: true
     },
