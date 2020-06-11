@@ -11,7 +11,7 @@ export class DistroService {
     }
 
     isSet() {
-        return getDistro() != null;
+        return this.getDistro() != null;
     }
 
 }

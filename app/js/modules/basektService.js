@@ -1,7 +1,5 @@
 export class BasketService {
 
-    apiURI = "/api/brew/checkout";
-
     constructor() {
         const storedBasket = localStorage.getItem("myBasket");
         this.script = null;
@@ -25,10 +23,12 @@ export class BasketService {
     }
 
     async createScript() {
-        let resp = await fetch(this.apiURI, {
+        let repo = window.distroService.getDistro();
+        let apiURI = `/api/${repo}/checkout`;
+        let resp = await fetch(apiURI, {
             method: "POST",
             body: JSON.stringify({
-              packageNames: this.list  
+              packageNames: this.list
             })
         });
         let script = await resp.json();
