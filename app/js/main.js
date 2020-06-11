@@ -54,5 +54,5 @@ window.onpopstate = handleHistoryStateChange;
 
 function setDistro(distro) {
     localStorage.setItem("distro", distro);
-    window.navigationService.goBack();
+    window.router.navigateTo("/");
 }

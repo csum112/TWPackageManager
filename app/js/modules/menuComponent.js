@@ -57,12 +57,12 @@ export class MenuComponent extends HTMLElement {
             icon.classList.add("fas");
             icon.classList.add("fa-check");
             icon.onmouseenter = () => {
-                icon.classList.add("fa-trash")
-                icon.classList.remove("fa-check")
+                icon.classList.add("fa-trash");
+                icon.classList.remove("fa-check");
             }
             icon.onmouseleave = () => {
-                icon.classList.remove("fa-trash")
-                icon.classList.add("fa-check")
+                icon.classList.remove("fa-trash");
+                icon.classList.add("fa-check");
             }
             icon.onclick = () => {
                 window.basketService.removePackage(pkg);
@@ -71,7 +71,7 @@ export class MenuComponent extends HTMLElement {
             let textNode = document.createTextNode(pkg);
             newNode.appendChild(icon);
             newNode.appendChild(textNode);
-            this.listRef.appendChild(newNode)
+            this.listRef.appendChild(newNode);
         });
     }
 }

@@ -28,6 +28,7 @@ class Brew {
             .map(e => e.name);
         if(pkgArr.length > limit)
             pkgArr.length = limit;
+        console.log(pkgArr);
         return pkgArr;
     }
 

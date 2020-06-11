@@ -73,7 +73,7 @@ export class AppCoverComponent extends HTMLElement {
               font-family: 'Roboto', sans-serif;
               font-style: normal;
               font-weight: lighter;
-              font-size: 1.5rem;
+              font-size: 1.2rem;
             
               color: #FFFFFF;
             
