@@ -22,7 +22,13 @@ import { WelcomeComponent } from "/js/modules/welcomeComponent.js";
 import { DefaultTemplateComponent } from "/js/modules/defaultTemplateComponent.js";
 import { AboutComponent } from "/js/modules/aboutComponent.js";
 import { ContactComponent } from "/js/modules/contactComponent.js";
+import { DistroService } from "/js/modules/distroService.js";
 
+window.distroService = new DistroService();
+window.appListService = new AppListService();
+window.packageDetailsService = new PackageDetailsService();
+window.navigationService = new NavigationService();
+window.basketService = new BasketService();
 
 customElements.define("dm-thumbnail", ThumbnailComponent);
 customElements.define("dm-app-list", AppListComponent);
@@ -42,17 +48,8 @@ customElements.define("dm-default-template", DefaultTemplateComponent);
 customElements.define("dm-about", AboutComponent);
 customElements.define("dm-contact", ContactComponent);
 
-window.appListService = new AppListService();
-window.packageDetailsService = new PackageDetailsService();
-window.navigationService = new NavigationService();
-window.basketService = new BasketService();
 const router = new Router();
 injectRoutes(router);
 router.init();
 window.router = router;
 window.onpopstate = handleHistoryStateChange;
-
-function setDistro(distro) {
-    localStorage.setItem("distro", distro);
-    window.router.navigateTo("/");
-}

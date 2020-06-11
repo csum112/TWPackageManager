@@ -7,7 +7,8 @@ export class PackageDetailsService {
     }
 
     async getContent() {
-        let req = await fetch(`/api/brew/package?packageName=${this.currentPackage}`);
+        let repo = window.distroService.getDistro();
+        let req = await fetch(`/api/${repo}/package?packageName=${this.currentPackage}`);
         let reqData = req.json();
         return reqData;
     }

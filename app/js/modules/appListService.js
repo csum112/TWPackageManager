@@ -22,7 +22,8 @@ export class AppListService {
   }
 
   async fetchPackages() {
-    const req = await fetch(`/api/brew/packages?prefix=${this.filter.prefix}`);
+    let distro = window.distroService.getDistro();
+    const req = await fetch(`/api/${distro}/packages?prefix=${this.filter.prefix}`);
     const reqJson = await req.json();
     return reqJson.data;
   }

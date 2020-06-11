@@ -1,0 +1,17 @@
+export class DistroService {
+
+    setDistro(distro) {
+        localStorage.setItem("distro", distro);
+        window.appListService.setFilter("");
+        window.router.navigateTo("/");
+    }
+
+    getDistro() {
+        return localStorage.getItem("distro");
+    }
+
+    isSet() {
+        return getDistro() != null;
+    }
+
+}
