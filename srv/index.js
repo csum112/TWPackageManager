@@ -58,14 +58,15 @@ server.post("/brew/checkout", async (body, query) => {
 
 async function parseDep(pkgName, reponame) {
   let pkg = null;
-  console.log(pkgName);
   if(reponame == "brew")
     pkg = await brew.getPackage(pkgName);
   else
     pkg = await arch.getPackage(pkgName);
-  if(pkg == undefined)
-    return [];
+
   let dependencies = pkg.dependencies;
+  if (dependencies == undefined)
+    return [];
+    
   let list = [];
   dependencies.forEach(depName => {
     let innerList = parseDep(depName, reponame);

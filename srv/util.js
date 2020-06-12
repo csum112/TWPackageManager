@@ -6,6 +6,7 @@ function asyncGetJson(reqUrl) {
     https.get(reqUrl, res => {
       let body = "";
       res.on("data", data => {
+        if (data.includes("<html>")) error("404");
         body += data;
       });
       res.on("end", () => {
