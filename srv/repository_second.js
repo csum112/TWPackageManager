@@ -7,6 +7,9 @@ class Arch {
 
     preprocess(pkg) {
         let { pkgname, pkgdesc, url, depends } = pkg
+        depends = depends.filter(x => !x.includes("=") || !x.includes("<") || !x.includes(">"));
+        if(depends == null)
+            depends = [];
         return {
             name: pkgname,
             desc: pkgdesc,

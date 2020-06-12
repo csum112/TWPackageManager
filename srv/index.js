@@ -26,12 +26,16 @@ server.get("/brew/package", async (body, query) => {
 });
 
 server.post("/brew/checkout", async (body, query) => {
+  console.log(body);
   if (body.packageNames == null) {
     return "";
   }
   let pkgNames = body.packageNames;
 
-  let listOfPromiseLists = pkgNames.map(parseDep);
+  let listOfPromiseLists = pkgNames.map(pkgName => {
+    console.log(pkgName);
+    return parseDep(pkgName, "brew")
+  });
   let listOfLists = await Promise.all(listOfPromiseLists);
   
   let list = [];
@@ -52,13 +56,19 @@ server.post("/brew/checkout", async (body, query) => {
   return script;
 });
 
-async function parseDep(pkgName) {
-  let pkg = await brew.getPackage(pkgName);
+async function parseDep(pkgName, reponame) {
+  let pkg = null;
+  console.log(pkgName);
+  if(reponame == "brew")
+    pkg = await brew.getPackage(pkgName);
+  else
+    pkg = await arch.getPackage(pkgName);
+  if(pkg == undefined)
+    return [];
   let dependencies = pkg.dependencies;
-
   let list = [];
   dependencies.forEach(depName => {
-    let innerList = parseDep(depName);
+    let innerList = parseDep(depName, reponame);
     list.push(innerList);
   });
 
@@ -81,7 +91,6 @@ server.get("/arch/packages", async (body, query) => {
   let limit = DEFAULT_PACKAGE_NUMBER;
   if ('limit' in query)
     limit = query.limit;
-  console.log(query.prefix);
   let pkgs = await arch.getAllPackages(query.prefix, limit);
   return pkgs;
 });
@@ -91,5 +100,35 @@ server.get("/arch/package", async (body, query) => {
   if (packageName == null) throw { status: 404 };
   let pkg = await arch.getPackage(packageName);
   return pkg;
+});
+
+server.post("/arch/checkout", async (body, query) => {
+  console.log(body);
+  if (body.packageNames == null) {
+    return "";
+  }
+  let pkgNames = body.packageNames;
+
+  let listOfPromiseLists = pkgNames.map(pkgName => {
+    return parseDep(pkgName, "arch")
+  });
+  let listOfLists = await Promise.all(listOfPromiseLists);
+  
+  let list = [];
+  listOfLists.forEach(innerList => {
+    innerList.forEach(name => {
+      if (!list.includes(name)) {
+        list.push(name);
+      }
+    });
+  });
+
+  let script = "";
+  list.forEach(pkg => {
+    script += "brew install " + pkg + " -y && ";
+  });
+  script = script.substring(0, script.length - 4);
+
+  return script;
 });
 server.listen(PORT);
