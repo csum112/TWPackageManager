@@ -25,7 +25,7 @@ export class FilterComponent extends HTMLElement {
       
       .ordering{
           display: flex;
-        position: relative;
+          position: relative;
           flex-direction: row;
           width: 100%;
           justify-content: space-between;
@@ -140,9 +140,8 @@ export class FilterComponent extends HTMLElement {
           <i class="fas fa-caret-down"></i>
         </button>
         <div class="dropdown-content" style="left:0;">
-          <a href="#">Namew</a>
-          <a href="#">f21</a>
-          <a href="#">f33</a>
+          <a href="#">Name</a>
+          <a href="#">Size</a>
         </div>
       </div>
 
@@ -154,7 +153,6 @@ export class FilterComponent extends HTMLElement {
         <div class="dropdown-content" style="left:0;">
           <a href="#">Asc</a>
           <a href="#">Desc</a>
-          <a href="#">f33</a>
         </div>
       </div>
     </div>
@@ -173,43 +171,43 @@ export class FilterComponent extends HTMLElement {
 
       <dm-filter-tag>
         <span slot="filter-name">
-          adasdasaaaaaaaaaaaaaaa
+          Filter1
         </span>
       </dm-filter-tag>
 
       <dm-filter-tag>
         <span slot="filter-name">
-          adb
+          Filter2
         </span>
       </dm-filter-tag>
 
       <dm-filter-tag>
         <span slot="filter-name">
-          adasdas32aa
+          Filter3
         </span>
       </dm-filter-tag>
 
       <dm-filter-tag>
         <span slot="filter-name">
-          a
+          Filter4
         </span>
       </dm-filter-tag>
 
       <dm-filter-tag>
         <span slot="filter-name">
-          fil
+          FilterFilterFilter
         </span>
       </dm-filter-tag>
 
       <dm-filter-tag>
         <span slot="filter-name">
-          tru
+          Video
         </span>
       </dm-filter-tag>
 
       <dm-filter-tag>
         <span slot="filter-name">
-          baa
+          Game
         </span>
       </dm-filter-tag>
 

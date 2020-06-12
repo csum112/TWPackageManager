@@ -156,15 +156,13 @@ export class ContactComponent extends HTMLElement {
                 
                 <h1>Rosu Cristian-Mihai</h1>
 
-                <h3> Face de toate baiat bun </h3>
-
                 <div class="contact_details">
                     <div class="contact_detail">
                         <div class="contact_type">
                             <i class="fas fa-mobile-alt fa-4x"></i>
                         </div>
                         <div class="contact_label">
-                            +40 0746672269
+                            +40 0742012345
                         </div>
                     </div>
 
@@ -173,7 +171,7 @@ export class ContactComponent extends HTMLElement {
                         <i class="far fa-envelope fa-4x"></i>
                         </div>
                         <div class="contact_label">
-                            cristian.rosu453@gmail.com
+                            cristian.rosu@demiweb.com
                         </div>
                     </div>
                 </div>
@@ -186,15 +184,13 @@ export class ContactComponent extends HTMLElement {
                 
                 <h1>Sumanaru Catalin</h1>
 
-                <h3> Face de toate baiat bun </h3>
-
                 <div class="contact_details">
                     <div class="contact_detail">
                         <div class="contact_type">
                             <i class="fas fa-mobile-alt fa-4x"></i>
                         </div>
                         <div class="contact_label">
-                            +40 0744444444
+                            +40 0741222333
                         </div>
                     </div>
 
@@ -203,7 +199,7 @@ export class ContactComponent extends HTMLElement {
                         <i class="far fa-envelope fa-4x"></i>
                         </div>
                         <div class="contact_label">
-                            bossdebos@money.com
+                            sumanaru.catalin@debiweb.com
                         </div>
                     </div>
                 </div>
@@ -216,15 +212,13 @@ export class ContactComponent extends HTMLElement {
                 
                 <h1>Bejenariu Razvan-Andrei</h1>
 
-                <h3> Face de toate baiat bun </h3>
-
                 <div class="contact_details">
                     <div class="contact_detail">
                         <div class="contact_type">
                             <i class="fas fa-mobile-alt fa-4x"></i>
                         </div>
                         <div class="contact_label">
-                            +40 0758318228
+                            +40 0755667788
                         </div>
                     </div>
 
@@ -233,7 +227,7 @@ export class ContactComponent extends HTMLElement {
                         <i class="far fa-envelope fa-4x"></i>
                         </div>
                         <div class="contact_label">
-                            beje.razvan99@gmail.com
+                            bejenariu.razvan@demiweb.com
                         </div>
                     </div>
                 </div>
