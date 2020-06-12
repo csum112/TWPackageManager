@@ -21,17 +21,30 @@ export class AboutComponent extends HTMLElement {
                 color: #894EC6;
             }
             
-            h1, h2, p, ul, ol {
+            h1, h2, h3, p, ul, ol {
                 color: #fff;
                 font-family: 'Roboto', sans-serif;
                 font-style: normal;
                 font-weight: lighter;
             }
 
-            h1, h2 {
+            h1, h2, h3 {
                 border-bottom: 2px solid #894EC6;
             }
             
+            code {
+                color: #fff;
+            }
+
+            pre {
+                background: rgba(202, 204, 219, 0.3);
+                border-radius: 10px;
+            }
+
+            .api, #cristi, #catalin, #razvan {
+                color: #894EC6;
+            }
+
             .sub {
                 display: flex;
                 flex-direction: row;
@@ -48,7 +61,7 @@ export class AboutComponent extends HTMLElement {
 
             iframe, img {
                 border: 2px solid #894EC6;
-                border-radius: 40px;
+                border-radius: 10px;
             }
 
             img {
@@ -91,7 +104,8 @@ export class AboutComponent extends HTMLElement {
                                     <meta property="schema:familyName" content="Rosu">
                                     <span property="schema:name">Ro&#351;u Cristian-Mihai</span>
                                 </span>
-                                <sup><a href="#fiiuaic" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
+                                <sup><a href="#fiiuaic" target="_blank" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
+                                <sup><a href="#cristi" target="_blank" property="sa:roleAffiliation" resource="#">i</a></sup>
                             </li>
 
                             <!--Al doilea membru al echipei-->
@@ -101,7 +115,8 @@ export class AboutComponent extends HTMLElement {
                                     <meta property="schema:familyName" content="Sumanaru">
                                     <span property="schema:name">Sum&#259;naru C&#259;t&#259;lin</span>
                                 </span>
-                                <sup><a href="#fiiuaic" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
+                                <sup><a href="#fiiuaic" target="_blank" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
+                                <sup><a href="#catalin" target="_blank" property="sa:roleAffiliation" resource="#">i</a></sup>
                             </li>
 
                             <!--Al treilea membru al echipei-->
@@ -112,7 +127,8 @@ export class AboutComponent extends HTMLElement {
                                     <meta property="schema:familyName" content="Bejenariu">
                                     <span property="schema:name">Bejenariu R&#259;zvan Andrei</span>
                                 </span>
-                                <sup><a href="#fiiuaic" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
+                                <sup><a href="#fiiuaic" target="_blank" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">1</a></sup>
+                                <sup><a href="#razvan" target="_blank" property="sa:roleAffiliation" resource="#">i</a></sup>
                             </li>
                         </ul>
                     </section>
@@ -159,21 +175,92 @@ export class AboutComponent extends HTMLElement {
                 </section>
 
                 <section role="doc-dedication">
-                    <h2>Project development</h2>
+                    <h2>Project API documentation</h2>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>First of all, there is no authentication required for using the backend API. As for a quickstart guide,
+                    the <i>User guide</i> section below has that covered.</p>
 
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem 
-                    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo 
-                    enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui 
-                    ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-                    adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat 
-                    voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut 
-                    aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil 
-                    molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+                    <p>Now, we will describe the specific endpoints:</p>
+                    
+                    <ul>
+                        <li>GET <p class="api">/api/{distro}/packages?querry</p></li>
+                    </ul>
+                    <pre><code>
+                        ["&lt;packageName1&gt;", "&lt;packageName2&gt;", ...]
+                    </code></pre>
+                    <p>This endpoint is called on the client's side after the distribution has been chosen and the user visits the 
+                    Browse page. It is called only once upon visit since the packages are then stored in the browser's local storage. 
+                    The endpoint returns a JSON response as the one above.</p>
+                    
+                    <ul>
+                        <li>GET <p class="api">/api/{distro}/{package}</p></li>
+                    </ul>
+                    <pre><code>
+                    {
+                        "name": {package},
+                        "desc": "...",
+                        "homepage": "...",
+                        "dependencies": [
+                            "&lt;packageName1&gt;",  ..., "&lt;packageNameN&gt;"
+                        ]
+                    }
+                    </code></pre>
+                    <p>This endpoint is called on the client's side every time a user checks for a listed package's details.</p>
+
+                    <ul>
+                        <li>POST <p class="api">/api/{distro}/checkout</p></li>
+                    </ul>
+                    <pre><code>
+                    {
+                        ["&lt;packageName1&gt;", "&lt;packageName2&gt;", ...]
+                    }	
+                    </code></pre>
+                    <p>This endpoint is called on the client's side after the checkout button is pressed once a list of packages
+                    has been composed. The response is a string representing the required script to run in order to install the
+                    specified packages.</p>
+
+                    <section role="doc-dedication">
+                        <h3>Personal contribution</h3>
+
+                        <p>Our development cycle and personal contributions can be more easily observed on our 
+                        <a href="https://github.com/csum112/TWPackageManager" target="_blank">Github repository</a>, but we will also 
+                        present them in short here:</p>
+
+                        <ul>
+                            <li id="cristi">Ro&#351;u Cristian-Mihai</li>
+                            <ul>
+                                <li>
+                                    Frontend - created welcome page, package details component, checkout component, about page,
+                                    distro selection functionality
+                                </li>
+                                <li>
+                                    Backend - API POST endpoint and final script generation
+                                </li>
+                            </ul>
+
+                            <li id="catalin">Sum&#259;naru C&#259;t&#259;lin</li>
+                            <ul>
+                                <li>
+                                    Frontend - created router, package component and the package list view, browse page, created 
+                                    concept design, app list service, basket service, navigation service
+                                </li>
+                                <li>
+                                    Backend -  
+                                </li>
+                            </ul>
+
+                            <li id="razvan">Bejenariu R&#259;zvan Andrei</li>
+                            <ul>
+                                <li>
+                                    Frontend - created navigation page, filtering page, contact page, default template
+                                    for these components
+                                </li>
+                                <li>
+                                    Backend - soon
+                                </li>
+                            </ul>
+                        </ul>
+                    </section>
                 </section>
 
                 <section role="presentation">
@@ -222,7 +309,8 @@ export class AboutComponent extends HTMLElement {
                     <div class="subv">
                         <p>Below is a short video showcasing page navigation and utilization:</p>
                         <figure typeof=""sa:Video figcaption="User guide video">
-                            <iframe width="613" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                        <iframe width="613" height="345" src="https://www.youtube.com/embed/BoRnPuSwZFI" frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </figure>
                     </div>
                 </section>
