@@ -24,16 +24,21 @@ class Arch {
             .map(e => e.pkgname);
         if(pkgArr.length > limit)
             pkgArr.length = limit;
-        console.log(pkgArr);
         return pkgArr;
     }
 
     async getPackage(packageName) {
-        let pkgreq = await asyncGetJson(this.packageEP + packageName);
+        console.log(packageName)
+        let pkgreq = [];
+        try {
+            pkgreq = await asyncGetJson(this.packageEP + packageName);
+        } catch(error) {
+            console.log(packageName)
+        }
         if(pkgreq.results.length == 1)
             return this.preprocess(pkgreq.results[0]);
         else
-            return [];
+            return {};
     }
 }
 
