@@ -125,10 +125,11 @@ server.post("/arch/checkout", async (body, query) => {
 
   let script = "";
   list.forEach(pkg => {
-    script += "brew install " + pkg + " -y && ";
+    script += "arch install " + pkg + " -y && ";
   });
   script = script.substring(0, script.length - 4);
 
   return script;
 });
+
 server.listen(PORT);

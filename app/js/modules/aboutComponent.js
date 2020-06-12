@@ -229,35 +229,60 @@ export class AboutComponent extends HTMLElement {
                         <ul>
                             <li id="cristi">Ro&#351;u Cristian-Mihai</li>
                             <ul>
-                                <li>
-                                    Frontend - created welcome page, package details component, checkout component, about page,
-                                    distro selection functionality
-                                </li>
-                                <li>
-                                    Backend - API POST endpoint and final script generation
-                                </li>
+                                <li>Frontend</li>
+                                <ul>
+                                    <li>created welcome component</li>
+                                    <li>created distro selection functionality</li>
+                                    <li>created package details component</li>
+                                    <li>created checkout component</li>
+                                    <li>created about component (+content)</li>
+                                </ul>
+                                <li>Backend</li>
+                                <ul>
+                                    <li>created brew API POST endpoint</li>
+                                    <li>created package dependency tree list function for script generation</li>
+                                    <li>created final brew script generation</li>
+                                </ul>
                             </ul>
 
                             <li id="catalin">Sum&#259;naru C&#259;t&#259;lin</li>
                             <ul>
-                                <li>
-                                    Frontend - created router, package component and the package list view, browse page, created 
-                                    concept design, app list service, basket service, navigation service
-                                </li>
-                                <li>
-                                    Backend -  
-                                </li>
+                                <li>Frontend</li>
+                                <ul>
+                                    <li>created router</li>
+                                    <li>created concept design</li>
+                                    <li>created package thumbnail component</li> 
+                                    <li>created package list view</li>
+                                    <li>created browse page</li>
+                                    <li>created overlay menu on mobile view</li>
+                                    <li>created app list service</li>
+                                    <li>created basket service</li>
+                                    <li>created navigation service</li>
+                                </ul>
+                                <li>Backend</li>
+                                <ul>
+                                    <li>created server boiler-plate</li>
+                                    <li>created Apache gateway with API reverse proxy</li>
+                                    <li>created brew repository</li>
+                                    <li>created brew API GET endpoints</li>
+                                </ul>
                             </ul>
 
                             <li id="razvan">Bejenariu R&#259;zvan Andrei</li>
                             <ul>
-                                <li>
-                                    Frontend - created navigation page, filtering page, contact page, default template
-                                    for these components
-                                </li>
-                                <li>
-                                    Backend - soon
-                                </li>
+                                <li>Frontend</li>
+                                <ul>
+                                    <li>created default template for components</li>
+                                    <li>created contact component</li>
+                                    <li>created filters component</li>
+                                    <li>created navigation component</li>
+                                </ul>
+                                <li>Backend</li>
+                                <ul>
+                                    <li>created arch repository</li>
+                                    <li>created arch API endpoints</li>
+                                    <li>final arch script generation</li>
+                                </ul>
                             </ul>
                         </ul>
                     </section>
