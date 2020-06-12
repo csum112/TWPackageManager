@@ -85,4 +85,11 @@ server.get("/arch/packages", async (body, query) => {
   let pkgs = await arch.getAllPackages(query.prefix, limit);
   return pkgs;
 });
+
+server.get("/arch/package", async (body, query) => {
+  let packageName = query.packageName;
+  if (packageName == null) throw { status: 404 };
+  let pkg = await arch.getPackage(packageName);
+  return pkg;
+});
 server.listen(PORT);

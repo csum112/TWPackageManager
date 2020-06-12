@@ -1,16 +1,17 @@
 const { asyncGetJson } = require('./util');
 
 class Arch {
+    packageEP = "https://www.archlinux.org/packages/search/json/?name=";
     allPackagesEP = "https://www.archlinux.org/packages/search/json/?q=";
     cache = null;
 
     preprocess(pkg) {
         let { pkgname, pkgdesc, url, depends } = pkg
         return {
-            name,
-            desc,
-            homepage,
-            dependencies
+            name: pkgname,
+            desc: pkgdesc,
+            homepage: url,
+            dependencies: depends
         };
     }
 
@@ -25,16 +26,11 @@ class Arch {
     }
 
     async getPackage(packageName) {
-        let pkgArr = null;
-        if (this.cache == null) {
-            pkgArr = await asyncGetJson(this.allPackagesEP);
-            pkgArr = pkgArr.map(this.preprocess);
-            this.cache = pkgArr;
-        } else
-            pkgArr = this.cache;
-        
-        let pkg = pkgArr.find(pkg => pkg.name == packageName);
-        return pkg;
+        let pkgreq = await asyncGetJson(this.packageEP + packageName);
+        if(pkgreq.results.length == 1)
+            return this.preprocess(pkgreq.results[0]);
+        else
+            return [];
     }
 }
 
