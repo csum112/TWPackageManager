@@ -1,10 +1,14 @@
 const Server = require('./server');
-const { Brew } = require('./repository')
+const { Brew } = require('./repository');
+const { Arch } = require('./repository_second');
 const PORT = 8081;
 const DEFAULT_PACKAGE_NUMBER = 40;
 const server = new Server();
 
+
+const arch = new Arch();
 const brew = new Brew();
+
 
 server.get("/brew/packages", async (body, query) => {
   let limit = DEFAULT_PACKAGE_NUMBER;
@@ -72,4 +76,13 @@ async function parseDep(pkgName) {
   return pkgListNames;
 }
 
+
+server.get("/arch/packages", async (body, query) => {
+  let limit = DEFAULT_PACKAGE_NUMBER;
+  if ('limit' in query)
+    limit = query.limit;
+  console.log(query.prefix);
+  let pkgs = await arch.getAllPackages(query.prefix, limit);
+  return pkgs;
+});
 server.listen(PORT);

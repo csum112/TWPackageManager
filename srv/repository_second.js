@@ -1,7 +1,7 @@
 const { asyncGetJson } = require('./util');
 
-class Brew {
-    allPackagesEP = "https://www.archlinux.org/packages/";
+class Arch {
+    allPackagesEP = "https://www.archlinux.org/packages/search/json/?q=";
     cache = null;
 
     preprocess(pkg) {
@@ -15,17 +15,9 @@ class Brew {
     }
 
     async getAllPackages(filterFunction, limit) {
-        let pkgArr = null;
-        if (this.cache == null) {
-            pkgArr = await asyncGetJson(this.allPackagesEP);
-            pkgArr = pkgArr.map(this.preprocess);
-            this.cache = pkgArr;
-        } else
-            pkgArr = this.cache;
-
-        pkgArr = pkgArr
-            .filter(filterFunction)
-            .map(e => e.name);
+        let pkgArr = await asyncGetJson(this.allPackagesEP + filterFunction);
+        pkgArr = pkgArr.results
+            .map(e => e.pkgname);
         if(pkgArr.length > limit)
             pkgArr.length = limit;
         console.log(pkgArr);
@@ -46,4 +38,4 @@ class Brew {
     }
 }
 
-module.exports = { Brew }
+module.exports = { Arch }

@@ -23,6 +23,7 @@ export class AppListService {
 
   async fetchPackages() {
     let distro = window.distroService.getDistro();
+    console.log(distro);
     const req = await fetch(`/api/${distro}/packages?prefix=${this.filter.prefix}`);
     const reqJson = await req.json();
     return reqJson.data;
