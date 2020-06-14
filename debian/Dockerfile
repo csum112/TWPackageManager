@@ -1,0 +1,22 @@
+FROM debian:oldoldstable
+RUN apt upgrade -y &&\
+    apt update -y
+# Install node
+RUN apt -y install curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_14.x  | bash -
+RUN apt -y install nodejs
+RUN npm install
+
+RUN rm -rf /var/lib/apt/lists/*
+RUN rm -rf /etc/apt/sources.list.d/*
+RUN apt update -y
+
+# Build app
+RUN mkdir /app
+WORKDIR /app
+COPY . .
+RUN npm install --save
+
+#Entry
+EXPOSE 8080
+ENTRYPOINT ["node", "server.js"]
