@@ -14,7 +14,8 @@ RUN apt update -y
 # Build app
 RUN mkdir /app
 WORKDIR /app
-COPY . .
+COPY ./debian/ .
+COPY ./shared/ .
 RUN npm install --save
 
 #Entry
