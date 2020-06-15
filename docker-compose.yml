@@ -10,6 +10,16 @@ services:
         - "./app:/app"
         - "./vhost.conf:/vhosts/my_vhost.conf:ro"
     links:
-        - "apims"
-  apims:
-    build: ./srv
+        - "debianrepo"
+  debianrepo:
+    build:
+      context: '.'
+      dockerfile: './debian/Dockerfile'
+  archrepo:
+    build:
+      context: '.'
+      dockerfile: './arch/Dockerfile'
+  centosrepo:
+    build:
+      context: '.'
+      dockerfile: './centos/Dockerfile'
