@@ -11,9 +11,9 @@ ENV PATH="/root/.nvm/versions/node/v14.4.0/bin:${PATH}"
 # Build app
 RUN mkdir /app
 WORKDIR /app
-COPY ./centos/ .
 COPY ./shared/ .
 RUN npm install --save
+COPY ./centos/ .
 
 #Entry
 EXPOSE 8080

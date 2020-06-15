@@ -14,9 +14,9 @@ RUN apt update -y
 # Build app
 RUN mkdir /app
 WORKDIR /app
-COPY ./debian/ .
 COPY ./shared/ .
 RUN npm install --save
+COPY ./debian/ .
 
 #Entry
 EXPOSE 8080

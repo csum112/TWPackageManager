@@ -1,7 +1,8 @@
 const { spawn } = require('child_process');
 
 const warnings = [
-    "WARNING: apt does not have a stable CLI interface. Use with caution in scripts."
+    "WARNING: apt does not have a stable CLI interface. Use with caution in scripts.",
+    "Error: No matching Packages to list"
 ]
 
 function shouldIgnore(stderr) {

@@ -1,24 +1,24 @@
 const regexes = [
     {
-        regexp: /Name            : (.*?)\n/s,
+        regexp: /Name        :(.*?)\n/s,
         key: "packageName"
-    },
-    {
-        regexp: /Version         : (.*?)\n/s,
-        key: "version"
-    },
-    {
-        regexp: /Description     : (.*?)\n/s,
-        key: "description"
-    },
-    {
-        regexp: /Packager        : (.*?)\n/s,
-        key: "maintainer"
-    },
-    {
-        regexp: /Depends On      : (.*?)\n/s,
-        key: "depends"
     }
+    // {
+    //     regexp: /Version         : (.*?)\n/s,
+    //     key: "version"
+    // },
+    // {
+    //     regexp: /Description     : (.*?)\n/s,
+    //     key: "description"
+    // },
+    // {
+    //     regexp: /Packager        : (.*?)\n/s,
+    //     key: "maintainer"
+    // },
+    // {
+    //     regexp: /Depends On      : (.*?)\n/s,
+    //     key: "depends"
+    // }
 ];
 function regexpGetGroup(block, regexp) {
     let matched = regexp.exec(block);

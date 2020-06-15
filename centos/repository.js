@@ -12,9 +12,11 @@ async function packageDetails(packageName) {
 
 async function packageList(query) {
     try {
-        return processYumList(await spawnPromise('yum', ['list', '-q']));
+        if (query !== ".")
+            return processYumList(await spawnPromise('yum', ['list', query, '-q']));
+        else 
+            return processYumList(await spawnPromise('yum', ['list', '-q']));
     } catch (error) {
-        console.log(error)
         throw error;
     }
 }
