@@ -4,7 +4,7 @@ const app = express();
 
 const PORT = process.env.port || 8080
 
-app.get("/package", async (req, res) => {
+app.get("/packages", async (req, res) => {
     let page = req.query.page || 0;
     let limit = req.query.limit || 40;
     let query = req.query.q || ".";
@@ -17,7 +17,7 @@ app.get("/package", async (req, res) => {
     res.status(200).send(packageList)
 })
 
-app.get("/package/:packageName", async (req, res) => {
+app.get("/packages/:packageName", async (req, res) => {
     let packageName = req.params.packageName;
     try {
         let packageData = await Repo.getPackage(packageName);
