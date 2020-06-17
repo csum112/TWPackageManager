@@ -18,18 +18,18 @@ const regexes = [{
 //     regexp: /Installed-Size: (.*?)\n/s,
 //     key: "installedSize"
 // }
-//     , {
-//     regexp: /Depends: (.*?)\n/s,
-//     key: "depends"
-// }
+    , {
+    regexp: /Depends: (.*?)\n/s,
+    key: "depends"
+}
 //     , {
 //     regexp: /Homepage: (.*?)\n/s,
 //     key: "homepage"
 // }
-//     , {
-//     regexp: /Description-en: (.*?)\n/s,
-//     key: "shortDescription"
-// }
+    , {
+    regexp: /Description: (.*?)\n/s,
+    key: "shortDescription"
+}
 //     , {
 //     regexp: /Description-en: .*?\n(.*?)\nDescription-md5/s,
 //     key: "description"
@@ -50,8 +50,10 @@ function splitPackages(blockOfText) {
 
 function regexpGetGroup(block, regexp) {
     let matched = regexp.exec(block);
-    if (!matched) throw (`Not found regexp ${regexp}`);
-    return matched[1]
+    if (!matched) {
+        return '';
+    };
+    return matched[1];
 }
 
 const preProcessAptShow = (blockOfText => {
@@ -65,8 +67,26 @@ const preProcessAptShow = (blockOfText => {
                 }
             });
             info.forEach((field => {
-                pkg[field.key] = field.value;
+                if (field.key == 'depends') {
+                    let depsArray = field.value.split(', ');
+                    depsArray = depsArray.map(dep => {
+                        dep = dep.replace('(', '');
+                        dep = dep.replace(')', '');
+                        let arr = dep.split(' ');
+                        return {
+                            packageName: arr[0],
+                            constraint: {
+                                operator: arr[1],
+                                version: arr[2]
+                            }
+                        }
+                    });
+                    pkg[field.key] = JSON.parse(JSON.stringify(depsArray));
+                } else {
+                    pkg[field.key] = field.value;
+                }
             }));
+
             return pkg;
         });
 });
