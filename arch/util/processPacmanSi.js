@@ -1,23 +1,23 @@
 const regexes = [
     {
-        regexp: /Name            : (.*?)\n/s,
+        regexp: /Name\ +: (.*?)\n/s,
         key: "packageName"
     },
     {
-        regexp: /Version         : (.*?)\n/s,
+        regexp: /Version\ +: (.*?)\n/s,
         key: "version"
     },
     {
-        regexp: /Description     : (.*?)\n/s,
-        key: "description"
-    },
-    {
-        regexp: /Packager        : (.*?)\n/s,
+        regexp: /Packager\ +: (.*?)\n/s,
         key: "maintainer"
     },
     {
-        regexp: /Depends On      : (.*?)\n/s,
+        regexp: /Depends On\ +: (.*?)\n/s,
         key: "depends"
+    },
+    {
+        regexp: /Description\ +: (.*?)\n/s,
+        key: "description"
     }
 ];
 function regexpGetGroup(block, regexp) {
@@ -35,7 +35,23 @@ const preProcessAptShow = (package => {
         }
     });
     info.forEach((field => {
-        pkg[field.key] = field.value;
+        if (field.key == 'depends') {
+            let depsArray = field.value.split('  ');
+            console.log(depsArray);
+            depsArray = depsArray.map(dep => {
+                return {
+                    packageName: dep,
+                    constraint: {
+                        operator: '==',
+                        version: 'latest'
+                    }
+                }
+            });
+            console.log(depsArray);
+            pkg[field.key] = JSON.parse(JSON.stringify(depsArray));
+        } else {
+            pkg[field.key] = field.value;
+        }
     }));
     return pkg;
 });
