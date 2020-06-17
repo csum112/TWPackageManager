@@ -42,7 +42,6 @@ app.get("/package/:packageName", async (req, res) => {
     let packageName = req.params.packageName;
     try {
         let packageData = await Repo.getPackage(packageName);
-        console.log(packageData[0].depends);
         res.status(200).send(packageData)
     } catch (error) {
         res.status(404).send(error)

@@ -1,40 +1,26 @@
-const regexes = [{
-    regexp: /Package: (.*?)\n/s,
-    key: "packageName"
-}
-    , {
-    regexp: /Version: (.*?)\n/s,
-    key: "version"
-}
-    , {
-    regexp: /Maintainer: (.*?)\n/s,
-    key: "maintainter"
-}
-//     , {
-//     regexp: /Installed-Size: (.*?)\n/s,
-//     key: "installedSize"
-// }
-//     , {
-//     regexp: /Installed-Size: (.*?)\n/s,
-//     key: "installedSize"
-// }
-    , {
-    regexp: /Depends: (.*?)\n/s,
-    key: "depends"
-}
-//     , {
-//     regexp: /Homepage: (.*?)\n/s,
-//     key: "homepage"
-// }
-    , {
-    regexp: /Description: (.*?)\n/s,
-    key: "shortDescription"
-}
-//     , {
-//     regexp: /Description-en: .*?\n(.*?)\nDescription-md5/s,
-//     key: "description"
-// }];
+const regexes = [
+    {
+        regexp: /Package: (.*?)\n/s,
+        key: "packageName"
+    }, 
+    {
+        regexp: /Version: (.*?)\n/s,
+        key: "version"
+    }, 
+    {
+        regexp: /Maintainer: (.*?)\n/s,
+        key: "maintainter"
+    }, 
+    {
+        regexp: /Depends: (.*?)\n/s,
+        key: "depends"
+    }, 
+    {
+        regexp: /Description: (.*?)\n/s,
+        key: "shortDescription"
+    }
 ];
+
 function replaceNewLine(blockOfText) {
     return blockOfText.replace(/\n/g, "#ENDLINE#")
 }
