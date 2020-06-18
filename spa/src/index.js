@@ -9,11 +9,13 @@ import * as DefaultTemplateComponent from './components/miscellaneous-pages/defa
 import * as WelcomeModule from './components/miscellaneous-pages/welcome-component/welcome.module'
 import * as NavComponent from './components/miscellaneous-pages/nav-component/nav.module';
 import * as ContactComponent from './components/miscellaneous-pages/contact-component/contact.module';
+import * as AboutComponent from './components/miscellaneous-pages/about-component/about.module';
 
 DefaultTemplateComponent.forRoot();
 WelcomeModule.forRoot();
 NavComponent.forRoot();
 ContactComponent.forRoot();
+AboutComponent.forRoot();
 
 
 AppListModule.forRoot();
