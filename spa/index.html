@@ -12,7 +12,9 @@
     <shell-component>
         <app-list-component slot="left" id="applist"></app-list-component>
         <default-component slot="right">
-            <app-description slot="inner-content"></app-description>
+            <app-cover slot="inner-content">
+                <app-description slot="app-content"></app-description>
+            </app-cover>
         </default-component>
     </shell-component>
 
