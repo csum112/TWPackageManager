@@ -8,10 +8,12 @@ import * as AppCoverModule from './components/app-menu/cover-component/app-cover
 import * as DefaultTemplateComponent from './components/miscellaneous-pages/default-template-component/default-template.module';
 import * as WelcomeModule from './components/miscellaneous-pages/welcome-component/welcome.module'
 import * as NavComponent from './components/miscellaneous-pages/nav-component/nav.module';
+import * as ContactComponent from './components/miscellaneous-pages/contact-component/contact.module';
 
 DefaultTemplateComponent.forRoot();
 WelcomeModule.forRoot();
 NavComponent.forRoot();
+ContactComponent.forRoot();
 
 
 AppListModule.forRoot();
