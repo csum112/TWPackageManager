@@ -1,8 +1,12 @@
-import * as IndexModule from './some-component/index.module';
-import * as WelcomeModule from './welcome-component/welcome.module'
-import * as ThumbnailModule from './thumbnail-component/thumbnail.module'
-import * as ShellModule from './shell-component/shell.module'
-IndexModule.forRoot();
+import * as WelcomeModule from './components/welcome-component/welcome.module'
+import * as ShellModule from './components/shell-component/shell.module'
+import * as AppListModule from './components/app-list-component/app-list.module'
+import * as AppMenuModule from './components/app-menu/app-menu.module';
+
+
+
 WelcomeModule.forRoot();
-ThumbnailModule.forRoot();
+
+AppListModule.forRoot();
 ShellModule.forRoot();
+AppMenuModule.forRoot();

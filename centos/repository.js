@@ -4,7 +4,10 @@ const processYumList = require('./util/processYumList');
 
 async function packageDetails(packageName) {
     try {
-        return processYumInfo(await spawnPromise('yum', ['info', packageName, '-q']));
+        return processYumInfo([
+            await spawnPromise('yum', ['info', packageName, '-q']), 
+            await spawnPromise('yum', ['deplist', packageName])
+        ]);
     } catch (error) {
         throw error;
     }
