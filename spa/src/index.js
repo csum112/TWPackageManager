@@ -7,10 +7,12 @@ import * as AppDependenciesModule from './components/app-menu/dependencies-compo
 import * as AppCoverModule from './components/app-menu/cover-component/app-cover.module';
 import * as DefaultTemplateComponent from './components/miscellaneous-pages/default-template-component/default-template.module';
 import * as WelcomeModule from './components/miscellaneous-pages/welcome-component/welcome.module'
-
+import * as NavComponent from './components/miscellaneous-pages/nav-component/nav.module';
 
 DefaultTemplateComponent.forRoot();
 WelcomeModule.forRoot();
+NavComponent.forRoot();
+
 
 AppListModule.forRoot();
 ShellModule.forRoot();
