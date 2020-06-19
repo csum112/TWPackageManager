@@ -2,7 +2,7 @@ const express = require('express');
 const Repo = require('./repository')
 const app = express();
 
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 
 app.get("/packages", async (req, res) => {
     let page = req.query.page || 0;

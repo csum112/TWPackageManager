@@ -1,5 +1,5 @@
 FROM bitnami/apache:latest
 COPY ./vhost.prod.conf /vhosts/my_vhost.conf
 COPY ./app /app
-ENV APACHE_HTTP_PORT_NUMBER=$PORT
-CMD /opt/bitnami/scripts/apache/run.sh
+COPY ./httpd.conf /opt/bitnami/apache/conf/
+CMD echo "Running on port: ${APACHE_HTTP_PORT_NUMBER}";/opt/bitnami/scripts/apache/run.sh

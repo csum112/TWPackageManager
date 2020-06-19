@@ -1,8 +1,0 @@
-
-setup:
-   build:
-    docker:
-      web: ./Dockerfile.web
-      centos: ./Dockerfile.centos
-   run:
-    web: /opt/bitnami/scripts/apache/run.sh
