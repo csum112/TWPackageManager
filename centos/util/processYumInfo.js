@@ -11,10 +11,10 @@ const regexes = [
         regexp: /Version\ +: (.*?)\n/s,
         key: "version"
     },
-    {
-        regexp: /Release\ +: (.*?)\n/s,
-        key: "release"
-    },
+    // {
+    //     regexp: /Release\ +: (.*?)\n/s,
+    //     key: "release"
+    // },
     {
         regexp: /URL\ +: (.*?)\n/s,
         key: "maintainer"
@@ -110,17 +110,20 @@ const preProcessAptShow = (blockOfText => {
             simpleDepsArray = simpleDepsArray.map(dep => {
                 dep = dep.replace(/provider: /g, '');
                 let arr = dep.split(' ');
-
+                let pkgName = /(.+?)\..*/g.exec(arr[0])[1];
+                let version = /(.+?)-.*/g.exec(arr[1])[1];
                 return {
-                    packageName: arr[0],
+                    packageName: pkgName,
                     constraint: {
                         operator: '==',
-                        version: arr[1]
+                        version: version
                     }
                 }
             });
 
-            pkg['depends'] = JSON.parse(JSON.stringify(simpleDepsArray));
+            pkg['depends'] = simpleDepsArray.filter(el => 
+                simpleDepsArray.find(el1 => JSON.stringify(el1) === JSON.stringify(el)) === el
+                );
 
             return pkg;
         });

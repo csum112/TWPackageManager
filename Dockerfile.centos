@@ -16,5 +16,5 @@ RUN npm install --save
 COPY ./centos/ .
 
 #Entry
-EXPOSE 8080
+EXPOSE $PORT
 ENTRYPOINT ["node", "server.js"]

@@ -2,22 +2,22 @@ const regexes = [
     {
         regexp: /Package: (.*?)\n/s,
         key: "packageName"
-    }, 
+    },
     {
         regexp: /Version: (.*?)\n/s,
         key: "version"
-    }, 
+    },
     {
         regexp: /Maintainer: (.*?)\n/s,
         key: "maintainter"
-    }, 
+    },
     {
         regexp: /Depends: (.*?)\n/s,
         key: "depends"
-    }, 
+    },
     {
         regexp: /Description: (.*?)\n/s,
-        key: "shortDescription"
+        key: "descriptions"
     }
 ];
 
@@ -42,6 +42,20 @@ function regexpGetGroup(block, regexp) {
     return matched[1];
 }
 
+function depToDTO(dep) {
+    dep = dep.trim();
+    dep = dep.replace('(', '');
+    dep = dep.replace(')', '');
+    let arr = dep.split(' ');
+    return {
+        packageName: arr[0],
+        constraint: {
+            operator: arr[1],
+            version: arr[2]
+        }
+    }
+}
+
 const preProcessAptShow = (blockOfText => {
     return splitPackages(blockOfText)
         .map(package => {
@@ -56,15 +70,10 @@ const preProcessAptShow = (blockOfText => {
                 if (field.key == 'depends') {
                     let depsArray = field.value.split(', ');
                     depsArray = depsArray.map(dep => {
-                        dep = dep.replace('(', '');
-                        dep = dep.replace(')', '');
-                        let arr = dep.split(' ');
-                        return {
-                            packageName: arr[0],
-                            constraint: {
-                                operator: arr[1],
-                                version: arr[2]
-                            }
+                        if (!dep.includes('|'))
+                            return depToDTO(dep);
+                        else {
+                            return dep.split('|').map(depToDTO);
                         }
                     });
                     pkg[field.key] = JSON.parse(JSON.stringify(depsArray));

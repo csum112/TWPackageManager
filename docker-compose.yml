@@ -13,13 +13,13 @@ services:
         - "debianrepo"
   debianrepo:
     build:
+      dockerfile: './Dockerfile.debian'
       context: '.'
-      dockerfile: './debian/Dockerfile'
   archrepo:
     build:
+      dockerfile: './Dockerfile.arch'
       context: '.'
-      dockerfile: './arch/Dockerfile'
   centosrepo:
     build:
+      dockerfile: './Dockerfile.centos'
       context: '.'
-      dockerfile: './centos/Dockerfile'
