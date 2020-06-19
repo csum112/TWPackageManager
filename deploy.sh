@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-
-heroku container:login;
 # Push images to registires
 docker push registry.heroku.com/twdemi/web
 docker push registry.heroku.com/twdemicentos/web
