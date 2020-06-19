@@ -1,4 +1,4 @@
-FROM bitnami/apache:latest
+FROM bitnami/apache:2.4.43-debian-10-r60
 COPY ./vhost.prod.conf /vhosts/my_vhost.conf
 COPY ./app /app
 COPY ./httpd.conf /opt/bitnami/apache/conf/
