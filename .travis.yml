@@ -1,9 +1,8 @@
 language: node
 services:
     - docker  
-before_install:
-    - curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 script:
+    - echo "${PORT}"
     - chmod +x build.sh
     - chmod +x deploy.sh
     - ./build.sh
