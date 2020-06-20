@@ -12,12 +12,21 @@ export class AppCoverComponent{
     }
 
     constructor(componentRef) {
-        this.content = 'python';
+        this.content = window.packageDetailsService.currentPackage;
         componentRef.onViewLoad = () => {this.initColor(componentRef)}
+        componentRef.addEventListener("navigatePackageTab", event => {
+            this.navigateTo(event.detail.tab);
+          });
     }
     
     initColor(componentRef) {
         let coverRef = componentRef.shadowRoot.querySelector('.cover');
         coverRef.style.background = `linear-gradient(114.42deg, ${this._getColor()} 0%, ${this._getColor()} 50%, ${this._getColor()} 100%)`;
+    }
+
+    navigateTo(tab){
+        let packageName = window.packageDetailsService.currentPackage;
+        let route = "/package/" + packageName + "/" + tab;
+        window.router.navigateTo(route);
     }
 }

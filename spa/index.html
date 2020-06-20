@@ -4,27 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DEmI</title>
 </head>
 
 <body
     style="background-color: #252a41;padding: 0px 0px 0px;margin: 0px 0px 0px;width: 100%;display: flex;justify-content: center;align-content: middle;">
+    <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
+    
     <shell-component>
         <app-list-component slot="left" id="applist"></app-list-component>
-        <default-component slot="right">
-            <checkout-component slot="inner-content"></checkout-component>
+        <div slot="right" id="root"></div>
+        <!-- <default-component slot="right">
+            <checkout-list-component slot="inner-content"></checkout-list-component> -->
             <!-- <app-cover slot="inner-content">
                 <app-description slot="app-content"></app-description>
-            </app-cover> -->
-        </default-component>
+            </app-cover>
+        </default-component> -->
     </shell-component>
 
     <!-- <default-template>
         <about-component slot="page-content"></about-component>
     </default-template> -->
-
-    <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
 </body>
 
 </html>
+
+<template id="mainMenu">
+    <default-component onButtonClick="()=>{window.router.navigateTo('/checkout')}">
+        <checkout-list-component slot="inner-content"></checkout-list-component>
+    </default-component>
+</template>
+
+<template id="mainPackageDescription">
+    <default-component onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
+        <app-cover slot="inner-content">
+            <app-description slot="app-content"></app-description>
+        </app-cover>
+    </default-component>
+</template>
+
+<template id="mainPackageInfo">
+    <default-component onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
+        <app-cover slot="inner-content">
+            <app-info slot="app-content"></app-info>
+        </app-cover>
+    </default-component>
+</template>
+
+<template id="mainPackageDependencies">
+    <default-component onButtonClick="()=>{window.basketService.addCurrentToBasket()}">
+        <app-cover slot="inner-content">
+            <app-dependencies slot="app-content"></app-dependencies>
+        </app-cover>
+    </default-component>
+</template>
+
+<template id="mainCheckout">
+    <default-component>
+        <checkout-component slot="inner-content"></checkout-component>
+    </default-component>
+</template>
+
+<template id="nav">
+    <default-template>
+        <nav-component slot="page-content"></nav-component>
+    </default-template>
+</template>
+
+<template id="welcome">
+    <default-template>
+        <welcome-component slot="page-content"></welcome-component>
+    </default-template>
+</template>
+
+<template id="contact">
+    <default-template>
+        <contact-component slot="page-content"></contact-component>
+    </default-template>
+</template>
+
+<template id="about">
+    <default-template>
+        <about-component slot="page-content"></about-component>
+    </default-template>
+</template>
+
+<template id="nav">
+    <default-template>
+        <nav-component slot="page-content"></nav-component>
+    </default-template>
+</template>

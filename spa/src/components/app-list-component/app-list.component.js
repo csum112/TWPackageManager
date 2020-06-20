@@ -25,7 +25,7 @@ export class AppListComponent {
 	_pullListFromService() {
 		// if (window.appListService != null) {
 			// const list = window.appListService.getPackages()
-			const list = ["python", "hello", "world"]
+			const list = ["python", "hello", "world"];
 
 			list.forEach((packageName) => {
 				this._addPackage(packageName);

@@ -19,6 +19,10 @@ export class ThumbnailComponent {
     }
 
     componentRef.onViewLoad = () => {this.initColor(componentRef)}
+
+    componentRef.onclick = () => {
+      window.router.navigateTo("/package/" + this.packageName + "/description");
+    }
   }
 
   initColor(componentRef) {

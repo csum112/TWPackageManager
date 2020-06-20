@@ -1,11 +1,13 @@
 export class DefaultComponent {
-    constructor() {
-        // const buttonRef = this.shadowRoot.getElementById("back-button");
+    constructor(componentRef) {
+        const buttonRef = componentRef.shadowRoot.getElementById("back-button");
         // buttonRef.onclick = () => {
+        //     console.log("something");
         //     window.navigationService.goBack();
         // }
-        // const mobileFabRef = this.shadowRoot.getElementById("mobile-fab");
-        // const func = eval(this.getAttribute("onButtonClick"));
+        
+        const mobileFabRef = componentRef.shadowRoot.getElementById("mobile-fab");
+        const func = eval(componentRef.getAttribute("onButtonClick"));
         // mobileFabRef.onclick = func;
     }
 

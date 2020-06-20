@@ -1,5 +1,7 @@
 export class CheckoutComponent {
     constructor() {
-        this.script = 'npm install python';
+        window.basketService.createScript().then(script => {
+            this.script = script;
+        });
     }
 }
