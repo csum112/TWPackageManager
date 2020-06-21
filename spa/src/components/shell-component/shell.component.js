@@ -1,18 +1,22 @@
 export class ShellComponent {
   constructor(componentRef) {
-    // this.registerSearchHandler();
-    // this.registerScrollHandler();
+    this.componentRef = componentRef;
+    
+    componentRef.onViewLoad = () => {
+      // this.registerSearchHandler();
+      // this.registerScrollHandler();
 
-    // this.shadowRoot.getElementById("mobile-fab").onclick = () => {
-    //   window.navigationService.toggleMobileMenu();
-    // }
-    // this.shadowRoot.addEventListener("closeMobileMenu", this.closeMobileMenu);
-    // this.shadowRoot.addEventListener("openMobileMenu", this.openMobileMenu);
-    // this.isMenuOpen = false;
+      componentRef.shadowRoot.getElementById("mobile-fab").onclick = () => {
+        window.navigationService.toggleMobileMenu();
+      }
+      //componentRef.shadowRoot.addEventListener("closeMobileMenu", this.closeMobileMenu);
+      //componentRef.shadowRoot.addEventListener("openMobileMenu", this.openMobileMenu);
+      componentRef.isMenuOpen = false;
+    }
   }
 
   registerSearchHandler() {
-    const input = this._shadow.getElementById("searchbox");
+    const input = this.componentRef.shadowRoot.getElementById("searchbox");
     input.addEventListener("keyup", (event) => {
       const filter = input.value;
       window.appListService.setFilter(filter);
@@ -20,7 +24,7 @@ export class ShellComponent {
   }
 
   registerScrollHandler() {
-    this._headerRef = this._shadow.getElementById("toolbar");
+    this._headerRef = this.componentRef.shadowRoot.getElementById("toolbar");
     this.isToolBarHidden = false;
     window.onscroll = () => {
       if (window.pageYOffset > 0) {

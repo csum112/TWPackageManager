@@ -1,14 +1,15 @@
 export class DefaultComponent {
     constructor(componentRef) {
-        const buttonRef = componentRef.shadowRoot.getElementById("back-button");
-        // buttonRef.onclick = () => {
-        //     console.log("something");
-        //     window.navigationService.goBack();
-        // }
-        
-        const mobileFabRef = componentRef.shadowRoot.getElementById("mobile-fab");
-        const func = eval(componentRef.getAttribute("onButtonClick"));
-        // mobileFabRef.onclick = func;
+        componentRef.onViewLoad = () => {
+            const buttonRef = componentRef.shadowRoot.getElementById("back-button");
+            const mobileFabRef = componentRef.shadowRoot.getElementById("mobile-fab");
+            const func = eval(componentRef.getAttribute("onButtonClick"));
+            
+            buttonRef.onclick = () => {
+                window.navigationService.goBack();
+            }
+            mobileFabRef.onclick = func;
+        }
     }
 
 }

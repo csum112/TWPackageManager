@@ -8,18 +8,18 @@
 
 <ul class="tabs">
     <li>
-        <h3><a
-                onclick="dispatchEvent(new CustomEvent('navigatePackageTab', {composed:true, bubles: true, detail: {tab: 'description'}}))">Description<a>
+        <h3 id="desc">
+            Description
         </h3>
     </li>
     <li>
-        <h3><a
-                onclick="dispatchEvent(new CustomEvent('navigatePackageTab', {composed:true, bubles: true, detail: {tab: 'info'}}))">Info<a>
+        <h3 id="info">
+            Info
         </h3>
     </li>
     <li>
-        <h3><a
-                onclick="dispatchEvent(new CustomEvent('navigatePackageTab', {composed:true, bubles: true, detail: {tab: 'dependencies'}}))">Dependecies<a>
+        <h3 id="deps">
+            Dependecies
         </h3>
     </li>
 </ul>

@@ -1,6 +1,9 @@
 const express = require('express');
 const Repo = require('./repository')
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 const PORT = process.env.PORT || 8080
 

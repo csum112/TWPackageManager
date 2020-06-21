@@ -1,7 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .main-wrapper {
     position: fixed;
-    margin: 0px;
-    padding: 0px;
     height: 100%;
     width: 100vw;
     z-index: 1000;
@@ -12,8 +15,26 @@
     overflow-x: hidden;
 }
 
+/* width */
 .main-wrapper::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+}
+  
+/* Track */
+.main-wrapper::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background: rgba(202, 204, 219, 0.3); 
+}
+
+/* Handle */
+.main-wrapper::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: #888;
+}
+
+/* Handle on hover */
+.main-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #894EC6; 
 }
 
 .dots1 {
@@ -45,10 +66,15 @@
     font-size: 48px;
     color: rgba(202, 204, 219, 0.3);
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+}
+
+#container {
+    min-height: 100%;
 }
 
 .page-shell {
-    min-height: 100%;
+    padding-bottom: 3rem;
     display: flex;
     position: relative;
     flex-direction: column;
@@ -56,13 +82,10 @@
     justify-content: flex-start;
 }
 
-slot {
-    padding-bottom: 3rem;
-}
-
 footer {
-    position: absolute;
+    position: relative;
     height: 3rem;
+    margin-top: -3rem;
     bottom: 0;
     width: 100%;
     background-color: rgba(202, 204, 219, 0.3);
@@ -70,7 +93,10 @@ footer {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: lighter;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clear: both;
 }
 
 @media (max-width: 720px) and (orientation: portrait) {

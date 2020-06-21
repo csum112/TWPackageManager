@@ -20,11 +20,11 @@ const regexes = [
         key: "maintainer"
     },
     {
-        regexp: /Summary\ +: (.*?)\n/s,
+        regexp: /Summary/s,
         key: "depends"
     },
     {
-        regexp: /Description\ +: (.*?)\n/s,
+        regexp: /Summary\ +: (.*?)\n/s,
         key: "description"
     }
 ];

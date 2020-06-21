@@ -1,7 +1,7 @@
 export class CheckoutListComponent {
     constructor(componentRef) {
-        this.listRef = componentRef.shadowRoot.getElementById("basket");
         componentRef.onViewLoad = () => {
+            this.listRef = componentRef.shadowRoot.getElementById("basket");
             this.populateList();
         }
     }

@@ -2,6 +2,7 @@
     position: relative;
     display: inline-block;
     max-height: 40vh;
+    width: 75%;
     overflow-y: auto;
     padding: 2rem;
 }
@@ -10,4 +11,26 @@ ul > li {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background: rgba(202, 204, 219, 0.3); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #894EC6; 
 }

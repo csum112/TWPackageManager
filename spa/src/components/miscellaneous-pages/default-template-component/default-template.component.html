@@ -1,19 +1,20 @@
 <div class="main-wrapper">
-    <a href="/nav">
-        <div class="logo">DEmI</div>
-    </a>
-    <div class="page-shell">
-        <div class="dots1">
-            <img src="/assets/svg/dots.svg" alt="design-dots" width="200" height="200">
-        </div>
-        <div class="dots2">
-            <img src="/assets/svg/dots.svg" alt="design-dots" width="200" height="200">
-        </div>
+    <div id="container">
+        <a onclick="window.router.navigateTo('/nav')">
+            <div class="logo">DEmI</div>
+        </a>
+        <div class="page-shell">
+            <div class="dots1">
+                <img src="/assets/svg/dots.svg" alt="design-dots" width="200" height="200">
+            </div>
+            <div class="dots2">
+                <img src="/assets/svg/dots.svg" alt="design-dots" width="200" height="200">
+            </div>
 
-        <slot name="page-content"></slot>
-
-        <footer>
-            <p>&copy Copyright 2020 | DEmI</p>
-        </footer>
+            <slot name="page-content"></slot>
+        </div>
     </div>
+    <footer>
+        <p>&copy Copyright 2020 | DEmI</p>
+    </footer>
 </div>

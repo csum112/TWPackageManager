@@ -22,11 +22,13 @@ export class AppListService {
   }
 
   async fetchPackages() {
-    let distro = window.distroService.getDistro();
-    console.log(distro);
-    const req = await fetch(`/api/${distro}/packages?prefix=${this.filter.prefix}`);
+    //let distro = window.distroService.getDistro();
+    //console.log(distro);
+    //const req = await fetch(`/api/${distro}/packages?prefix=${this.filter.prefix}`);
+    const req = await fetch(`http://localhost:3000/packages`);
     const reqJson = await req.json();
-    return reqJson.data;
+    //console.log(reqJson);
+    return reqJson;
   }
 
   async setFilter(newFilter) {

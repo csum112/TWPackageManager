@@ -29,19 +29,21 @@
     display: flex;
     list-style-type: none;
     margin: 0;
+    padding-inline-start: 0;
     padding-top: 1rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .tabs h3 {
     display: inline;
-    font-family: 'Roboto', sans-sarif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: lighter;
+    cursor: pointer;
 }
 
-.tabs a:link, .tabs a:visited, .tabs a:hover, .tabs a:active {
-    text-decoration: none;
+#desc {
+    color: #894EC6;
 }
 
 hr {

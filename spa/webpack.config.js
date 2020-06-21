@@ -11,7 +11,10 @@ module.exports = {
     publicPath: 'http://localhost:8080/',
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 8080
+    port: 8080,
+    historyApiFallback: {
+      index: 'index.html'
+    }
   },
   module: {
     rules: [
