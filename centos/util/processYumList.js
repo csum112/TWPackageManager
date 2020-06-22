@@ -1,4 +1,4 @@
-const regex = /^"(.*?)\..+? +.+? +.+"$/g
+const regex = /^"(.*?)\..+? +(.*?:)?(.+?)-.+"$/g
 
 const getPackagesFromList = (textBlock) => {
     return textBlock
@@ -10,7 +10,12 @@ const getPackagesFromList = (textBlock) => {
             return match;
         })
         .filter(match => match)
-        .map(match => match[1]);
+        .map(match => {
+            return {
+                packageName: match[1],
+                version: match[3]
+            }
+        });
 }
 
 module.exports = getPackagesFromList

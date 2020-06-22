@@ -111,7 +111,7 @@ const preProcessAptShow = (blockOfText => {
                 dep = dep.replace(/provider: /g, '');
                 let arr = dep.split(' ');
                 let pkgName = /(.+?)\..*/g.exec(arr[0])[1];
-                let version = /(.+?)-.*/g.exec(arr[1])[1];
+                let version = /(.+?:)?(.+?)-.*/g.exec(arr[1])[2];
                 return {
                     packageName: pkgName,
                     constraint: {
@@ -126,7 +126,7 @@ const preProcessAptShow = (blockOfText => {
                 );
 
             return pkg;
-        });
+        })[0];
 });
 
 module.exports = preProcessAptShow;

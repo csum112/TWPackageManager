@@ -2,7 +2,9 @@ const spawnPromise = require('./spawnPromise');
 const processYumInfo = require('./util/processYumInfo');
 const processYumList = require('./util/processYumList');
 
-async function packageDetails(packageName) {
+async function packageDetails(packageName, version) {
+    if(version)
+        packageName = `${packageName}-${version}`
     try {
         return processYumInfo([
             await spawnPromise('yum', ['info', packageName, '-q']), 
@@ -27,7 +29,8 @@ async function packageList(query) {
 
 class YumRepositoryAdapter {
     static getPackages = packageList;
-    static getPackage = packageDetails
+    static getPackage = packageDetails;
+    static repoName = "centos"
 }
 
 module.exports = YumRepositoryAdapter;
