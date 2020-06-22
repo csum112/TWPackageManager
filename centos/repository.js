@@ -8,7 +8,7 @@ async function packageDetails(packageName, version) {
     try {
         return processYumInfo([
             await spawnPromise('yum', ['info', packageName, '-q']), 
-            await spawnPromise('yum', ['deplist', packageName])
+            await spawnPromise('yum', ['deplist', packageName, '-q'])
         ]);
     } catch (error) {
         throw error;
