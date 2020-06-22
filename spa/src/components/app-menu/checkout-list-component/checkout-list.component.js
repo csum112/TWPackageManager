@@ -1,7 +1,12 @@
 export class CheckoutListComponent {
     constructor(componentRef) {
         componentRef.onViewLoad = () => {
+            const mobileFabRef = componentRef.shadowRoot.getElementById("mobile-fab");
             this.listRef = componentRef.shadowRoot.getElementById("basket");
+            
+            mobileFabRef.onclick = () => {
+                window.router.navigateTo("/checkout");
+            };
             this.populateList();
         }
     }

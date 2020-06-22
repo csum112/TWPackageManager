@@ -27,9 +27,9 @@ import { PackageDetailsService } from './services/packageDetailsService.js';
 
 
 
+window.distroService = new DistroService();
 window.appListService = new AppListService();
 window.basketService = new BasketService();
-window.distroService = new DistroService();
 window.navigationService = new NavigationService();
 window.packageDetailsService = new PackageDetailsService();
 

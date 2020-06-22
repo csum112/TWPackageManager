@@ -16,31 +16,14 @@ export class AppCoverComponent {
         componentRef.onViewLoad = () => {
             this.initColor(componentRef);
 
-            //const h3Refs = componentRef.shadowRoot.getElementsByTagName("h3");
-            const descRef = componentRef.shadowRoot.getElementById("desc");
-            const infoRef = componentRef.shadowRoot.getElementById("info");
-            const depsRef = componentRef.shadowRoot.getElementById("deps");
-
-            descRef.onclick = () => {
-                this.navigateTo("description");
-                // descRef.style.color = '#894EC6';
-                // infoRef.style.color = 'black';
-                // depsRef.style.color = 'black';
-            }
-            
-            infoRef.onclick = () => {
-                this.navigateTo("info");
-                // infoRef.style.color = '#894EC6';
-                // descRef.style.color = 'black';
-                // depsRef.style.color = 'black';
-            }
-
-            depsRef.onclick = () => {
-                this.navigateTo("dependencies");
-                // depsRef.style.color = '#894EC6';
-                // infoRef.style.color = 'black';
-                // descRef.style.color = 'black';
-            }
+            const tabList = [
+                componentRef.shadowRoot.getElementById("description"),
+                componentRef.shadowRoot.getElementById("info"),
+                componentRef.shadowRoot.getElementById("dependencies")
+            ];
+            tabList.forEach(tab => {
+                tab.onclick = () => this.navigateTo(tab.id);
+            })
         }
     }
 

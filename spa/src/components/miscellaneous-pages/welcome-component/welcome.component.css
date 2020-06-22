@@ -44,6 +44,10 @@ ul::-webkit-scrollbar {
     display: none;
 }
 
+li {
+    cursor: pointer;
+}
+
 img {
     padding: 1.5rem;
 }

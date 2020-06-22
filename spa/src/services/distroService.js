@@ -1,4 +1,5 @@
 export class DistroService {
+    constructor() {}
 
     setDistro(distro) {
         localStorage.setItem("distro", distro);

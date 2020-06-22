@@ -8,8 +8,8 @@ const regexes = [
         key: "version"
     },
     {
-        regexp: /Maintainer: (.*?)\n/s,
-        key: "maintainter"
+        regexp: /Homepage: (.*?)\n/s,
+        key: "maintainer"
     },
     {
         regexp: /Depends: (.*?)\n/s,
@@ -17,7 +17,7 @@ const regexes = [
     },
     {
         regexp: /Description: (.*?)\n/s,
-        key: "descriptions"
+        key: "description"
     }
 ];
 
