@@ -60,16 +60,16 @@ function nthIndex(str, pat, n){
 }
 
 const preProcessAptShow = (blockOfText => {
-    //console.log(blockOfText);
+    console.log(blockOfText);
     if ((blockOfText[0].match(/Name\ +:/g) || []).length > 1) {
         redundant = true;
         blockOfText[0] = blockOfText[0].slice(0, blockOfText[0].indexOf('Available'));
         blockOfText[1] = blockOfText[1].slice(0, nthIndex(blockOfText[1], 'package', 2));
     }
     //console.log(blockOfText);
-
     return splitPackages(blockOfText[0])
         .map(package => {
+            console.log("Doing something")
             let pkg = {}
             let info = regexes.map(regexGroup => {
                 return {
@@ -111,7 +111,7 @@ const preProcessAptShow = (blockOfText => {
                 dep = dep.replace(/provider: /g, '');
                 let arr = dep.split(' ');
                 let pkgName = /(.+?)\..*/g.exec(arr[0])[1];
-                let version = /(.+?)-.*/g.exec(arr[1])[1];
+                let version = /(.+?:)?(.+?)-.*/g.exec(arr[1])[2];
                 return {
                     packageName: pkgName,
                     constraint: {
@@ -124,9 +124,7 @@ const preProcessAptShow = (blockOfText => {
             pkg['depends'] = simpleDepsArray.filter(el => 
                 simpleDepsArray.find(el1 => JSON.stringify(el1) === JSON.stringify(el)) === el
                 );
-
-            return pkg;
-        });
+        })[0];
 });
 
 module.exports = preProcessAptShow;

@@ -2,6 +2,7 @@ const express = require('express');
 const Repo = require('./repository')
 const app = express();
 const cors = require('cors');
+const parseDep = require('./parseDependencies');
 
 app.use(cors());
 
@@ -18,33 +19,15 @@ app.get("/packages", async (req, res) => {
     if (packageList.length > limit)
         packageList.length = parseInt(limit);
 
-
-    // let pkgNames = packageList;
-    // let listOfPromiseLists = pkgNames.map(pkgName => {
-    //     console.log(pkgName);
-    //     return parseDep(pkgName);
-    // });
-    // let listOfLists = await Promise.all(listOfPromiseLists);
-        
-    // let list = [];
-    // listOfLists.forEach(innerList => {
-    //     innerList.forEach(name => {
-    //         if (!list.includes(name)) {
-    //             list.push(name);
-    //             console.log(name);
-    //         }
-    //     });
-    //     console.log('\n');
-    // });
-
-
     res.status(200).send(packageList)
 })
 
 app.get("/packages/:packageName", async (req, res) => {
     let packageName = req.params.packageName;
+    let version = req.query.version || null;
+
     try {
-        let packageData = await Repo.getPackage(packageName);
+        let packageData = await Repo.getPackage(packageName, version);
         res.status(200).send(packageData)
     } catch (error) {
         res.status(404).send(error)
@@ -52,37 +35,10 @@ app.get("/packages/:packageName", async (req, res) => {
 })
 
 
-async function parseDep(pkgName) {
-    let pkg = null;
-    pkg = await Repo.getPackage(pkgName);
-
-    let dependencies = pkg[0].depends;
-    if (dependencies == [])
-        return [];
-        
-    let list = [];
-    dependencies.forEach(depName => {
-        let innerList = parseDep(depName);
-        list.push(innerList);
-    });
-
-    let pkgListNames = [];
-    let listOfNameLists = await Promise.all(list);
-    listOfNameLists.forEach(listOfNames => {
-        listOfNames.forEach(name => {
-        if (!pkgListNames.includes(name)) {
-            pkgListNames.push(name);
-        }
-        });
-    });
-
-    pkgListNames.push(pkgName);
-    return pkgListNames;
-}
-
-
-
 console.log(`Starting server on port ${PORT}`)
-app.listen(PORT);
+// app.listen(PORT);
+// parseDep('javapackages-tools').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
+// Repo.getPackage('libxslt').then(console.log).catch(console.log)
+parseDep('libxslt').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 
 process.on('SIGINT', () => process.exit(1));

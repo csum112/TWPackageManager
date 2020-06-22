@@ -20,26 +20,21 @@ export class AppListService {
   }
 
   async fetchPackages() {
-    if (!window.distroService.isSet()) {
-      alert("A distro hasn't been set yet!");
-      window.router.navigateTo("/welcome");
-    } else {
-      let distro = window.distroService.getDistro();
-      console.log(distro);
-      //const req = await fetch(`/api/${distro}/packages?prefix=${this.filter.prefix}`);
-      let port;
-      if (distro == "debian") {
-        port = 3002;
-      } else if (distro == "arch") {
-        port = 3001;
-      } else if (distro == "centos") {
-        port = 3000;
-      }
-      const req = await fetch(`http://localhost:${port}/packages`);
-      const reqJson = await req.json();
-      //console.log(reqJson);
-      return reqJson;
+    let distro = window.distroService.getDistro();
+    console.log(distro);
+    //const req = await fetch(`/api/${distro}/packages?prefix=${this.filter.prefix}`);
+    let port;
+    if (distro == "debian") {
+      port = 3002;
+    } else if (distro == "arch") {
+      port = 3001;
+    } else if (distro == "centos") {
+      port = 3000;
     }
+    const req = await fetch(`http://localhost:${port}/packages`);
+    const reqJson = await req.json();
+    //console.log(reqJson);
+    return reqJson;
   }
 
   async setFilter(newFilter) {

@@ -3,14 +3,14 @@ export class ShellComponent {
     this.componentRef = componentRef;
     
     componentRef.onViewLoad = () => {
-      // this.registerSearchHandler();
-      // this.registerScrollHandler();
+      this.registerSearchHandler();
+      this.registerScrollHandler();
 
       componentRef.shadowRoot.getElementById("mobile-fab").onclick = () => {
         window.navigationService.toggleMobileMenu();
       }
-      //componentRef.shadowRoot.addEventListener("closeMobileMenu", this.closeMobileMenu);
-      //componentRef.shadowRoot.addEventListener("openMobileMenu", this.openMobileMenu);
+      componentRef.shadowRoot.addEventListener("closeMobileMenu", this.closeMobileMenu);
+      componentRef.shadowRoot.addEventListener("openMobileMenu", this.openMobileMenu);
       componentRef.isMenuOpen = false;
     }
   }

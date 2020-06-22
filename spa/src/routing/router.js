@@ -4,7 +4,7 @@ export class Router {
   }
 
   get(uri, templateSelector, title, mobileMenuOpen) {
-    const route = { uri, templateSelector, title, mobileMenuOpen};
+    const route = { uri, templateSelector, title, mobileMenuOpen };
     this.routes.push(route);
   }
 
@@ -14,7 +14,6 @@ export class Router {
   }
 
   init() {
-
     let path = window.location.pathname;
     this.navigateTo(path);
   }
@@ -26,26 +25,25 @@ export class Router {
       if (path.match(regEx)) {
         matched = true;
 
-        const state = {template: route.templateSelector, url: path};
+        const state = { template: route.templateSelector, url: path };
         history.pushState(state, route.title, path);
         history.pushState({}, '', '');
         history.back();
-        if(route.mobileMenuOpen && !window.navigationService.mobileMenuIsOpen)
+        if (route.mobileMenuOpen && !window.navigationService.mobileMenuIsOpen)
           window.navigationService.toggleMobileMenu();
         return true;
       }
     });
-    if(!matched)
+    if (!matched)
       this.navigateTo("/");
   }
 }
 
-function handleRouteChange(event)
-{
+function handleRouteChange(event) {
   const root = document.getElementById("root");
   const lastChild = root.lastElementChild;
   if (lastChild != null && lastChild.tagName != "TEMPLATE")
-      root.removeChild(lastChild)
+    root.removeChild(lastChild)
 
   const templateID = event.state.template;
   const templateNode = document.getElementById(templateID).content.cloneNode(true);
@@ -62,18 +60,17 @@ function handlePackageRoute(event) {
   let root = document.getElementById("root");
   let lastChild = root.lastElementChild;
   if (lastChild != null && lastChild.tagName != "TEMPLATE")
-      root.removeChild(lastChild)
+    root.removeChild(lastChild)
 
   let templateID = event.state.template;
   let templateNode = document.getElementById(templateID).content.cloneNode(true);
-  root.appendChild(templateNode); 
+  root.appendChild(templateNode);
 }
 
-export function handleHistoryStateChange (event) {
-  if(event.type == "popstate" && event.state.template !== undefined) 
-  {        
-      if(event.state.template.includes("mainPackage"))
-          handlePackageRoute(event)
-      else handleRouteChange(event);
+export function handleHistoryStateChange(event) {
+  if (event.type == "popstate" && event.state.template !== undefined) {
+    if (event.state.template.includes("mainPackage"))
+      handlePackageRoute(event)
+    else handleRouteChange(event);
   }
 }

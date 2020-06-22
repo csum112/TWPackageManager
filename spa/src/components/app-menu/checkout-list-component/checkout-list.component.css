@@ -5,6 +5,17 @@
     height: 90vh;
 }
 
+.back-button {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
+    background: none;
+    border: none;
+    color: #894EC6;
+    cursor: pointer;
+}
+
 .mobile-fab {
     position: absolute;
     bottom: 2rem;
