@@ -34,8 +34,11 @@ app.get("/packages/:packageName", async (req, res) => {
     }
 })
 
+
 console.log(`Starting server on port ${PORT}`)
 // app.listen(PORT);
-parseDep('acl').then(console.log).catch(console.log);
+// parseDep('javapackages-tools').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
+// Repo.getPackage('libxslt').then(console.log).catch(console.log)
+parseDep('libxslt').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 
 process.on('SIGINT', () => process.exit(1));
