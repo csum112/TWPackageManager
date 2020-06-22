@@ -31,7 +31,7 @@ export class AppListService {
     } else if (distro == "centos") {
       port = 3000;
     }
-    const req = await fetch(`http://localhost:${port}/packages`);
+    const req = await fetch(`http://localhost:${port}/packages?q=${this.filter.prefix}`);
     const reqJson = await req.json();
     //console.log(reqJson);
     return reqJson;

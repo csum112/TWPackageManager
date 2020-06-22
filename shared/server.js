@@ -36,9 +36,9 @@ app.get("/packages/:packageName", async (req, res) => {
 
 
 console.log(`Starting server on port ${PORT}`)
-// app.listen(PORT);
+//app.listen(PORT);
 // parseDep('javapackages-tools').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 // Repo.getPackage('libxslt').then(console.log).catch(console.log)
-parseDep('javapackages-tools').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
-
+parseDep('0ad').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
+//Repo.getPackageVersions('zlib1g').then(console.log).catch(console.log);
 process.on('SIGINT', () => process.exit(1));

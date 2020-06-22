@@ -19,6 +19,9 @@ export class Router {
   }
 
   navigateTo(path) {
+    if (!window.distroService.isSet()) {
+      path = "/welcome";
+    }
     let matched = false;
     this.routes.some((route) => {
       let regEx = this._buildRoute(route.uri)

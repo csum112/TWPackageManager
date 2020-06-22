@@ -16,7 +16,7 @@ async function parseDep(packageName, toInstall = [], trace = [], constraint = nu
                     pkg.constraints.push(constraint);
                 else pkg.constraints = [constraint];
             }
-            return pkg
+            return pkg;
         })
     }
     console.log(`[${packageName}] fetching dependencies`);
@@ -25,7 +25,7 @@ async function parseDep(packageName, toInstall = [], trace = [], constraint = nu
         let pkg = (await Repo.getPackage(packageName));
         dependecies = pkg.depends || []; 
     } catch (error) { throw `Failed to get package ${packageName}: ` + error };
-    console.log(dependecies)
+    //console.log(dependecies)
     trace.push(packageName);
     for (let i = 0; i < dependecies.length; i++) {
         let dep = dependecies[i].packageName;
@@ -62,8 +62,8 @@ function resolveVersions(packageList) {
         .map(package => {
             let packageName = package.packageName;
             let constraints = package.constraints || [];
-            let lowerInclusive = '0'
-            let upperInclusive = 'z'
+            let lowerInclusive = '0';
+            let upperInclusive = 'z';
             constraints.forEach(constraint => {
                 switch (constraint.operator) {
                     case "==":
@@ -72,6 +72,20 @@ function resolveVersions(packageList) {
                         lowerInclusive = constraint.version;
                         upperInclusive = constraint.version;
                         break;
+                    case ">=":
+                        if (constraint.version > upperInclusive)
+                            throw `[${packageName}] Cannot resolve`;
+                        lowerInclusive = constraint.version;
+                        break;
+                    case "<=":
+                        if (constraint.version < lowerInclusive)
+                            throw `[${packageName}] Cannot resolve`;
+                        upperInclusive = constraint.version;
+                        break;
+                    // case "<<":
+                    //     let versions = await Repo.packageVersions(packageName);
+
+                    //     break;
                     default: throw "Not implemented";
                 }
             });
@@ -82,4 +96,5 @@ function resolveVersions(packageList) {
         });
 }
 
-module.exports = async (packageName) => resolveVersions(await parseDep(packageName));
+//module.exports = async (packageName) => resolveVersions(await parseDep(packageName));
+module.exports = async (packageName) => await parseDep(packageName);

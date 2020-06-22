@@ -43,15 +43,22 @@ function regexpGetGroup(block, regexp) {
 }
 
 function depToDTO(dep) {
+    console.log(dep);
     dep = dep.trim();
     dep = dep.replace('(', '');
     dep = dep.replace(')', '');
     let arr = dep.split(' ');
-    return {
-        packageName: arr[0],
-        constraint: {
-            operator: arr[1],
-            version: arr[2]
+    if (arr[1] && arr[2]) {
+        return {
+            packageName: arr[0],
+            constraint: {
+                operator: arr[1],
+                version: arr[2]
+            }
+        }
+    } else {
+        return {
+            packageName: arr[0]
         }
     }
 }
@@ -75,7 +82,8 @@ const preProcessAptShow = (blockOfText => {
                         else {
                             return dep.split('|').map(depToDTO);
                         }
-                    });
+                    }).filter(obj => obj.packageName != '' && obj.packageName);
+                    console.log(depsArray);
                     pkg[field.key] = JSON.parse(JSON.stringify(depsArray));
                 } else {
                     pkg[field.key] = field.value;
@@ -83,7 +91,7 @@ const preProcessAptShow = (blockOfText => {
             }));
 
             return pkg;
-        });
+        })[0];
 });
 
 module.exports = preProcessAptShow;
