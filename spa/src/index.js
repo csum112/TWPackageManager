@@ -53,6 +53,6 @@ CheckoutModule.forRoot();
 
 const router = new Router();
 injectRoutes(router);
-router.init();
 window.router = router;
 window.onpopstate = handleHistoryStateChange;
+router.init();
