@@ -1,7 +1,7 @@
 const Repo = require('./repository');
 
 
-async function parseDep(packageName, toInstall = [], trace = [], constraint = null) {
+async function parseDep(packageName, packageQueue, toInstall = [], trace = [], constraint = null) {
     console.log(`[${packageName}] Started processing...`);
     if (trace.includes(packageName)) {
         throw { circularDependency: packageName };
@@ -31,7 +31,7 @@ async function parseDep(packageName, toInstall = [], trace = [], constraint = nu
         let dep = dependecies[i].packageName;
         let depconstraint = dependecies[i].constraint;
         try {
-            toInstall = await parseDep(dep, toInstall, trace, depconstraint);
+            toInstall = await parseDep(dep, [], toInstall, trace, depconstraint);
         } catch (error) {
             if (error.circularDependency) {
                 let packageWhoThrowed = error.circularDependency
@@ -54,6 +54,20 @@ async function parseDep(packageName, toInstall = [], trace = [], constraint = nu
     else
         toInstall.push({ packageName: packageName });
     console.log(`[${packageName}] done!`);
+
+    for (let i=0; i < packageQueue.lenght; i++) {
+        let otherPackage = packageQueue[i];
+        console.log("Processing :" + otherPackage)
+        try {
+            let additionalPackages = await parseDep(otherPackage, [], toInstall);
+            additionalPackages.forEach(pkg => {
+                toInstall.push(pkg)
+            });
+        } catch(error) {
+            throw error;
+        }
+    }
+
     return toInstall;
 }
 
@@ -162,5 +176,5 @@ async function resolveVersions(packageList) {
         }));
 }
 
-module.exports = async (packageName) => await resolveVersions(await parseDep(packageName));
+module.exports = async (packageName, queue) => await resolveVersions(await parseDep(packageName, queue));
 //module.exports = async (packageName) => await parseDep(packageName);
