@@ -12,7 +12,7 @@ docker pull registry.heroku.com/twdemicentos/web
 docker pull registry.heroku.com/twdemiarch/web
 docker pull registry.heroku.com/twdemidebian/web
 # Build docker images
-docker build . -f ./Dockerfile.web -t registry.heroku.com/twdemi/web
-docker build . -f ./Dockerfile.centos -t registry.heroku.com/twdemicentos/web
-docker build . -f ./Dockerfile.arch -t registry.heroku.com/twdemiarch/web
-docker build . -f ./Dockerfile.debian -t registry.heroku.com/twdemidebian/web
+docker build . -f ./Dockerfile.web --cache-from  registry.heroku.com/twdemi/web -t registry.heroku.com/twdemi/web
+docker build . -f ./Dockerfile.centos --cache-from  registry.heroku.com/twdemicentos/web -t registry.heroku.com/twdemicentos/web
+docker build . -f ./Dockerfile.arch --cache-from  registry.heroku.com/twdemiarch/web -t registry.heroku.com/twdemiarch/web
+docker build . -f ./Dockerfile.debian --cache-from  registry.heroku.com/twdemidebian/web -t registry.heroku.com/twdemidebian/web
