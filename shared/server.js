@@ -37,7 +37,8 @@ app.get("/packages/:packageName", async (req, res) => {
     }
 })
 
-
+console.log(`The connection string is: ${process.env.CONNECTION_STRING}`)
+console.log(`The dbname is: ${process.env.DBNAME}`)
 console.log(`Starting server on port ${PORT}`)
 mongoClient.connect().then(() => app.listen(PORT))
 // parseDep('javapackages-tools').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
