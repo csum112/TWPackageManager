@@ -33,9 +33,7 @@ export class BasketService {
         //let apiURI = `http://localhost:3002/checkout`;
         let resp = await fetch(apiURI, {
             method: "POST",
-            body: JSON.stringify({
-              packageNames: this.list
-            })
+            body: JSON.stringify(this.list)
         });
         let script = await resp.json();
         return script.data;
