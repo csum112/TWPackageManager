@@ -30,8 +30,8 @@ async function packageList(query) {
 
 function toInstallCommand(pkg) {
     if(pkg.version) {
-        return `apt install -y ${pkg.packageName}=${pkg.version}`;
-    } else return `apt-get install -y ${pkg.packageName}`;
+        return `yum install -y ${pkg.packageName}-${pkg.version}`;
+    } else return `yum install -y ${pkg.packageName}`;
 }
 
 class YumRepositoryAdapter {
