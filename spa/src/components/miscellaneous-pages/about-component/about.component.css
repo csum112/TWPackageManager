@@ -32,6 +32,9 @@ code {
 }
 
 pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
     background: rgba(202, 204, 219, 0.3);
     border-radius: 10px;
 }
