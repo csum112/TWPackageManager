@@ -12,6 +12,7 @@
   "dependencies": {
     "async-mutex": "^0.2.3",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-cache": "^5.1.1"
   }
 }
