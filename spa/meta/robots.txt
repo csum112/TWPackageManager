@@ -2,4 +2,3 @@ User-agent: *
 
 Disallow: /nav
 Disallow: /welcome
-Disallow: /contact
