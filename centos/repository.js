@@ -28,8 +28,14 @@ async function packageList(query) {
     }
 }
 
+function toInstallCommand(pkg) {
+    if(pkg.version) {
+        return `apt install -y ${pkg.packageName}=${pkg.version}`;
+    } else return `apt-get install -y ${pkg.packageName}`;
+}
 
 class YumRepositoryAdapter {
+    static toInstallCommand = toInstallCommand
     static getPackages = (param) => getCacheOrCompute(param, packageList, "PACKAGE_LIST"); 
     static getPackage = (param) => getCacheOrCompute(param, packageDetails, "PACKAGE_DETAILS"); ;
 }

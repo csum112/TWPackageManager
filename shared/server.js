@@ -38,9 +38,23 @@ app.get("/packages/:packageName", async (req, res) => {
 });
 
 app.post("/checkout", async (req, res) => {
-    //console.log(req);
-    res.status(200).send("ceva");
+    let packageList = ['0ad', 'libc6'];
+    let listHead = packageList.splice(0, 1)[0];
+    try {
+        installQueue = await parseDep(listHead, packageList);
+        res.status(200).send(genScript(installQueue));
+    } catch(error) {
+        console.log(error)
+        res.status(400).send(error);
+    }
 });
+
+
+function genScript(packages) {
+    let script = packages.map(x => Repo.toInstallCommand(x) + " &&\\").join('\n');
+    script = script + "\necho 'Done :D'";
+    return script;
+}
 
 console.log(`The connection string is: ${process.env.CONNECTION_STRING}`);
 console.log(`The dbname is: ${process.env.DBNAME}`);
@@ -48,7 +62,7 @@ console.log(`Starting server on port ${PORT}`);
 mongoClient.connect().then(() => app.listen(PORT))
 // parseDep('javapackages-tools').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 // Repo.getPackage('libxslt').then(console.log).catch(console.log)
-parseDep('0ad').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
+// parseDep('0ad').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 //Repo.getPackageVersions('zlib1g').then(console.log).catch(console.log);
 process.on('SIGINT', () => {
     mongoClient.close();
