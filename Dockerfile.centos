@@ -17,4 +17,5 @@ COPY ./centos/ .
 
 #Entry
 EXPOSE $PORT
+ENV REPONAME "CentOS"
 CMD node server.js

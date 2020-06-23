@@ -1,7 +1,7 @@
 const spawnPromise = require('./spawnPromise');
 const processYumInfo = require('./util/processYumInfo');
 const processYumList = require('./util/processYumList');
-const cache = require('./cache');
+const {getCacheOrCompute} = require('./cache');
 
 
 async function packageDetails(packageName, version) {
@@ -30,10 +30,8 @@ async function packageList(query) {
 
 
 class YumRepositoryAdapter {
-    static getPackages = (param) => cache(param, packageList, "PACKAGE_LIST"); 
-    static getPackage = (param) => cache(param, packageDetails, "PACKAGE_DETAILS");
-    static getInstallCommand = (packageName) => `yum install --no-confirm ${packageName}`;
-    static repoName = "centos";
+    static getPackages = (param) => getCacheOrCompute(param, packageList, "PACKAGE_LIST"); 
+    static getPackage = (param) => getCacheOrCompute(param, packageDetails, "PACKAGE_DETAILS"); ;
 }
 
 module.exports = YumRepositoryAdapter;

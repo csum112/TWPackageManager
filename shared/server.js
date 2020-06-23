@@ -1,5 +1,6 @@
 const express = require('express');
 const Repo = require('./repository')
+const { mongoClient } = require('./cache');
 const app = express();
 const cors = require('cors');
 const parseDep = require('./parseDependencies');
@@ -7,6 +8,8 @@ const parseDep = require('./parseDependencies');
 app.use(cors());
 
 const PORT = process.env.PORT || 8080
+
+
 
 app.get("/packages", async (req, res) => {
     let page = req.query.page || 0;
@@ -39,11 +42,15 @@ app.post("/checkout", async (req, res) => {
     res.status(200).send("ceva");
 });
 
-
+console.log(`The connection string is: ${process.env.CONNECTION_STRING}`)
+console.log(`The dbname is: ${process.env.DBNAME}`)
 console.log(`Starting server on port ${PORT}`)
-app.listen(PORT);
+mongoClient.connect().then(() => app.listen(PORT))
 // parseDep('javapackages-tools').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 // Repo.getPackage('libxslt').then(console.log).catch(console.log)
 //parseDep('0ad').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 //Repo.getPackageVersions('zlib1g').then(console.log).catch(console.log);
-process.on('SIGINT', () => process.exit(1));
+process.on('SIGINT', () => {
+    mongoClient.close();
+    process.exit(1);
+});

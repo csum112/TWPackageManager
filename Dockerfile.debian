@@ -20,4 +20,5 @@ COPY ./debian/ .
 
 #Entry
 EXPOSE 8080
+ENV REPONAME "Debian"
 CMD node server.js
