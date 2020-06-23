@@ -50,6 +50,8 @@ li {
 
 img {
     padding: 1.5rem;
+    width: 200px;
+    height: auto;
 }
 
 @media (max-width: 720px) and (orientation: portrait) {
