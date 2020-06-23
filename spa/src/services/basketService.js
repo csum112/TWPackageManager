@@ -5,7 +5,7 @@ export class BasketService {
         this.script = null;
         if (storedBasket == null) this.list = [];
         else
-            this.list = storedBasket.split(",");
+            this.list = storedBasket.split(",").filter(pkg => pkg != '');
     }
 
     addCurrentToBasket() {
