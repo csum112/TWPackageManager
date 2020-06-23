@@ -2,6 +2,7 @@ export class DistroService {
     constructor() {}
 
     setDistro(distro) {
+        window.basketService.emptyBasket();
         localStorage.setItem("distro", distro);
         window.appListService.setFilter("");
         window.router.navigateTo("/");

@@ -78,10 +78,11 @@ const preProcessAptShow = (blockOfText => {
                     depsArray = depsArray.map(dep => {
                         if (!dep.includes('|'))
                             return depToDTO(dep);
-                        else {
-                            return dep.split('|').map(depToDTO);
-                        }
-                    }).filter(obj => obj.packageName != '' && obj.packageName);
+                        // else {
+                        //     return dep.split('|').map(depToDTO);
+                        // }
+                        
+                    }).filter(obj => obj && obj.packageName != '' && obj.packageName);
                     pkg[field.key] = JSON.parse(JSON.stringify(depsArray));
                 } else {
                     pkg[field.key] = field.value;

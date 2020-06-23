@@ -22,6 +22,11 @@ export class BasketService {
         localStorage.setItem("myBasket", this.list);
     }
 
+    emptyBasket() {
+        this.list = [];
+        localStorage.setItem("myBasket", this.list);
+    }
+
     async createScript() {
         let distro = window.distroService.getDistro();
         let apiURI = `/api/${distro}/checkout`;

@@ -57,17 +57,45 @@ async function parseDep(packageName, toInstall = [], trace = [], constraint = nu
     return toInstall;
 }
 
-function resolveVersions(packageList) {
+async function comparePackageVersions(packageName, version1, version2) {
+    if (version1 == version2) {
+        return 0;
+    }
+    let versionList = await Repo.getPackageVersions(packageName);
+    let index1 = versionList.indexOf(version1);
+    let index2 = versionList.indexOf(version2);
+    if (index1 == -1 || index2 == -1) {
+        throw '404';
+    }
+    if (index1 > index2) {
+        return -1;
+    } else {
+        return 1;
+    }
+}
+
+async function resolveVersions(packageList) {
     console.log(JSON.stringify(packageList));
-    return packageList
-        .map(package => {
+    return await Promise.all(packageList
+        .map(async package => {
             let packageName = package.packageName;
             let constraints = package.constraints || [];
             let lowerInclusive = '0';
             let upperInclusive = 'z';
             constraints = constraints.filter(constr => constr != null);
             console.log(constraints);
-            constraints.forEach(constraint => {
+            constraints = constraints.map(constr => {
+                let regex = /^(.+?)(\~|\+)?.*?$/g;
+                constr.version = regex.exec(constr.version)[1];
+                return constr;
+            });
+            for (let i = 0; i < constraints.length; i+=1) {
+                let constraint = constraints[i];
+
+            
+            //constraints.forEach(async constraint => {
+                let versions;
+                let index;
                 switch (constraint.operator) {
                     case "=":
                     case "==":
@@ -87,9 +115,9 @@ function resolveVersions(packageList) {
                         upperInclusive = constraint.version;
                         break;
                     case "<<":
-                        let versions = Repo.getPackageVersions(packageName);
+                        versions = await Repo.getPackageVersions(packageName);
                         // check if version available among options
-                        let index = -1;
+                        index = -1;
                         versions.forEach(ver => {
                             if (ver.startsWith(constraint.version)) {
                                 index = versions.indexOf(ver);
@@ -104,9 +132,10 @@ function resolveVersions(packageList) {
                         }
                         break;
                     case ">>":
-                        versions = Repo.getPackageVersions(packageName);
+                        versions = await Repo.getPackageVersions(packageName);
                         // check if version available among options
                         index = -1;
+                        console.log(versions);
                         versions.forEach(ver => {
                             if (ver.startsWith(constraint.version)) {
                                 index = versions.indexOf(ver);
@@ -124,13 +153,14 @@ function resolveVersions(packageList) {
                         console.log(constraint.operator); 
                         throw "Not implemented";
                 }
-            });
+            };
+            
             if (upperInclusive == 'z')
                 return { packageName: packageName};
             else
                 return { packageName: packageName, version: upperInclusive };
-        });
+        }));
 }
 
-module.exports = async (packageName) => resolveVersions(await parseDep(packageName));
+module.exports = async (packageName) => await resolveVersions(await parseDep(packageName));
 //module.exports = async (packageName) => await parseDep(packageName);
