@@ -42,7 +42,7 @@ app.post("/checkout", async (req, res) => {
     let listHead = packageList.splice(0, 1)[0];
     try {
         installQueue = await parseDep(listHead, packageList);
-        res.status(200).send(genScript(installQueue));
+        res.status(200).send(JSON.stringify(genScript(installQueue)));
     } catch(error) {
         console.log(error)
         res.status(400).send(error);
