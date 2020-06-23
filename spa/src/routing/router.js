@@ -20,7 +20,7 @@ export class Router {
   }
 
   navigateTo(path) {
-    if (!window.distroService.isSet()) {
+    if (!window.distroService.isSet() && path != "/about" && path != "/contact" && path != "/nav") {
       path = "/welcome";
     }
     let matched = false;
