@@ -24,7 +24,7 @@ hr {
 .scroll {
     height: auto;
     width: 100%;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .content .scroll p {

@@ -31,11 +31,12 @@ export class BasketService {
         let distro = window.distroService.getDistro();
         let apiURI = `/api/${distro}/checkout`;
         //let apiURI = `http://localhost:3002/checkout`;
+        //let apiURI = `https://twdemi.herokuapp.com/api/centos/checkout`;
         let resp = await fetch(apiURI, {
             method: "POST",
             body: JSON.stringify(this.list)
         });
         let script = await resp.json();
-        return script.data;
+        return script;
     }
 }
