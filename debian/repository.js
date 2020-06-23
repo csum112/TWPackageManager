@@ -2,6 +2,7 @@ const spawnPromise = require('./spawnPromise');
 const processAptShow = require('./util/processAptShow');
 const processAptList = require('./util/processAptList');
 const processAptPolicy = require('./util/processAptPolicy');
+const cache = require('./cache.js');
 
 async function packageDetails(packageName) {
     try {
@@ -29,8 +30,8 @@ async function packageVersions(packageName) {
 
 
 class AptRepoAdapter {
-    static getPackages = packageList;
-    static getPackage = packageDetails
+    static getPackages = (param) => cache(param, packageList, "PACKAGE_LIST"); 
+    static getPackage = (param) => cache(param, packageDetails, "PACKAGE_DETAILS"); 
     static getPackageVersions = packageVersions;
 }
 

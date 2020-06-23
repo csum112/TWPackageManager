@@ -1,5 +1,5 @@
 FROM bitnami/apache:2.4.43-debian-10-r60
 COPY ./vhost.prod.conf /vhosts/my_vhost.conf
-COPY ./app /app
+COPY ./dist /app
 COPY ./httpd.conf /opt/bitnami/apache/conf/
 CMD echo "Running on port: ${APACHE_HTTP_PORT_NUMBER}";/opt/bitnami/scripts/apache/run.sh

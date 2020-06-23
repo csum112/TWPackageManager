@@ -15,6 +15,7 @@ export class Router {
 
   init() {
     let path = window.location.pathname;
+    console.log(`[Router] the path is: ${path}`)
     this.navigateTo(path);
   }
 

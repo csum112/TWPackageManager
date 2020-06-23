@@ -10,12 +10,7 @@ const getPackagesFromList = (textBlock) => {
             return match;
         })
         .filter(match => match)
-        .map(match => {
-            return {
-                packageName: match[1],
-                version: match[3]
-            }
-        });
+        .map(match => match[1]);
 }
 
 module.exports = getPackagesFromList
