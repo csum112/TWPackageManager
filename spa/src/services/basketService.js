@@ -5,7 +5,7 @@ export class BasketService {
         this.script = null;
         if (storedBasket == null) this.list = [];
         else
-            this.list = storedBasket.split(",");
+            this.list = storedBasket.split(",").filter(pkg => pkg != '');
     }
 
     addCurrentToBasket() {
@@ -22,9 +22,15 @@ export class BasketService {
         localStorage.setItem("myBasket", this.list);
     }
 
+    emptyBasket() {
+        this.list = [];
+        localStorage.setItem("myBasket", this.list);
+    }
+
     async createScript() {
-        let repo = window.distroService.getDistro();
-        let apiURI = `/api/${repo}/checkout`;
+        let distro = window.distroService.getDistro();
+        let apiURI = `/api/${distro}/checkout`;
+        //let apiURI = `http://localhost:3002/checkout`;
         let resp = await fetch(apiURI, {
             method: "POST",
             body: JSON.stringify({

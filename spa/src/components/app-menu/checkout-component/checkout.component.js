@@ -1,7 +1,11 @@
 export class CheckoutComponent {
-    constructor() {
-        window.basketService.createScript().then(script => {
-            this.script = script;
-        });
+    constructor(componentRef) {
+        componentRef.onViewLoad = () => {
+            window.basketService.createScript().then(script => {
+                console.log(script);
+                const scriptRef = componentRef.shadowRoot.getElementById("script");
+                scriptRef.innerHTML = script;
+            });
+        }
     }
 }

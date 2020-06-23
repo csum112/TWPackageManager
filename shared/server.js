@@ -22,8 +22,8 @@ app.get("/packages", async (req, res) => {
     if (packageList.length > limit)
         packageList.length = parseInt(limit);
 
-    res.status(200).send(packageList)
-})
+    res.status(200).send(packageList);
+});
 
 app.get("/packages/:packageName", async (req, res) => {
     let packageName = req.params.packageName;
@@ -31,19 +31,24 @@ app.get("/packages/:packageName", async (req, res) => {
 
     try {
         let packageData = await Repo.getPackage(packageName, version);
-        res.status(200).send(packageData)
+        res.status(200).send(packageData);
     } catch (error) {
-        res.status(404).send(error)
+        res.status(404).send(error);
     }
-})
+});
 
-console.log(`The connection string is: ${process.env.CONNECTION_STRING}`)
-console.log(`The dbname is: ${process.env.DBNAME}`)
-console.log(`Starting server on port ${PORT}`)
+app.post("/checkout", async (req, res) => {
+    //console.log(req);
+    res.status(200).send("ceva");
+});
+
+console.log(`The connection string is: ${process.env.CONNECTION_STRING}`);
+console.log(`The dbname is: ${process.env.DBNAME}`);
+console.log(`Starting server on port ${PORT}`);
 mongoClient.connect().then(() => app.listen(PORT))
 // parseDep('javapackages-tools').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 // Repo.getPackage('libxslt').then(console.log).catch(console.log)
-// parseDep('0ad').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
+parseDep('0ad').then(deps => console.log(JSON.stringify(deps))).catch(console.log);
 //Repo.getPackageVersions('zlib1g').then(console.log).catch(console.log);
 process.on('SIGINT', () => {
     mongoClient.close();
