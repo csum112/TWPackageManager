@@ -5,8 +5,6 @@ cd spa
 npm install
 npm run build:prod
 cd ..
-#Remove unecessary files for faster builds
-rm -r spa/ srv/ app/
 # Build docker images
 docker build . -f ./Dockerfile.web -t registry.heroku.com/twdemi/web
 docker build . -f ./Dockerfile.centos -t registry.heroku.com/twdemicentos/web
