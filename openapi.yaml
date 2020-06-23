@@ -12,6 +12,7 @@ externalDocs:
   description: Summary documentation on the DEmI website
   url: 'http://twdemi.herokuapp.com/about'
 servers:
+  - url: 'https://twdemi.herokuapp.com/api'
   - url: 'http://twdemi.herokuapp.com/api'
 paths:
   '/{distro}/packages':
