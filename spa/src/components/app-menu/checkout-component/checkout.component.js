@@ -5,7 +5,7 @@ export class CheckoutComponent {
                 console.log(script);
                 const scriptRef = componentRef.shadowRoot.getElementById("script");
                 scriptRef.innerHTML = script;
-            });
+            }).catch(console.log);
         }
     }
 }
