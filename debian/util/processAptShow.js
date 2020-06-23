@@ -43,7 +43,6 @@ function regexpGetGroup(block, regexp) {
 }
 
 function depToDTO(dep) {
-    console.log(dep);
     dep = dep.trim();
     dep = dep.replace('(', '');
     dep = dep.replace(')', '');
@@ -83,7 +82,6 @@ const preProcessAptShow = (blockOfText => {
                             return dep.split('|').map(depToDTO);
                         }
                     }).filter(obj => obj.packageName != '' && obj.packageName);
-                    console.log(depsArray);
                     pkg[field.key] = JSON.parse(JSON.stringify(depsArray));
                 } else {
                     pkg[field.key] = field.value;

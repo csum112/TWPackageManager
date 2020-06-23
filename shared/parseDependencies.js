@@ -58,14 +58,18 @@ async function parseDep(packageName, toInstall = [], trace = [], constraint = nu
 }
 
 function resolveVersions(packageList) {
+    console.log(JSON.stringify(packageList));
     return packageList
         .map(package => {
             let packageName = package.packageName;
             let constraints = package.constraints || [];
             let lowerInclusive = '0';
             let upperInclusive = 'z';
+            constraints = constraints.filter(constr => constr != null);
+            console.log(constraints);
             constraints.forEach(constraint => {
                 switch (constraint.operator) {
+                    case "=":
                     case "==":
                         if (lowerInclusive > constraint.version || upperInclusive < constraint.version)
                             throw `[${packageName}] Cannot resolve`;
@@ -82,11 +86,43 @@ function resolveVersions(packageList) {
                             throw `[${packageName}] Cannot resolve`;
                         upperInclusive = constraint.version;
                         break;
-                    // case "<<":
-                    //     let versions = await Repo.packageVersions(packageName);
-
-                    //     break;
-                    default: throw "Not implemented";
+                    case "<<":
+                        let versions = Repo.getPackageVersions(packageName);
+                        // check if version available among options
+                        let index = -1;
+                        versions.forEach(ver => {
+                            if (ver.startsWith(constraint.version)) {
+                                index = versions.indexOf(ver);
+                            }
+                        });
+                        // if not, throw
+                        if ((index == -1) || (index == version.length - 1)) {
+                            throw `[${packageName}] Cannot resolve`;
+                        } else {
+                            // else, get latest version smaller than current
+                            upperInclusive = versions[index + 1];
+                        }
+                        break;
+                    case ">>":
+                        versions = Repo.getPackageVersions(packageName);
+                        // check if version available among options
+                        index = -1;
+                        versions.forEach(ver => {
+                            if (ver.startsWith(constraint.version)) {
+                                index = versions.indexOf(ver);
+                            }
+                        });
+                        // if not, throw
+                        if ((index == -1) || (index == 0)) {
+                            throw `[${packageName}] Cannot resolve`;
+                        } else {
+                            // else, get earliest version bigger than current
+                            lowerInclusive = versions[index - 1];
+                        }
+                        break;
+                    default:
+                        console.log(constraint.operator); 
+                        throw "Not implemented";
                 }
             });
             if (upperInclusive == 'z')
@@ -96,5 +132,5 @@ function resolveVersions(packageList) {
         });
 }
 
-//module.exports = async (packageName) => resolveVersions(await parseDep(packageName));
-module.exports = async (packageName) => await parseDep(packageName);
+module.exports = async (packageName) => resolveVersions(await parseDep(packageName));
+//module.exports = async (packageName) => await parseDep(packageName);
