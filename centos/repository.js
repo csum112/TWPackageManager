@@ -31,8 +31,9 @@ async function packageList(query) {
 
 class YumRepositoryAdapter {
     static getPackages = (param) => cache(param, packageList, "PACKAGE_LIST"); 
-    static getPackage = (param) => cache(param, packageDetails, "PACKAGE_DETAILS"); ;
-    static repoName = "centos"
+    static getPackage = (param) => cache(param, packageDetails, "PACKAGE_DETAILS");
+    static getInstallCommand = (packageName) => `yum install --no-confirm ${packageName}`;
+    static repoName = "centos";
 }
 
 module.exports = YumRepositoryAdapter;

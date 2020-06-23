@@ -107,7 +107,7 @@
             <p>Now, we will describe the specific endpoints:</p>
 
             <ul>
-                <li>GET <p class="api">/api/{distro}/packages?querry</p>
+                <li>GET <p class="api">/api/{distro}/packages[?limit=x&page=y&q=filter]</p>
                 </li>
             </ul>
             <pre><code>
@@ -120,7 +120,7 @@
                 The endpoint returns a JSON response as the one above.</p>
 
             <ul>
-                <li>GET <p class="api">/api/{distro}/{package}</p>
+                <li>GET <p class="api">/api/{distro}/packages/{packageName}</p>
                 </li>
             </ul>
             <pre><code>

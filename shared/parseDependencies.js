@@ -72,18 +72,18 @@ function resolveVersions(packageList) {
                     case "=":
                     case "==":
                         if (lowerInclusive > constraint.version || upperInclusive < constraint.version)
-                            throw `[${packageName}] Cannot resolve`;
+                            throw `[${packageName}][==] Cannot resolve`;
                         lowerInclusive = constraint.version;
                         upperInclusive = constraint.version;
                         break;
                     case ">=":
                         if (constraint.version > upperInclusive)
-                            throw `[${packageName}] Cannot resolve`;
+                            throw `[${packageName}][>=] Cannot resolve`;
                         lowerInclusive = constraint.version;
                         break;
                     case "<=":
                         if (constraint.version < lowerInclusive)
-                            throw `[${packageName}] Cannot resolve`;
+                            throw `[${packageName}][<=] Cannot resolve`;
                         upperInclusive = constraint.version;
                         break;
                     case "<<":
@@ -97,7 +97,7 @@ function resolveVersions(packageList) {
                         });
                         // if not, throw
                         if ((index == -1) || (index == version.length - 1)) {
-                            throw `[${packageName}] Cannot resolve`;
+                            throw `[${packageName}][<<] Cannot resolve`;
                         } else {
                             // else, get latest version smaller than current
                             upperInclusive = versions[index + 1];
@@ -114,7 +114,7 @@ function resolveVersions(packageList) {
                         });
                         // if not, throw
                         if ((index == -1) || (index == 0)) {
-                            throw `[${packageName}] Cannot resolve`;
+                            throw `[${packageName}][>>] Cannot resolve`;
                         } else {
                             // else, get earliest version bigger than current
                             lowerInclusive = versions[index - 1];

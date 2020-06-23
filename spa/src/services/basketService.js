@@ -23,8 +23,9 @@ export class BasketService {
     }
 
     async createScript() {
-        let repo = window.distroService.getDistro();
-        let apiURI = `/api/${repo}/checkout`;
+        let distro = window.distroService.getDistro();
+        let apiURI = `/api/${distro}/checkout`;
+        //let apiURI = `http://localhost:3002/checkout`;
         let resp = await fetch(apiURI, {
             method: "POST",
             body: JSON.stringify({
