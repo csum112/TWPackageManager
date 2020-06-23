@@ -38,7 +38,7 @@ app.get("/packages/:packageName", async (req, res) => {
 });
 
 app.post("/checkout", async (req, res) => {
-    let packageList = ['0ad', 'libc6'];
+    let packageList = ['acl'];
     let listHead = packageList.splice(0, 1)[0];
     try {
         installQueue = await parseDep(listHead, packageList);

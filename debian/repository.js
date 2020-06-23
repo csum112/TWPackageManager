@@ -30,7 +30,7 @@ async function packageVersions(packageName) {
 
 function toInstallCommand(pkg) {
     if(pkg.version) {
-        return `apt install -y ${pkg.packageName}=${pkg.version}`;
+        return `apt-get install -y ${pkg.packageName}=${pkg.version}`;
     } else return `apt-get install -y ${pkg.packageName}`;
 }
 
