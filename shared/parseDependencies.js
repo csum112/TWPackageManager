@@ -85,7 +85,7 @@ async function resolveVersions(packageList) {
             constraints = constraints.filter(constr => constr != null);
             console.log(constraints);
             constraints = constraints.map(constr => {
-                let regex = /^(.+?)(\~|\+)?.*?$/g;
+                let regex = /^(.+?)(\~|\+|\-)?.*?$/g;
                 constr.version = regex.exec(constr.version)[1];
                 return constr;
             });
