@@ -3,7 +3,7 @@ export class WelcomeComponent {
         componentRef.onViewLoad = () => {
             const distroList = [
                 componentRef.shadowRoot.getElementById("debian"),
-                componentRef.shadowRoot.getElementById("arch"),
+                componentRef.shadowRoot.getElementById("ubuntu"),
                 componentRef.shadowRoot.getElementById("centos")
             ];
 
