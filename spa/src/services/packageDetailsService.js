@@ -11,7 +11,7 @@ export class PackageDetailsService {
         //let req = await fetch(`/api/${repo}/package?packageName=${this.currentPackage}`);
         let req = await fetch(`/api/${distro}/packages/${this.currentPackage}`);
         let reqData = await req.json();
-        //console.log(reqData);
+        console.log(`[PackageDetailsService] Request contents: ${reqData}`);
         return reqData;
     }
 }

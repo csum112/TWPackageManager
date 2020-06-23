@@ -7,7 +7,7 @@ export class AppInfoComponent {
                 .then(content => {
                     pRefVer.innerHTML = pRefVer.innerHTML + content.version;
                     pRefHome.innerHTML = pRefHome.innerHTML +
-                        '<a href="' + content[0].maintainer + '" target="_blank">' + content.maintainer + '</a>';
+                        '<a href="' + content.maintainer + '" target="_blank">' + content.maintainer + '</a>';
                 });
         }
     }
