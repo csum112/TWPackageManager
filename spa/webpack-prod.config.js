@@ -33,13 +33,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-    }),
     new CopyPlugin({
       patterns: [
         { from: 'assets', to: 'assets' },
-        { from: 'meta', to: '.'}
+        { from: 'meta', to: '.' },
+        { from: './index.html', to: '.' }
       ],
       options: {
         concurrency: 100,
