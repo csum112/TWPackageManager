@@ -22,7 +22,7 @@ hr {
 }
 
 .scroll {
-    height: auto;
+    height: 20rem;
     width: 100%;
     overflow-y: auto;
 }
