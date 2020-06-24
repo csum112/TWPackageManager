@@ -65,6 +65,9 @@ class Router {
                 res.statusCode = 404;
                 res.end("Not found");
             } else {
+                res.setHeader('Content-Type', 'application/json');
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
                 await route.cback(req, res);
             }
         }).listen(port);
