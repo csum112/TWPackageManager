@@ -45,7 +45,7 @@ module.exports = {
     }),
     new WorkboxPlugin.GenerateSW({
       // Do not precache images
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/, /\.(?:ttf|eot|zip)$/],
+      exclude: [/.*assets.*|.*\.htaccess/],
 
       // Define runtime caching rules.
       runtimeCaching: [{
