@@ -111,7 +111,7 @@
                 </li>
             </ul>
             <pre><code>
-                ["&lt;packageName1&gt;", "&lt;packageName2&gt;", ...]
+            ["&lt;packageName1&gt;", "&lt;packageName2&gt;", ...]
             </code></pre>
             <p>This endpoint is called on the client's side after the distribution has been chosen and the user visits
                 the
@@ -125,12 +125,20 @@
             </ul>
             <pre><code>
             {
-                "name": {package},
-                "desc": "...",
-                "homepage": "...",
+                "packageName": "packageName",
+                "version": "...",
+                "maintainer": "...",
                 "dependencies": [
-                    "&lt;packageName1&gt;",  ..., "&lt;packageNameN&gt;"
-                ]
+                    {
+                        "packageName": "...",
+                        "constraint": {
+                            "operator": "...",
+                            "version": "..."
+                        },
+                        ...
+                    }
+                ],
+                "description": "..."
             }
             </code></pre>
             <p>This endpoint is called on the client's side every time a user checks for a listed package's details.</p>
@@ -140,9 +148,7 @@
                 </li>
             </ul>
             <pre><code>
-            {
-                ["&lt;packageName1&gt;", "&lt;packageName2&gt;", ...]
-            }	
+            ["&lt;packageName1&gt;", "&lt;packageName2&gt;", ...]
             </code></pre>
             <p>This endpoint is called on the client's side after the checkout button is pressed once a list of packages
                 has been composed. The response is a string representing the required script to run in order to install
@@ -167,12 +173,16 @@
                             <li>created package details component</li>
                             <li>created checkout component</li>
                             <li>created about component (+content)</li>
+                            <li>adapted to webpack</li>
+                            <li>improved on performance, a11y</li>
+                            <li>created OpenAPI specification</li>
                         </ul>
                         <li>Backend</li>
                         <ul>
                             <li>created brew API POST endpoint</li>
                             <li>created package dependency tree list function for script generation</li>
                             <li>created final brew script generation</li>
+                            <li>standardized API responses for GET requests</li>
                         </ul>
                     </ul>
 
@@ -189,6 +199,7 @@
                             <li>created app list service</li>
                             <li>created basket service</li>
                             <li>created navigation service</li>
+                            <li>adapted to webpack</li>
                         </ul>
                         <li>Backend</li>
                         <ul>
@@ -196,6 +207,8 @@
                             <li>created Apache gateway with API reverse proxy</li>
                             <li>created brew repository</li>
                             <li>created brew API GET endpoints</li>
+                            <li>created version conflict solver</li>
+                            <li>improved checkout script generation</li>
                         </ul>
                     </ul>
 

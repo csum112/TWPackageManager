@@ -22,9 +22,31 @@ hr {
 }
 
 .scroll {
-    height: auto;
+    height: 20rem;
     width: 100%;
     overflow-y: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background: rgba(202, 204, 219, 0.3); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #894EC6; 
 }
 
 .content .scroll p {
