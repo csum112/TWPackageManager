@@ -3,8 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#252a41" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Package management web application that provides package browsing and installation script generation for combinations of packages while handling conflicts">
+    <meta name="description"
+        content="Package management web application that provides package browsing and installation script generation for combinations of packages while handling conflicts">
     <title>DEmI</title>
 </head>
 
@@ -12,13 +15,24 @@
     style="background-color: #252a41;padding: 0px 0px 0px;margin: 0px 0px 0px;width: 100%;display: flex;justify-content: center;align-content: middle;">
     <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
-    
+
     <shell-component>
         <app-list-component slot="left" id="applist"></app-list-component>
         <div slot="right" id="root"></div>
     </shell-component>
 </body>
+<script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
 <script src="/main.js"></script>
+<noscript>Sorry, but javascript is required :(</noscript>
+
 </html>
 
 <template id="mainMenu">
