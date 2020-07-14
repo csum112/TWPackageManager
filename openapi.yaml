@@ -1,0 +1,165 @@
+openapi: 3.0.1
+info:
+  title: DEmI API
+  description: >-
+    OpenAPI specification of the API working behind the DEmI (My Developer
+    Machine Installer) project of the Web Technologies course.
+  license:
+    name: Apache-2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0'
+  version: 1.0.0
+externalDocs:
+  description: Summary documentation on the DEmI website
+  url: 'http://twdemi.herokuapp.com/about'
+servers:
+  - url: 'https://twdemi.herokuapp.com/api'
+  - url: 'http://twdemi.herokuapp.com/api'
+paths:
+  '/{distro}/packages':
+    get:
+      summary: Get a list packages
+      description: Returns a list of available packages of the specified distribution.
+      parameters:
+        - name: distro
+          in: path
+          description: A distribution short name.
+          required: true
+          schema:
+            type: string
+            enum:
+              - debian
+              - ubuntu
+              - centos
+        - name: limit
+          in: query
+          description: Number of packages to be displayed at once.
+          schema:
+            type: number
+            default: 40
+        - name: page
+          in: query
+          description: Index number of a group of *limit* packages.
+          schema:
+            type: number
+            default: 0
+        - name: q
+          in: query
+          description: String that matches a package name.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of packages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  '/{distro}/packages/{packageName}':
+    get:
+      summary: Get a package
+      description: Returns a package of the specified distribution.
+      parameters:
+        - name: distro
+          in: path
+          description: A distribution short name.
+          required: true
+          schema:
+            type: string
+            enum:
+              - debian
+              - ubuntu
+              - centos
+        - name: packageName
+          in: path
+          description: A package's name.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single package.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  packageName:
+                    type: string
+                  version:
+                    type: string
+                  maintainer:
+                    type: string
+                  depends:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        packageName:
+                          type: string
+                        constraint:
+                          type: object
+                          properties:
+                            operator:
+                              type: string
+                            version:
+                              type: string
+                  description:
+                    type: string
+        '404':
+          description: The package does not exist
+          content: {}
+  '/{distro}/checkout':
+    post:
+      summary: Create an installation script
+      description: Generates an installation script based on the selected packages.
+      parameters:
+        - name: distro
+          in: path
+          description: A distribution short name.
+          required: true
+          schema:
+            type: string
+            enum:
+              - debian
+              - ubuntu
+              - centos
+      requestBody:
+        description: The list of packages to be installed
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - packageNames
+              type: object
+              properties:
+                packageNames:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '204':
+          description: Script successfully generated.
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Script couldn't be generated.
+          content: {}
+      x-codegen-request-body-name: packageNames
+components:
+  parameters:
+    distro:
+      name: distro
+      in: path
+      description: A distribution short name.
+      required: true
+      schema:
+        type: string
+        enum:
+          - debian
+          - ubuntu
+          - centos

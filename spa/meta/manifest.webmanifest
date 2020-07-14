@@ -1,0 +1,17 @@
+{
+    "short_name": "DeMI",
+    "name": "My Developer Machine Installer",
+    "description": "Package management web application that provides package browsing and installation script generation for combinations of packages while handling conflicts",
+    "start_url": "/welcome",
+    "background_color": "#252a41",
+    "theme_color": "#252a41",
+    "display": "standalone",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-const regex = /^"(.*?)\..+? +.+? +.+"$/g
+const regex = /^"(.*?)\..+? +(.*?:)?(.+?)-.+"$/g
 
 const getPackagesFromList = (textBlock) => {
     return textBlock

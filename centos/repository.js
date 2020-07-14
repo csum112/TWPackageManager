@@ -1,10 +1,17 @@
 const spawnPromise = require('./spawnPromise');
 const processYumInfo = require('./util/processYumInfo');
 const processYumList = require('./util/processYumList');
+const {getCacheOrCompute} = require('./cache');
 
-async function packageDetails(packageName) {
+
+async function packageDetails(packageName, version) {
+    if(version)
+        packageName = `${packageName}-${version}`
     try {
-        return processYumInfo(await spawnPromise('yum', ['info', packageName, '-q']));
+        return processYumInfo([
+            await spawnPromise('yum', ['info', packageName, '-q']), 
+            await spawnPromise('yum', ['deplist', packageName, '-q'])
+        ]);
     } catch (error) {
         throw error;
     }
@@ -21,10 +28,16 @@ async function packageList(query) {
     }
 }
 
+function toInstallCommand(pkg) {
+    if(pkg.version) {
+        return `yum install -y ${pkg.packageName}-${pkg.version}`;
+    } else return `yum install -y ${pkg.packageName}`;
+}
 
 class YumRepositoryAdapter {
-    static getPackages = packageList;
-    static getPackage = packageDetails
+    static toInstallCommand = toInstallCommand
+    static getPackages = (param) => getCacheOrCompute(param, packageList, "PACKAGE_LIST"); 
+    static getPackage = (param) => getCacheOrCompute(param, packageDetails, "PACKAGE_DETAILS"); ;
 }
 
 module.exports = YumRepositoryAdapter;

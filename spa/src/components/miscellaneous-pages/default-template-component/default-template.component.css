@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-wrapper {
+    position: fixed;
+    height: 100%;
+    width: 100vw;
+    z-index: 1000;
+    background: #252a41;
+    top: 0px;
+    left: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* width */
+.main-wrapper::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+.main-wrapper::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background: rgba(202, 204, 219, 0.3); 
+}
+
+/* Handle */
+.main-wrapper::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: #888;
+}
+
+/* Handle on hover */
+.main-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #894EC6; 
+}
+
+.dots1 {
+    user-select: none;
+    position: fixed;
+    top: -5vh;
+    right: 5vw;
+    z-index: -1000;
+}
+
+.dots2 {
+    user-select: none;
+    position: fixed;
+    bottom: -5vh;
+    left: 5vw;
+    z-index: -1000;
+}
+
+.logo {
+    user-select: none;
+    position: relative;
+    padding-top: 2rem;
+    width: 162px;
+    height: 77px;
+    left: 25vw;
+    font-family: Zilla Slab Highlight;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    color: rgba(202, 204, 219, 0.3);
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+}
+
+#container {
+    min-height: 100%;
+}
+
+.page-shell {
+    padding-bottom: 3rem;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+footer {
+    position: relative;
+    height: 3rem;
+    margin-top: -3rem;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(202, 204, 219, 0.3);
+    color: #252a41;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clear: both;
+}
+
+@media (max-width: 720px) and (orientation: portrait) {
+
+    .dots1 {
+        display: none;
+    }
+    
+    .dots2 {
+        display: none;
+    }
+
+    .logo {
+        margin: auto;
+        transform: translate(-50%);
+    }
+
+}

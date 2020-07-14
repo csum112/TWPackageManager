@@ -1,0 +1,81 @@
+.page-content {
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section {
+    width: 70vw;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #894EC6;
+}
+
+h1, h2, h3, p, ul, ol {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+}
+
+h1, h2, h3 {
+    border-bottom: 2px solid #894EC6;
+}
+
+code {
+    color: #fff;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
+    background: rgba(202, 204, 219, 0.3);
+    border-radius: 10px;
+}
+
+.api, #cristi, #catalin, #razvan {
+    color: #894EC6;
+}
+
+.sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.subv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+iframe, img {
+    border: 2px solid #894EC6;
+    border-radius: 10px;
+}
+
+img {
+    height: auto;
+    width: 35vw;
+}
+
+@media (max-width: 720px) and (orientation: portrait) {
+
+    .distros, .sub {
+        flex-direction: column;
+    }
+
+    iframe {
+        width: 306px;
+        height: 172px;
+    }
+
+}

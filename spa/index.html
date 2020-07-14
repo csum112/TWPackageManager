@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#252a41" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Package management web application that provides package browsing and installation script generation for combinations of packages while handling conflicts">
+    <title>DEmI</title>
+</head>
+
+<body
+    style="background-color: #252a41;padding: 0px 0px 0px;margin: 0px 0px 0px;width: 100%;display: flex;justify-content: center;align-content: middle;">
+
+
+    <shell-component>
+        <app-list-component slot="left" id="applist"></app-list-component>
+        <div slot="right" id="root"></div>
+    </shell-component>
+</body>
+<script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
+<script src="/main.js"></script>
+<noscript>Sorry, but javascript is required :(</noscript>
+<link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet" />
+</html>
+
+<template id="mainMenu">
+    <checkout-list-component slot="inner-content"></checkout-list-component>
+</template>
+
+<template id="mainPackageDescription">
+    <default-component>
+        <app-cover slot="inner-content">
+            <app-description slot="app-content"></app-description>
+        </app-cover>
+    </default-component>
+</template>
+
+<template id="mainPackageInfo">
+    <default-component>
+        <app-cover slot="inner-content">
+            <app-info slot="app-content"></app-info>
+        </app-cover>
+    </default-component>
+</template>
+
+<template id="mainPackageDependencies">
+    <default-component>
+        <app-cover slot="inner-content">
+            <app-dependencies slot="app-content"></app-dependencies>
+        </app-cover>
+    </default-component>
+</template>
+
+<template id="mainCheckout">
+    <default-component>
+        <checkout-component slot="inner-content"></checkout-component>
+    </default-component>
+</template>
+
+<template id="nav">
+    <default-template>
+        <nav-component slot="page-content"></nav-component>
+    </default-template>
+</template>
+
+<template id="welcome">
+    <default-template>
+        <welcome-component slot="page-content"></welcome-component>
+    </default-template>
+</template>
+
+<template id="contact">
+    <default-template>
+        <contact-component slot="page-content"></contact-component>
+    </default-template>
+</template>
+
+<template id="about">
+    <default-template>
+        <about-component slot="page-content"></about-component>
+    </default-template>
+</template>
+
+<template id="filters">
+    <default-template>
+        <nav-component slot="page-content"></nav-component>
+    </default-template>
+</template>

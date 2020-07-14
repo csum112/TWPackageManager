@@ -1,0 +1,33 @@
+<link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+<main>
+    <div class="force golden-bigger">
+        <div class="header" id="toolbar">
+            <a onclick="window.router.navigateTo('/nav')">
+                <div class="logo">
+                    DEmI
+                </div>
+            </a>
+            <div class="header-mobile-wrapper">
+                <button class="menu-fab" aria-label="Navigation" onclick="window.router.navigateTo('/nav')">
+                    <i class="fas fa-bars fa-2x"></i>
+                </button>
+                <div class="searchbox-wrapper">
+                    <div class="searchbox">
+                        <input id="searchbox" type="text" placeholder="Search package name" />
+                        <label for="searchbox">Look for packages</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <slot name="left"></slot>
+        </div>
+    </div>
+    <div class="menu force golden-smaller" id="menu">
+        <slot name="right"></slot>
+    </div>
+</main>
+
+<button class="mobile-fab clip-button" aria-label="Checkout" id="mobile-fab">
+    <i class="fas fa-shopping-cart fa-2x"></i>
+</button>
